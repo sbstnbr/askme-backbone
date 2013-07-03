@@ -2,39 +2,43 @@ requirejs.config({
     baseUrl: '/js/lib',
     paths: {
         modernizr: '../vendor/custom.modernizr',
-        zepto: '../vendor/zepto',
+        jquery: '../vendor/jquery',
+        'jquery-ui': '../vendor/jquery-ui.custom',
         foundation: '../foundation/foundation',
         underscore: '../vendor/underscore',
         backbone: '../vendor/backbone',
-        localStorage: '../vendor/backbone.localStorage'
+        localStorage: '../vendor/backbone.localStorage',
+        fullcalendar: '../vendor/fullcalendar'
     },
     shim: {
         modernizr: {
             exports: 'Modernizr'
         },
-        zepto: {
+        jquery: {
             exports: '$'
         },
+        'jquery-ui': {
+            deps: ['jquery']
+        },        
         underscore: {
             exports: '_'
         },
         foundation: {
-            deps: ['zepto']
+            deps: ['jquery']
         },
         backbone: {
-            deps: ['zepto', 'underscore'],
+            deps: ['jquery', 'underscore'],
             exports: 'Backbone'
         },
         localStorage: {
             deps: ['backbone']
+        },
+        fullcalendar: {
+            deps: ['jquery']
         }
     }
 });
 
-require(
-    ['foundation', 'App'],
-    function (foundation, App) {
-        $(document).foundation();
-        App.init();
-    }
-);
+require(['App'], function (App) {
+    App.init();
+});

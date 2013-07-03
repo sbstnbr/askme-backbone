@@ -1,5 +1,5 @@
 define(
-    ['backbone'],
+    ['backbone', 'foundation', 'fullcalendar'],
     function (Backbone) {
         var schedules = new (Backbone.View.extend({
                 Collections : {},
@@ -8,7 +8,8 @@ define(
             }))({el : document.body});
 
         var init = function() {
-            console.log('Init application');
+            $(document).foundation();
+            $('#schedule > .calendar').fullCalendar({});
         }
 
         return {
