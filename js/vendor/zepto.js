@@ -1998,3 +1998,11 @@ if (this.Zepto) {
     });
   })(Zepto);
 }
+
+// If '$' is not yet defined, point it to 'Zepto'
+window.Zepto = Zepto
+'$' in window || (window.$ = Zepto)
+
+if ( typeof define === "function" && define.amd ) {
+  define( "zepto", [], function () { return Zepto; } );
+}
