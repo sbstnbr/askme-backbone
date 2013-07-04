@@ -7,10 +7,9 @@ define([
 ], function($, _, Backbone, EventsCollection, EventsView) {
 
         var initialize = function() {
-            
+
             var events = new EventsCollection();
             new EventsView({ el: $('#schedule > .calendar'), collection: events }).render();
-            events.fetch();            
         }
 
         return {

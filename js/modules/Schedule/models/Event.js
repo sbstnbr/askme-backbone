@@ -3,5 +3,5 @@ define([
     'backbone'
 ], function(_, Backbone) {
 
-    return Backbone.Model.extend();
+    return Backbone.Model.extend({});
 });

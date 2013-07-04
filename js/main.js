@@ -9,11 +9,20 @@ require.config({
         localStorage: 'vendor/backbone.localStorage',
         fullcalendar: 'vendor/fullcalendar'
     },
-    
+
     shim: {
         backbone: {
             deps: ['jquery', 'underscore'],
             exports: 'Backbone'
+        },
+        foundation: {
+            exports: 'Foundation'
+        },
+        fullcalendar: {
+            deps: ['jquery', 'jquery-ui']
+        },
+        'jquery-ui': {
+            deps: ['jquery']
         }
     }
 });

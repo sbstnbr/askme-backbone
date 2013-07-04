@@ -7,7 +7,16 @@ define([
     return Backbone.View.extend({
 
         initialize: function() {
-            this.collection.bind('reset', this.addAll);
+            var that = this;
+            this.collection.fetch({
+                reset: true,
+                success: function(model, response, options) {
+                    that.$el.fullCalendar('addEventSource', model.toJSON());
+                },
+                error : function(model, response, options) {
+                    console.log('Error loading events from server');
+                }
+            });
         },
 
         render: function() {
@@ -22,10 +31,6 @@ define([
                 selectHelper: true,
                 editable: true
             });
-        },
-
-        addAll: function() {
-            this.$el.fullCalendar('addEventSource', this.collection.toJSON());
         }
     });
 });

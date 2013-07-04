@@ -8,7 +8,6 @@ define([
     var initialize = function(){
         $(document).foundation();
 
-        // Pass in our Router module and call it's initialize function
         Router.initialize();
     };
 
