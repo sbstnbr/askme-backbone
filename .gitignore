@@ -1,2 +1,4 @@
 .htaccess
+.sass-cache/
+img/.raw
 *.xcf

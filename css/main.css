@@ -1,0 +1,14 @@
+nav > ul {
+  list-style: none; }
+
+body {
+  background: url(../img/background.jpg) no-repeat center center;
+  background-size: cover;
+  text-align: center; }
+
+.pageContainer {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  margin: 3em auto;
+  padding: 3em 5ex;
+  width: 90%; }
