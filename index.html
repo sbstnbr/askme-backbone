@@ -25,29 +25,31 @@
                 <h1>Accenture Delivery Architectures</h1>
             </header>
 
-            <nav class="mainMenu top-bar">
-                <section class="top-bar-section">
-                    <ul class="left">
-                        <li><a href="#schedule">Schedule</a></li>
-                    </ul>
-                    <ul class="left">
-                        <li><a href="#questions">Questions</a></li>
-                    </ul>
-                    <ul class="left">
-                        <li><a href="#cube">Cube</a></li>
-                    </ul>
-                </section>
+            <nav class="mainMenu">
+                <ul class="row">
+                    <li class="large-4 columns"><a href="#cube">Cube</a></li>
+                    <li class="large-4 columns"><a href="#questions">Questions</a></li>
+                    <li class="large-4 columns"><a href="#schedule">Schedule</a></li>
+                </ul>
             </nav>
+
+            <div class="row">
+                <section id="cube" class="large-4 columns">
+                    <img src="img/ada-cube.jpg" alt="Accenture Delivery Architecture cube" />
+                </section>
+
+                <section id="questions" class="large-5 offset-large-1 columns">
+                    <header>
+                        <h1>Questions</h1>
+                    </header>
+                </section>
+            </div>
 
             <section id="schedule">
                 <div class="calendar"></div>
             </section>
 
-            <section id="questions">
-            </section>
 
-            <section id="cube">
-            </section>
         </div>
     </div>
     <script data-main="js/main" src="js/vendor/require.min.js"></script>
