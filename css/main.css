@@ -26,6 +26,6 @@ ul { list-style: none; }
 #schedule { margin: 3em 0; }
 #schedule .calendar .fc-header { background: none; border: none; }
 #schedule .calendar .fc-header td { vertical-align: middle; }
-@media only screen and (max-width: 640px) { #schedule .fc-header td { display: block; text-align: center; width: 100%; } }
+@media only screen and (max-width: 768px) { #schedule .fc-header td { display: block; text-align: center; width: 100%; } }
 #schedule .fc-header-title > h2 { font-size: 2em; color: #557799; text-shadow: 0 1px 0 #000; }
 #schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #557799 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #557799)); background: -webkit-linear-gradient(top, white 0%, #557799 100%); background: -o-linear-gradient(top, white 0%, #557799 100%); background: -ms-linear-gradient(top, white 0%, #557799 100%); background: linear-gradient(to bottom, white 0%, #557799 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$mainColor',GradientType=0 ); background-repeat: repeat-x; }

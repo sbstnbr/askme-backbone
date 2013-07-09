@@ -6,14 +6,22 @@ define([
     'modules/Schedule/views/Events'
 ], function($, _, Backbone, EventsCollection, EventsView) {
 
+        var eventsView = null;
+
         var initialize = function() {
 
             var events = new EventsCollection();
-            new EventsView({ el: $('#schedule > .calendar'), collection: events }).render();
-        }
+            eventsView = new EventsView({ el: $('#schedule > .calendar'), collection: events });
+            eventsView.render();
+        };
+
+        var adjustOnResize = function(dimensions) {
+            eventsView.adjustOnResize(dimensions);
+        };
 
         return {
-            initialize: initialize
+            initialize: initialize,
+            adjustOnResize: adjustOnResize
         }
     }
 );

@@ -124,7 +124,7 @@ $sectionMargin: 3em 0;
 
     .fc-header {
         td {
-            @include respond-to(max-width, 640px) {
+            @include respond-to(max-width, $tabletBreakpoint) {
                 display: block;
                 text-align: center;
                 width: 100%;

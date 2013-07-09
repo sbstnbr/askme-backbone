@@ -1,8 +1,13 @@
 define([
     'underscore',
     'backbone',
+    'lib/breakpoints',
     'fullcalendar'
-], function(_, Backbone, FullCalendar) {
+], function(_, Backbone) {
+
+    var _isMobileViewport = function(width) {
+        return width <= window.Breakpoint.iPad.portrait;
+    }
 
     return Backbone.View.extend({
 
@@ -19,14 +24,47 @@ define([
             });
         },
 
+        adjustOnResize: function(dimensions) {
+            var isMobile = _isMobileViewport(dimensions.width),
+                header = {
+                    $first: this.$el.find('.fc-header td:eq(0)'),
+                    $second: this.$el.find('.fc-header td:eq(1)')
+                };
+
+            if (isMobile && header.$first.find('.fc-button-month').length) {
+                header.$first
+                    .removeClass('fc-header-left fc-header-center')
+                    .addClass('fc-header-center');
+                header.$second
+                    .removeClass('fc-header-left fc-header-center')
+                    .addClass('fc-header-left')
+                    .insertBefore(header.$first);
+            } else if (!isMobile && header.$first.find('.fc-header-title').length) {
+                header.$second
+                    .removeClass('fc-header-left fc-header-center')
+                    .addClass('fc-header-left');
+                header.$first
+                    .removeClass('fc-header-left fc-header-center')
+                    .addClass('fc-header-center')
+                    .insertAfter(header.$second);
+            }
+        },
+
         render: function() {
-            this.$el.fullCalendar({
-                header: {
-                    left: 'prev,next today',
+            var header = {
+                    left: 'month,basicWeek,basicDay',
                     center: 'title',
-                    right: 'month,basicWeek,basicDay',
+                    right: 'today prev,next',
                     ignoreTimezone: false
-                },
+                };
+
+            if (_isMobileViewport($(window).width())) {
+                header.left = 'title';
+                header.center = 'month,basicWeek,basicDay';
+            }
+
+            this.$el.fullCalendar({
+                header: header,
                 selectable: true,
                 selectHelper: true,
                 editable: true

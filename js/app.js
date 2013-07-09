@@ -1,10 +1,10 @@
 define([
     'jquery',
-    'foundation',
     'underscore',
     'backbone',
-    'router'
-], function($, Foundation, _, Backbone, Router){
+    'router',
+    'foundation'
+], function($, _, Backbone, Router){
     var initialize = function(){
         $(document).foundation();
 

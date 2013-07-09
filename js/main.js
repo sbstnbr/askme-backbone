@@ -7,16 +7,20 @@ require.config({
         underscore: 'vendor/underscore',
         backbone: 'vendor/backbone',
         localStorage: 'vendor/backbone.localStorage',
-        fullcalendar: 'vendor/fullcalendar'
+        fullcalendar: 'vendor/fullcalendar',
+        breakpoints: 'lib/breakpoints'
     },
 
     shim: {
+        underscore: {
+            exports: '_'
+        },
         backbone: {
             deps: ['jquery', 'underscore'],
             exports: 'Backbone'
         },
         foundation: {
-            exports: 'Foundation'
+            deps: ['jquery']
         },
         fullcalendar: {
             deps: ['jquery', 'jquery-ui']
