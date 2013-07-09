@@ -1,32 +1,32 @@
 <?php
 header('Content-type: application/json');
 
-$mysqli = new mysqli("localhost", "taw2013", "x2YfU8vHqAATS7Sh", "taw2013");
-if ($mysqli->connect_errno) {
-    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+$conn = mysqli_connect("localhost", "taw2013", "x2YfU8vHqAATS7Sh", "taw2013");
+if (!$conn) {
+    echo "Failed to connect to MySQL: (" . mysqli_connect_errno() . ") " . mysqli_connect_error();
 }
 
-if ($results = $mysqli->query('SELECT * FROM event ORDER BY start')) {
+if ($result = mysqli_query($conn, 'SELECT * FROM event ORDER BY start')) {
     $events = array();
     
-    foreach ($results as $result) {
+    while ($row = mysqli_fetch_array($result)) {
         $event = (object)array(
-            'id' => $result['id'],
-            'start' => $result['start'],
-            'title' => $result['subject'],
+            'id' => $row['id'],
+            'start' => $row['start'],
+            'title' => $row['subject'],
             'attendees' => array()
         );
         
-        if (!empty($result['end'])) {
-            $event->end = $result['end'];
+        if (!empty($row['end'])) {
+            $event->end = $row['end'];
         }
         
-        if (!empty($result['location'])) {
-            $event->location = $result['location'];
+        if (!empty($row['location'])) {
+            $event->location = $row['location'];
         }
         
-        if (!empty($result['description'])) {
-            $event->description = $result['description'];
+        if (!empty($row['description'])) {
+            $event->description = $row['description'];
         }        
 
         $query = "SELECT u.* "
@@ -35,13 +35,13 @@ if ($results = $mysqli->query('SELECT * FROM event ORDER BY start')) {
                . "ON a.enterprise_id = u.enterprise_id "
                . "WHERE event_id = {$event->id}";
                
-        if ($resultsAtt = $mysqli->query($query)) {
+        if ($resultAttendee = mysqli_query($conn, $query)) {
             
-            foreach ($resultsAtt as $resultAtt) {
+            while ($rowAttendee = mysqli_fetch_array($resultAttendee)) {
                 $event->attendees[] = (object)array(
-                    'enterprise_id' => $resultAtt['enterprise_id'],
-                    'first_name' => $resultAtt['first_name'],
-                    'last_name' => $resultAtt['last_name'],
+                    'enterprise_id' => $rowAttendee['enterprise_id'],
+                    'first_name' => $rowAttendee['first_name'],
+                    'last_name' => $rowAttendee['last_name'],
                 );
             }
             
@@ -51,6 +51,6 @@ if ($results = $mysqli->query('SELECT * FROM event ORDER BY start')) {
     }
 }
 
-$mysqli->close();
+mysqli_close($conn);
 
 echo json_encode($events);
