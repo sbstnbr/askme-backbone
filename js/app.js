@@ -5,6 +5,8 @@ define([
     'router',
     'foundation'
 ], function($, _, Backbone, Router){
+    'use strict';
+
     var initialize = function(){
         $(document).foundation();
 
