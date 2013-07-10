@@ -6,7 +6,6 @@ require.config({
         foundation: 'foundation/foundation',
         underscore: 'vendor/underscore',
         backbone: 'vendor/backbone',
-        localStorage: 'vendor/backbone.localStorage',
         fullcalendar: 'vendor/fullcalendar',
         breakpoints: 'lib/breakpoints'
     },

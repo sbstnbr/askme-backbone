@@ -54,8 +54,7 @@ define([
             var header = {
                     left: 'month,basicWeek,basicDay',
                     center: 'title',
-                    right: 'today prev,next',
-                    ignoreTimezone: false
+                    right: 'today prev,next'
                 };
 
             if (_isMobileViewport($(window).width())) {
@@ -67,8 +66,12 @@ define([
                 header: header,
                 selectable: true,
                 selectHelper: true,
-                editable: true
-            });
+                editable: true,
+                ignoreTimezone: false,
+                eventClick: function(event) {
+                    console.log(event);
+                }
+           });
         }
     });
 });

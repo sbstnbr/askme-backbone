@@ -17,12 +17,39 @@ body {
     background: url(../img/background.jpg) no-repeat center center;
     background-size: cover;
     font-size: 1.2em;
+    height: 100%;
     line-height: 1.5em;
     text-align: center;
 }
 
 ul {
     list-style: none;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.modal {
+    background-color: rgba(#000, 0.5);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    .dialog {
+        background-color: #FFF;
+        border-radius: 10px;
+        margin: 15% 0 0 (-$tabletBreakpoint/2);
+        left: 50%;
+        position: relative;
+        top: 0;
+        width : $tabletBreakpoint;
+    }
+
 }
 
 .pageContainer {
