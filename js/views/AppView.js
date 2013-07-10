@@ -9,6 +9,15 @@ define([
 
         initialize: function() {
             $(window).bind('resize.app', _.bind(this.$el.resize, this));
+
+            this.attachCloseDialog();
+        },
+
+        attachCloseDialog: function() {
+            $('.modal button.close').on('click', function() {
+                $(this).parents('.modal:first').addClass('hidden');
+                $('body').removeClass('no-scroll');
+            });
         },
 
         remove: function() {

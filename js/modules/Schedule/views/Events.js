@@ -1,12 +1,14 @@
 define([
     'underscore',
     'backbone',
+    'modules/Schedule/views/EventDetails',
     'lib/breakpoints',
     'fullcalendar'
-], function(_, Backbone) {
+], function(_, Backbone, EventDetails, Breakpoint) {
+    'use strict';
 
     var _isMobileViewport = function(width) {
-        return width <= window.Breakpoint.iPad.portrait;
+        return width <= Breakpoint.iPad.portrait;
     }
 
     return Backbone.View.extend({
@@ -69,7 +71,8 @@ define([
                 editable: true,
                 ignoreTimezone: false,
                 eventClick: function(event) {
-                    console.log(event);
+                    var eventDetails = new EventDetails({ event: $.extend({}, event) });
+                    eventDetails.render();
                 }
            });
         }

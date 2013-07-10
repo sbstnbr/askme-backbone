@@ -20,7 +20,10 @@
     <![endif]-->
 
     <div class="modal hidden">
-        <div class="dialog"></div>
+        <div class="dialog">
+            <button class="close">&#215;</button>
+            <div class="content"></div>
+        </div>
     </div>
 
     <div class="pageContainer">
@@ -59,31 +62,33 @@
     <script data-main="js/main" src="js/vendor/require.min.js"></script>
 
     <!-- Templates -->
-    <script type="text/html" id="eventDetails">
-        <header>
-            <h1><%= title %></h1>
-        </header>
+    <script type="text/html" id="eventDetailsTemplate">
+        <section id="eventDetails">
+            <header>
+                <h1><%= title %></h1>
+            </header>
 
-        <dl>
-            <dt>Start Date</dt>
-            <dd><%= start %></dd>
-            <dt>End Date</dt>
-            <dd><%= start %></dd>
-            <dt>Location</dt>
-            <dd><%= start %></dd>
-        </dl>
-        <dl>
-            <dt>Attendees</dt>
-            <%
-                var email = '';
-                _.each(attendees, function(attendee, i) {
-                    email = attendee.enterprise_id + '@accenture.com';
-            %>
-            <dd><%= first_name %> <%= last_name %> <a class="email" href="mailto: <%= email %>"><%= email %></a></dd>
-            <%
-                });
-            %>
-        </dl>
+            <dl>
+                <dt>Start Date</dt>
+                <dd><%= start %></dd>
+                <dt>End Date</dt>
+                <dd><%= end %></dd>
+                <dt>Location</dt>
+                <dd><%= location %></dd>
+            </dl>
+            <dl>
+                <dt>Attendees</dt>
+                <%
+                    var email = '';
+                    _.each(attendees, function(attendee, i) {
+                        email = attendee.enterprise_id + '@accenture.com';
+                %>
+                <dd><%= attendee.first_name %> <%= attendee.last_name %> (<a class="email" href="mailto: <%= email %>"><%= email %></a>)</dd>
+                <%
+                    });
+                %>
+            </dl>
+        </section>
     </script>
 </body>
 </html>
