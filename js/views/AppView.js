@@ -4,6 +4,11 @@ define([
 ], function(_, Backbone) {
     'use strict';
 
+    function _closeModal() {
+        this.parents('.modal:first').addClass('hidden');
+        $('body').removeClass('no-scroll');
+    }
+
     return Backbone.View.extend({
         el: document.body,
 
@@ -14,9 +19,16 @@ define([
         },
 
         attachCloseDialog: function() {
-            $('.modal button.close').on('click', function() {
-                $(this).parents('.modal:first').addClass('hidden');
-                $('body').removeClass('no-scroll');
+            var $closeButton = $('.modal button.close');
+            $closeButton.on('click', function() {
+                _closeModal.call($(this));
+            });
+
+            $(window).on('keyup', function(evt) {
+                if (evt.which === 27 && !$('.modal').hasClass('hidden')) { // ESC
+                    evt.preventDefault();
+                    _closeModal.call($closeButton);
+                }
             });
         },
 
