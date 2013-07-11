@@ -4,8 +4,14 @@ define([
 ], function(_, Backbone) {
     'use strict';
 
+    function _clearModal($modal) {
+        $modal || ($modal = $('.modal:first'));
+        $modal.addClass('hidden');
+        $modal.find('.content').html('');
+    }
+
     function _closeModal() {
-        this.parents('.modal:first').addClass('hidden');
+        _clearModal();
         $('body').removeClass('no-scroll');
     }
 
@@ -30,6 +36,10 @@ define([
                     _closeModal.call($closeButton);
                 }
             });
+        },
+        
+        clearModal: function() {
+            _clearModal();
         },
 
         remove: function() {

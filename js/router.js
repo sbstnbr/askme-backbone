@@ -3,18 +3,34 @@ define([
     'underscore',
     'backbone',
     'views/AppView',
-    'modules/Schedule/router'
-], function($, _, Backbone, AppView, ScheduleRouter) {
+    'views/IndexView'
+], function($, _, Backbone, AppView, IndexView) {
     'use strict';
 
     var initialize = function() {
-         var appView = new AppView();
-         ScheduleRouter.initialize();
 
-         var $window = $(window);
-         $window.on('resize.app', function() {
-            ScheduleRouter.adjustOnResize( {width: $window.width()} );
-        });
+        var appView = new AppView();
+
+        var appRouter = new (Backbone.Router.extend({
+            routes: {
+                'add-event': 'addEvent',
+                'edit-event/:id': 'editEvent',
+                '*actions': 'defaultAction'
+            },
+
+            addEvent: function() {
+            },
+
+            editEvent: function() {
+            },
+
+            defaultAction: function(actions) {
+                new IndexView().render();
+            }
+        }));
+
+        Backbone.history.start();
+
     };
 
     return {

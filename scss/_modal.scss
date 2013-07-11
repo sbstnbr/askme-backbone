@@ -91,6 +91,11 @@
             }
         }
 
+        .editEventWrapper {
+            margin: 1em 0;
+            font-size: 1.25em;
+        }
+
         @include respond-to(max-width, $iPhone4Breakpoint) {
             margin: 0 auto;
             width: 75%;

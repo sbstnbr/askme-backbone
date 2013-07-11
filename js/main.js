@@ -1,5 +1,6 @@
 require.config({
     paths: {
+        text: 'vendor/text',
         modernizr: 'vendor/custom.modernizr',
         jquery: 'vendor/jquery',
         'jquery-ui': 'vendor/jquery-ui.custom',

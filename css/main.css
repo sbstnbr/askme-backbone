@@ -11,6 +11,7 @@
 .modal #eventDetails dl .email:after { content: ")"; }
 @media only screen and (max-width: 640px) { .modal #eventDetails dl .email { display: block; }
   .modal #eventDetails dl .email:before, .modal #eventDetails dl .email:after { content: ""; } }
+.modal #eventDetails .editEventWrapper { margin: 1em 0; font-size: 1.25em; }
 @media only screen and (max-width: 640px) { .modal #eventDetails { margin: 0 auto; width: 75%; } }
 
 html { font-size: 10px; }
@@ -53,3 +54,4 @@ ul { list-style: none; }
 @media only screen and (max-width: 768px) { #schedule .fc-header td { display: block; text-align: center; width: 100%; } }
 #schedule .fc-header-title > h2 { color: #3fa85e; font-size: 2em; }
 #schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #3fa85e 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #3fa85e)); background: -webkit-linear-gradient(top, white 0%, #3fa85e 100%); background: -o-linear-gradient(top, white 0%, #3fa85e 100%); background: -ms-linear-gradient(top, white 0%, #3fa85e 100%); background: linear-gradient(to bottom, white 0%, #3fa85e 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 ); background-repeat: repeat-x; }
+#schedule .addEvent { font-size: 1.25em; }

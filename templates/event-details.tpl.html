@@ -1,0 +1,30 @@
+<section id="eventDetails">
+    <header>
+
+        <h1><%= title %></h1>
+    </header>
+
+    <dl>
+        <dt>Start Date</dt>
+        <dd><%= start %></dd>
+        <dt>End Date</dt>
+        <dd><%= end %></dd>
+        <dt>Location</dt>
+        <dd><%= location %></dd>
+    </dl>
+    <dl>
+        <dt>Attendees</dt>
+        <%
+            var email = '';
+            _.each(attendees, function(attendee, i) {
+                email = attendee.enterprise_id + '@accenture.com';
+        %>
+        <dd><%= attendee.first_name %> <%= attendee.last_name %> <a class="email" href="mailto: <%= email %>"><%= email %></a></dd>
+        <%
+            });
+        %>
+    </dl>
+    <div class="editEventWrapper clearfix">
+        <a href="/#/edit-event/id/<%= id %>" target="_blank">Edit event</a>
+    </div>
+</section>

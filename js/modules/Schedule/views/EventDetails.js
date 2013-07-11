@@ -1,14 +1,15 @@
 define([
     'underscore',
-    'backbone'
-], function(_, Backbone) {
+    'backbone',
+    'text!/templates/event-details.tpl.html'
+], function(_, Backbone, EventDetailsTemplate) {
     'use strict';
 
     return Backbone.View.extend({
 
         el: $('.modal > .dialog > .content')[0],
 
-        template: _.template($('#eventDetailsTemplate').html()),
+        template: _.template(EventDetailsTemplate),
 
         render: function() {
             if (_.isEmpty(this.options.event)) {
