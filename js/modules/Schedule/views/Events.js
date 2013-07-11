@@ -7,7 +7,7 @@ define([
 ], function(_, Backbone, EventDetails, Breakpoint) {
     'use strict';
 
-    var _isMobileViewport = function(width) {
+    var _isTabletViewport = function(width) {
         return width <= Breakpoint.iPad.portrait;
     }
 
@@ -27,13 +27,13 @@ define([
         },
 
         adjustOnResize: function(dimensions) {
-            var isMobile = _isMobileViewport(dimensions.width),
+            var isTablet = _isTabletViewport(dimensions.width),
                 header = {
                     $first: this.$el.find('.fc-header td:eq(0)'),
                     $second: this.$el.find('.fc-header td:eq(1)')
                 };
 
-            if (isMobile && header.$first.find('.fc-button-month').length) {
+            if (isTablet && header.$first.find('.fc-button-month').length) {
                 header.$first
                     .removeClass('fc-header-left fc-header-center')
                     .addClass('fc-header-center');
@@ -41,7 +41,7 @@ define([
                     .removeClass('fc-header-left fc-header-center')
                     .addClass('fc-header-left')
                     .insertBefore(header.$first);
-            } else if (!isMobile && header.$first.find('.fc-header-title').length) {
+            } else if (!isTablet && header.$first.find('.fc-header-title').length) {
                 header.$second
                     .removeClass('fc-header-left fc-header-center')
                     .addClass('fc-header-left');
@@ -53,19 +53,26 @@ define([
         },
 
         render: function() {
-            var header = {
-                    left: 'month,basicWeek,basicDay',
+            var windowWidth = $(window).width(),
+                header = {
+                    left: 'month,agendaWeek,agendaDay',
                     center: 'title',
                     right: 'today prev,next'
-                };
+                },
+                defaultView = 'agendaWeek';
 
-            if (_isMobileViewport($(window).width())) {
+            if (_isTabletViewport(windowWidth)) {
                 header.left = 'title';
-                header.center = 'month,basicWeek,basicDay';
+                header.center = 'month,agendaWeek,agendaDay';
+            }
+
+            if (windowWidth <= Breakpoint.nexus.portrait) {
+                defaultView = 'agendaDay';
             }
 
             this.$el.fullCalendar({
                 header: header,
+                defaultView: defaultView,
                 selectable: true,
                 selectHelper: true,
                 editable: true,

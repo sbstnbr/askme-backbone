@@ -13,6 +13,7 @@ if ($result = mysqli_query($conn, 'SELECT * FROM event ORDER BY start')) {
         $event = (object)array(
             'id' => $row['id'],
             'start' => $row['start'],
+            'allDay' => (bool)$row['allDay'],
             'title' => $row['subject'],
             'attendees' => array()
         );

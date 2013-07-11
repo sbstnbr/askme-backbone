@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2013 at 09:12 PM
+-- Generation Time: Jul 11, 2013 at 07:20 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `start` varchar(25) NOT NULL,
   `end` varchar(25) DEFAULT NULL,
+  `allDay` tinyint(1) NOT NULL DEFAULT '0',
   `subject` varchar(255) NOT NULL,
   `location` varchar(255) DEFAULT NULL,
   `description` varchar(1024) DEFAULT NULL,
@@ -64,9 +65,9 @@ CREATE TABLE IF NOT EXISTS `event` (
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`id`, `start`, `end`, `subject`, `location`, `description`) VALUES
-(1, '2013-07-22', '2013-07-26', 'Front End technologies training', 'Training Room #302', 'Training including HTML5, CSS3, Javascript with libraries (jQuery, BackboneJS, NodeJS, RequireJS)'),
-(2, '2013-07-10T08:00:00-05:00', '2013-07-10T10:00:00-05:00', 'Design Session', 'Phone', NULL);
+INSERT INTO `event` (`id`, `start`, `end`, `allDay`, `subject`, `location`, `description`) VALUES
+(1, '2013-07-22', '2013-07-26', 1, 'Front End technologies training', 'Training Room #302', 'Training including HTML5, CSS3, Javascript with libraries (jQuery, BackboneJS, NodeJS, RequireJS)'),
+(2, '2013-07-10T08:00:00-05:00', '2013-07-10T10:00:00-05:00', 0, 'Design Session', 'Phone', NULL);
 
 -- --------------------------------------------------------
 
