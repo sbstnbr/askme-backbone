@@ -1,0 +1,100 @@
+.modal {
+    background-color: rgba(#000, 0.6);
+    height: 100%;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    .dialog {
+        background-color: #FFF;
+        border-radius: 10px;
+        margin: 5% 0 0 (-$tabletBreakpoint/2);
+        left: 50%;
+        padding: 2.5em 5ex 1em;
+        position: relative;
+        top: 0;
+        width: $tabletBreakpoint;
+
+        @include respond-to(max-width, $tabletBreakpoint) {
+            border-radius: 0;
+            left: 0;
+            height: 100%;
+            margin: 0;
+            width: 100%;
+        }
+
+        button.close {
+            border-radius: 5px 5px 5px 5px;
+            font-size: 1.5em;
+            height: 0;
+            line-height: 0;
+            padding: 0.75em 0.5ex;
+            position: absolute;
+            right: 2ex;
+            top: 0.75em;
+        }
+    }
+
+    #eventDetails {
+        dl {
+            display: inline-block;
+            margin-right: 5%;
+            text-align: left;
+            vertical-align: top;
+            width: 44%;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @include respond-to(max-width, $iPhone4Breakpoint) {
+                display: block;
+                margin-bottom: 2em;
+                width: 100%;
+            }
+
+            .email {
+                @include respond-to(max-width, $iPhone4Breakpoint) {
+                    display: none;
+                }
+
+                &:before,
+                &:after,
+                &:hover:before,
+                &:hover:after {
+                    color: #000;
+                }
+
+                &:before {
+                    content: "(";
+                }
+
+                &:after {
+                    content: ")";
+                }
+            }
+            .email:before,
+            .email:after,
+            .email:hover:before,
+            .email:hover:after {
+                color: #000;
+            }
+
+            .email:before {
+                content: "(";
+            }
+
+            .email:after {
+                content: ")";
+            }
+        }
+
+        @include respond-to(max-width, $iPhone4Breakpoint) {
+            margin: 0 auto;
+            width: 75%;
+        }
+    }
+}

@@ -9,6 +9,7 @@
 
     <link rel="shortcut icon" href="favicon.ico?_=1" />
 
+    <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/fullcalendar.css" />
 
@@ -27,28 +28,32 @@
     </div>
 
     <div class="pageContainer">
-        <div class="contentWrapper">
-            <header>
-                <h1>Accenture Delivery Architectures</h1>
-            </header>
-
+        <header>
+            <img class="topBanner" src="img/top-banner.jpg" alt="Accenture Technology Growth Platform" />
             <nav class="mainMenu">
                 <ul class="row">
-                    <li class="large-4 columns"><a href="#cube">Cube</a></li>
-                    <li class="large-4 columns"><a href="#questions">Questions</a></li>
-                    <li class="large-4 columns"><a href="#schedule">Schedule</a></li>
+                    <li class="large-4 small-4 columns"><a href="#cube">Cube</a></li>
+                    <li class="large-4 small-4 columns"><a href="#questions">Questions</a></li>
+                    <li class="large-4 small-4 columns"><a href="#schedule">Schedule</a></li>
                 </ul>
             </nav>
+            <h1>
+                <img class="logo" src="img/logo-orange.png" alt="High Performance. Delivered." />
+                <span class="title">2013 NA/LA Technology Architecture Workshop</span>
+            </h1>
+        </header>
 
+        <div class="contentWrapper">
             <div class="row">
-                <section id="cube" class="large-4 columns">
-                    <img src="img/ada-cube.jpg" alt="Accenture Delivery Architecture cube" />
-                </section>
+                <section id="" class="large-6 columns">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac nibh arcu. Ut lectus tellus, lacinia sit amet tristique nec, vehicula vitae ante. Cras a orci eu risus semper laoreet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In hac habitasse platea dictumst. Sed egestas sit amet arcu non convallis. Donec consectetur placerat est id blandit. Proin sem ligula, fringilla nec elit sit amet, cursus dictum mi. Sed sed arcu quam. Vestibulum consectetur sapien non diam facilisis rhoncus.</p>
+                    <p>Nullam vel est eleifend, consequat lacus ac, vehicula est. Morbi aliquam gravida est id dictum. Aliquam pharetra euismod ligula a facilisis. Fusce nisi est, pharetra eget massa ac, fermentum molestie elit. Quisque in tristique tortor, eget sollicitudin tellus. Donec fringilla felis eget eros pellentesque iaculis. Nullam ac ultricies velit, ac dapibus tortor. Quisque scelerisque lectus ac leo mattis bibendum. Aliquam ultrices risus eu est pretium, non rutrum mauris sollicitudin. Integer congue condimentum turpis vitae volutpat.</p>
+                    <p>Aenean id enim convallis, placerat sapien sed, egestas sem. Maecenas tempor egestas molestie. Suspendisse lacinia lacinia diam at lacinia. Proin porttitor hendrerit neque, vitae accumsan nisl egestas et. Nunc vehicula fringilla metus non pretium. Vivamus eget neque feugiat, accumsan nisi nec, ultricies magna. Sed metus velit, vulputate vitae cursus eu, varius et neque. Sed ante est, mollis nec rhoncus quis, imperdiet quis leo. Sed ut nisi porttitor, tempor tellus eget, bibendum orci. Maecenas molestie congue orci in congue.</p>
+            </section>
 
-                <section id="questions" class="large-5 offset-large-1 columns">
-                    <header>
-                        <h1>Questions</h1>
-                    </header>
+                <section id="twitter" class="large-6 columns">
+                    <a class="twitter-timeline" href="https://twitter.com/Accenture" data-widget-id="355182705727639552">Tweets by @Accenture</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </section>
             </div>
 
@@ -65,6 +70,7 @@
     <script type="text/html" id="eventDetailsTemplate">
         <section id="eventDetails">
             <header>
+
                 <h1><%= title %></h1>
             </header>
 
@@ -83,7 +89,7 @@
                     _.each(attendees, function(attendee, i) {
                         email = attendee.enterprise_id + '@accenture.com';
                 %>
-                <dd><%= attendee.first_name %> <%= attendee.last_name %> (<a class="email" href="mailto: <%= email %>"><%= email %></a>)</dd>
+                <dd><%= attendee.first_name %> <%= attendee.last_name %> <a class="email" href="mailto: <%= email %>"><%= email %></a></dd>
                 <%
                     });
                 %>

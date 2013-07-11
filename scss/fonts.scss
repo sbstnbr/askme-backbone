@@ -1,0 +1,17 @@
+$collection: (100, 200, 400, 700, 900);
+
+@each $size in $collection {
+    @font-face {
+        font-family: 'Helvetica Neue';
+        src: url('../fonts/HelveticaNeueLTStd-#{$size}.otf') format('opentype');
+        font-weight: $size;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Helvetica Neue';
+        src: url('../fonts/HelveticaNeueLTStd-#{$size}-It.otf') format('opentype');
+        font-weight: $size;
+        font-style: italic;
+    }
+}
