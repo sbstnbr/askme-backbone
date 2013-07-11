@@ -1,4 +1,5 @@
 $primaryColor: #D41;
+$darkPrimaryColor: darken($primaryColor, 10%);
 $secondaryColor: #3FA85E;
 $pageWidth: 1080px;
 $tabletBreakpoint: 768px;
@@ -7,10 +8,6 @@ $nexusBreakpoint: 480px;
 
 @import '_responsive';
 @import '_modal';
-
-@mixin base-header {
-    color: $primaryColor;
-}
 
 html {
     font-size: 10px;
@@ -26,6 +23,15 @@ body {
 
     &.no-scroll {
         overflow-y: hidden;
+    }
+}
+
+a {
+    color: $primaryColor;
+
+    &:hover,
+    &:focus {
+        color: $darkPrimaryColor;
     }
 }
 
@@ -53,9 +59,9 @@ $contentPaddingSides: 40px;
         }
 
         h1 {
+            color: $primaryColor;
             font-size: 2em;
             margin: 1em $contentPaddingSides;
-            @include base-header;
 
             .logo {
                 margin-right: 1ex;
@@ -132,8 +138,8 @@ $sectionMargin: 3em 0;
     margin: $sectionMargin;
 
     > header h1 {
+        color: $secondaryColor;
         font-size: 2em;
-        @include base-header;
     }
 }
 
@@ -163,19 +169,19 @@ $sectionMargin: 3em 0;
 
 
     .fc-header-title > h2 {
+        color: $secondaryColor;
         font-size: 2em;
-        @include base-header;
     }
 
     .fc-state-default {
         background: #ffffff;
-        background: -moz-linear-gradient(top,  #ffffff 0%, $primaryColor 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,$primaryColor));
-        background: -webkit-linear-gradient(top,  #ffffff 0%,$primaryColor 100%);
-        background: -o-linear-gradient(top,  #ffffff 0%,$primaryColor 100%);
-        background: -ms-linear-gradient(top,  #ffffff 0%,$primaryColor 100%);
-        background: linear-gradient(to bottom,  #ffffff 0%,$primaryColor 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$primaryColor',GradientType=0 );
+        background: -moz-linear-gradient(top,  #ffffff 0%, $secondaryColor 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,$secondaryColor));
+        background: -webkit-linear-gradient(top,  #ffffff 0%,$secondaryColor 100%);
+        background: -o-linear-gradient(top,  #ffffff 0%,$secondaryColor 100%);
+        background: -ms-linear-gradient(top,  #ffffff 0%,$secondaryColor 100%);
+        background: linear-gradient(to bottom,  #ffffff 0%,$secondaryColor 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 );
 
         background-repeat: repeat-x;
     }

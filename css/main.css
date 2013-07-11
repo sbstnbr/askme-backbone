@@ -1,17 +1,16 @@
 .modal { background-color: rgba(0, 0, 0, 0.6); height: 100%; left: 0; overflow-y: auto; position: fixed; top: 0; width: 100%; z-index: 10; }
 .modal .dialog { background-color: #FFF; border-radius: 10px; margin: 5% 0 0 -384px; left: 50%; padding: 2.5em 5ex 1em; position: relative; top: 0; width: 768px; }
 @media only screen and (max-width: 768px) { .modal .dialog { border-radius: 0; left: 0; height: 100%; margin: 0; width: 100%; } }
-.modal .dialog button.close { border-radius: 5px 5px 5px 5px; font-size: 1.5em; height: 0; line-height: 0; padding: 0.75em 0.5ex; position: absolute; right: 2ex; top: 0.75em; }
+.modal .dialog button.close { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; font-size: 1.5em; height: 0; line-height: 0; padding: 0.525em 0.5ex 0.75em; position: absolute; right: 2ex; top: 0.75em; }
+.modal .dialog button.close:hover, .modal .dialog button.close:focus { background-color: #ae350d; outline: none; }
 .modal #eventDetails dl { display: inline-block; margin-right: 5%; text-align: left; vertical-align: top; width: 44%; }
 .modal #eventDetails dl:last-child { margin-right: 0; }
 @media only screen and (max-width: 640px) { .modal #eventDetails dl { display: block; margin-bottom: 2em; width: 100%; } }
-@media only screen and (max-width: 640px) { .modal #eventDetails dl .email { display: none; } }
 .modal #eventDetails dl .email:before, .modal #eventDetails dl .email:after, .modal #eventDetails dl .email:hover:before, .modal #eventDetails dl .email:hover:after { color: #000; }
 .modal #eventDetails dl .email:before { content: "("; }
 .modal #eventDetails dl .email:after { content: ")"; }
-.modal #eventDetails dl .email:before, .modal #eventDetails dl .email:after, .modal #eventDetails dl .email:hover:before, .modal #eventDetails dl .email:hover:after { color: #000; }
-.modal #eventDetails dl .email:before { content: "("; }
-.modal #eventDetails dl .email:after { content: ")"; }
+@media only screen and (max-width: 640px) { .modal #eventDetails dl .email { display: block; }
+  .modal #eventDetails dl .email:before, .modal #eventDetails dl .email:after { content: ""; } }
 @media only screen and (max-width: 640px) { .modal #eventDetails { margin: 0 auto; width: 75%; } }
 
 html { font-size: 10px; }
@@ -19,13 +18,16 @@ html { font-size: 10px; }
 body { background: url(../img/background.jpg) no-repeat center center; background-size: cover; font-size: 1.2em; height: 100%; line-height: 1.5em; text-align: center; }
 body.no-scroll { overflow-y: hidden; }
 
+a { color: #dd4411; }
+a:hover, a:focus { color: #ae350d; }
+
 ul { list-style: none; }
 
 .hidden { display: none; visibility: hidden; }
 
 .pageContainer { background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
 .pageContainer > header .topBanner { width: 100%; }
-.pageContainer > header h1 { font-size: 2em; margin: 1em 40px; color: #dd4411; }
+.pageContainer > header h1 { color: #dd4411; font-size: 2em; margin: 1em 40px; }
 .pageContainer > header h1 .logo { margin-right: 1ex; vertical-align: middle; }
 @media only screen and (max-width: 480px) { .pageContainer > header h1 .logo { display: none; } }
 @media only screen and (max-width: 1080px) { .pageContainer { width: 90%; } }
@@ -43,11 +45,11 @@ ul { list-style: none; }
 #cube { margin: 3em 0; }
 
 #questions { margin: 3em 0; }
-#questions > header h1 { font-size: 2em; color: #dd4411; }
+#questions > header h1 { color: #3fa85e; font-size: 2em; }
 
 #schedule { margin: 3em 0; }
 #schedule .calendar .fc-header { background: none; border: none; }
 #schedule .calendar .fc-header td { vertical-align: middle; }
 @media only screen and (max-width: 768px) { #schedule .fc-header td { display: block; text-align: center; width: 100%; } }
-#schedule .fc-header-title > h2 { font-size: 2em; color: #dd4411; }
-#schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #dd4411 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #dd4411)); background: -webkit-linear-gradient(top, white 0%, #dd4411 100%); background: -o-linear-gradient(top, white 0%, #dd4411 100%); background: -ms-linear-gradient(top, white 0%, #dd4411 100%); background: linear-gradient(to bottom, white 0%, #dd4411 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$primaryColor',GradientType=0 ); background-repeat: repeat-x; }
+#schedule .fc-header-title > h2 { color: #3fa85e; font-size: 2em; }
+#schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #3fa85e 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #3fa85e)); background: -webkit-linear-gradient(top, white 0%, #3fa85e 100%); background: -o-linear-gradient(top, white 0%, #3fa85e 100%); background: -ms-linear-gradient(top, white 0%, #3fa85e 100%); background: linear-gradient(to bottom, white 0%, #3fa85e 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 ); background-repeat: repeat-x; }
