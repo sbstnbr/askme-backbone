@@ -23,6 +23,7 @@
 #editEvent > dl { margin-right: 5ex; width: auto; }
 #editEvent > dl dd { margin-right: 3ex; width: 32ex; }
 #editEvent > dl.attendees { margin-right: 0; max-width: 71%; }
+#editEvent > dl.attendees .addAttendee { margin-left: 2ex; }
 #editEvent > dl.attendees dd.attendee { border: 1px solid #DDD; border-radius: 3px; float: left; margin: 0 0 1em 3ex; padding: 0.5em 1ex; position: relative; width: 35ex; }
 #editEvent > dl.attendees dd.attendee button.close { border-radius: 100px 100px 100px 100px; height: 0; line-height: 0; padding: 0.5em 1.25ex 0.75em; position: absolute; right: -3.25ex; top: -0.75em; width: 0; }
 

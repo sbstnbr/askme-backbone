@@ -28,7 +28,7 @@ define([
                     last_name: '',
                     enterprise_id: ''
                 };
-            this.$el.find('.addAttendeeWrapper').before(attendeeTemplate(model));
+            this.$el.find('.attendees').append(attendeeTemplate(model));
         },
 
         removeAttendee: function(evt) {

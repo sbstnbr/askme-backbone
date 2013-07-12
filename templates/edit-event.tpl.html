@@ -18,14 +18,13 @@
     </dl>
 
     <dl class="attendees">
-        <dt><label>Attendees</label></dt>
+        <dt><label>Attendees<a class="addAttendee" href="">+ Add attendee</a></label></dt>
     <% 
         _.each(model.attendees, function(attendee) { 
             var template = _.template(attendeeTemplate);
             print(template(attendee));
         });
     %>
-        <dt class="addAttendeeWrapper"><a class="addAttendee" href="">+ Add attendee</a></dt>
     </dl>
     <div class="clearfix">
         <button class="save" type="submit">Save</button>

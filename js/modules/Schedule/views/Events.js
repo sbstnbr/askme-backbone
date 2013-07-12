@@ -53,7 +53,8 @@ define([
         },
 
         render: function() {
-            var windowWidth = $(window).width(),
+            var that = this,
+                windowWidth = $(window).width(),
                 header = {
                     left: 'month,agendaWeek,agendaDay',
                     center: 'title',
@@ -80,8 +81,35 @@ define([
                 eventClick: function(event) {
                     var eventDetails = new EventDetails({ event: $.extend({}, event) });
                     eventDetails.render();
+                },
+                eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
+                    that.eventDropOrResize(event, allDay, revertFunc);
+                },
+                eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
+                    that.eventDropOrResize(event, false, revertFunc);
+                },
+                select: function(startDate, endDate, allDay) {
+                    var model = {
+                            id: 0,
+                            title: '',
+                            start: startDate,
+                            end: endDate,
+                            location: '',
+                            allDay: allDay,
+                            attendees: []
+                        };
+
+                    // render edit event
                 }
            });
+        },
+
+        eventDropOrResize: function(event, allDay, revertFunc) {
+            this.collection.get(event.id).save({
+                start: event.start,
+                end: event.end,
+                allDay: allDay
+            });
         }
     });
 });
