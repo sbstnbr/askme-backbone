@@ -9,13 +9,11 @@ define([
     'use strict';
 
     var events = new EventsCollection();
-
     var eventsView = null;
+    var eventForm = new EditEventForm();
 
     var _editEvent = function(model) {
-        var eventForm = new EditEventForm({
-            model: model
-        });
+        eventForm.model = model;
         eventForm.render();
     }
 
@@ -41,6 +39,7 @@ define([
     }
 
     var editEvent = function(id) {
+        eventForm.clear();
         events.fetch({
             data: { id: id },
             success: function(model, response, options) {

@@ -1,3 +1,4 @@
+$breakpoint: 700px;
 .modal {
     background-color: rgba(#000, 0.6);
     height: 100%;
@@ -43,62 +44,6 @@
                 background-color: $darkPrimaryColor;
                 outline: none;
             }
-        }
-    }
-
-    #eventDetails {
-        dl {
-            display: inline-block;
-            margin-right: 5%;
-            text-align: left;
-            vertical-align: top;
-            width: 44%;
-
-            &:last-child {
-                margin-right: 0;
-            }
-
-            @include respond-to(max-width, $iPhone4Breakpoint) {
-                display: block;
-                margin-bottom: 2em;
-                width: 100%;
-            }
-
-            .email {
-                &:before,
-                &:after,
-                &:hover:before,
-                &:hover:after {
-                    color: #000;
-                }
-
-                &:before {
-                    content: "(";
-                }
-
-                &:after {
-                    content: ")";
-                }
-
-                @include respond-to(max-width, $iPhone4Breakpoint) {
-                    display: block;
-
-                    &:before,
-                    &:after {
-                        content: "";
-                    }
-                }
-            }
-        }
-
-        .editEventWrapper {
-            margin: 1em 0;
-            font-size: 1.25em;
-        }
-
-        @include respond-to(max-width, $iPhone4Breakpoint) {
-            margin: 0 auto;
-            width: 75%;
         }
     }
 }

@@ -3,16 +3,27 @@
 @media only screen and (max-width: 768px) { .modal .dialog { border-radius: 0; left: 0; height: 100%; margin: 0; width: 100%; } }
 .modal .dialog button.close { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; font-size: 1.5em; height: 0; line-height: 0; padding: 0.525em 0.5ex 0.75em; position: absolute; right: 2ex; top: 0.75em; }
 .modal .dialog button.close:hover, .modal .dialog button.close:focus { background-color: #ae350d; outline: none; }
-.modal #eventDetails dl { display: inline-block; margin-right: 5%; text-align: left; vertical-align: top; width: 44%; }
-.modal #eventDetails dl:last-child { margin-right: 0; }
-@media only screen and (max-width: 640px) { .modal #eventDetails dl { display: block; margin-bottom: 2em; width: 100%; } }
-.modal #eventDetails dl .email:before, .modal #eventDetails dl .email:after, .modal #eventDetails dl .email:hover:before, .modal #eventDetails dl .email:hover:after { color: #000; }
-.modal #eventDetails dl .email:before { content: "("; }
-.modal #eventDetails dl .email:after { content: ")"; }
-@media only screen and (max-width: 640px) { .modal #eventDetails dl .email { display: block; }
-  .modal #eventDetails dl .email:before, .modal #eventDetails dl .email:after { content: ""; } }
-.modal #eventDetails .editEventWrapper { margin: 1em 0; font-size: 1.25em; }
-@media only screen and (max-width: 640px) { .modal #eventDetails { margin: 0 auto; width: 75%; } }
+
+.eventInfo > dl { display: inline-block; margin-right: 5%; vertical-align: top; width: 44%; }
+.eventInfo > dl.attendees { margin-right: 0; }
+.eventInfo > dl.attendees > dt { float: none; text-align: center; }
+@media only screen and (max-width: 700px) { .eventInfo > dl { display: block; margin-bottom: 2em; width: 100%; } }
+.eventInfo > dl .email:before, .eventInfo > dl .email:after, .eventInfo > dl .email:hover:before, .eventInfo > dl .email:hover:after { color: #000; }
+.eventInfo > dl .email:before { content: "("; }
+.eventInfo > dl .email:after { content: ")"; }
+@media only screen and (max-width: 700px) { .eventInfo > dl .email { display: block; }
+  .eventInfo > dl .email:before, .eventInfo > dl .email:after { content: ""; } }
+.eventInfo .editEventWrapper { margin: 1em 0; font-size: 1.25em; }
+@media only screen and (max-width: 700px) { .eventInfo { margin: 0 auto; width: 75%; } }
+.eventInfo button { margin: 0 2ex 1.5em; }
+
+#eventDetails dl { text-align: left; }
+
+#editEvent { width: 100%; }
+#editEvent > dl { margin-right: 5ex; width: auto; }
+#editEvent > dl dd { margin-right: 3ex; width: 32ex; }
+#editEvent > dl.attendees { margin-right: 0; }
+#editEvent > dl.attendees dd.attendee { float: left; margin: 0 0 0 3ex; }
 
 html { font-size: 10px; }
 
@@ -24,14 +35,26 @@ a:hover, a:focus { color: #ae350d; }
 
 ul { list-style: none; }
 
+dl { text-align: right; }
+dl dt { clear: left; font-weight: bold; float: left; min-height: 2em; margin-right: 2ex; min-width: 10ex; }
+dl dt label { font-weight: inherit; }
+dl dd { display: block; min-height: 2em; }
+
 .hidden { display: none; visibility: hidden; }
+
+button, .button { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; }
+button:hover, button:focus, .button:hover, .button:focus { background-color: #ae350d; outline: none; }
+
+label.radio { display: inline; margin-right: 3.5ex; }
+
+input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
 .pageContainer { background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
 .pageContainer > header .topBanner { width: 100%; }
 .pageContainer > header h1 { color: #dd4411; font-size: 2em; margin: 1em 40px; }
 .pageContainer > header h1 .logo { margin-right: 1ex; vertical-align: middle; }
 @media only screen and (max-width: 480px) { .pageContainer > header h1 .logo { display: none; } }
-@media only screen and (max-width: 1080px) { .pageContainer { width: 90%; } }
+@media only screen and (max-width: 1080px) { .pageContainer { width: 100%; } }
 
 .contentWrapper { padding: 0 40px 3em; }
 .contentWrapper > .row { max-width: 100%; }

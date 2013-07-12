@@ -1,0 +1,92 @@
+.eventInfo {
+    > dl {
+        display: inline-block;
+        margin-right: 5%;
+        vertical-align: top;
+        width: 44%;
+
+        &.attendees {
+            margin-right: 0;
+
+            > dt {
+                float: none;
+                text-align: center;
+            }
+        }
+
+        @include respond-to(max-width, $breakpoint) {
+            display: block;
+            margin-bottom: 2em;
+            width: 100%;
+        }
+
+        .email {
+            &:before,
+            &:after,
+            &:hover:before,
+            &:hover:after {
+                color: #000;
+            }
+
+            &:before {
+                content: "(";
+            }
+
+            &:after {
+                content: ")";
+            }
+
+            @include respond-to(max-width, $breakpoint) {
+                display: block;
+
+                &:before,
+                &:after {
+                    content: "";
+                }
+            }
+        }
+    }
+
+    .editEventWrapper {
+        margin: 1em 0;
+        font-size: 1.25em;
+    }
+
+    @include respond-to(max-width, $breakpoint) {
+        margin: 0 auto;
+        width: 75%;
+    }
+
+    button {
+        margin: 0 2ex 1.5em;
+    }
+}
+
+#eventDetails {
+    dl {
+        text-align: left;
+    }
+}
+
+#editEvent {
+    width: 100%;
+
+    > dl {
+        margin-right: 5ex;
+        width: auto;
+
+        dd {
+            margin-right: 3ex;
+            width: 32ex;
+        }
+    }
+
+    > dl.attendees {
+        margin-right: 0;
+
+        dd.attendee {
+            float: left;
+            margin: 0 0 0 3ex;
+        }
+    }
+}

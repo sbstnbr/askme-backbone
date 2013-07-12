@@ -4,14 +4,10 @@ define([
 ], function(_, Backbone) {
     'use strict';
 
-    function _clearModal($modal) {
+    function _closeModal($modal) {
         $modal || ($modal = $('.modal:first'));
         $modal.addClass('hidden');
         $modal.find('.content').html('');
-    }
-
-    function _closeModal() {
-        _clearModal();
         $('body').removeClass('no-scroll');
     }
 
@@ -27,19 +23,19 @@ define([
         attachCloseDialog: function() {
             var $closeButton = $('.modal button.close');
             $closeButton.on('click', function() {
-                _closeModal.call($(this));
+                _closeModal();
             });
 
             $(window).on('keyup', function(evt) {
                 if (evt.which === 27 && !$('.modal').hasClass('hidden')) { // ESC
                     evt.preventDefault();
-                    _closeModal.call($closeButton);
+                    _closeModal();
                 }
             });
         },
         
         clearModal: function() {
-            _clearModal();
+            _closeModal();
         },
 
         remove: function() {

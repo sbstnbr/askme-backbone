@@ -14,8 +14,9 @@ define([
 
         var appRouter = new (Backbone.Router.extend({
             routes: {
-                'add-event': 'addEvent',
-                'edit-event/:id': 'editEvent',
+                'add-event(/)': 'addEvent',
+                'edit-event/:id(/)': 'editEvent',
+                'save-event(/)': 'saveEvent',
                 '*actions': 'defaultAction'
             },
 
@@ -27,6 +28,9 @@ define([
             editEvent: function(id) {
                 appView.clearModal();
                 ScheduleController.editEvent(id);
+            },
+
+            saveEvent: function() {
             },
 
             defaultAction: function(actions) {
