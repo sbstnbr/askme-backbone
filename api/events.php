@@ -7,7 +7,7 @@ if (!$conn) {
 }
 
 $where = '';
-if (preg_match('/^\d+$/', $_REQUEST['id'])) {
+if (!empty($_REQUEST['id']) && preg_match('/^\d+$/', $_REQUEST['id'])) {
     $where = ' WHERE id = ' . $_REQUEST['id'];
 }
 
