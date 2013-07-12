@@ -80,6 +80,11 @@ button,
     }
 }
 
+button.close:before,
+.button.close:before {
+    content: "x";
+}
+
 label.radio {
     display: inline;
     margin-right: 3.5ex;
