@@ -6,7 +6,12 @@ if (!$conn) {
     echo "Failed to connect to MySQL: (" . mysqli_connect_errno() . ") " . mysqli_connect_error();
 }
 
-if ($result = mysqli_query($conn, 'SELECT * FROM event ORDER BY start')) {
+$where = '';
+if (preg_match('/^\d+$/', $_REQUEST['id'])) {
+    $where = ' WHERE id = ' . $_REQUEST['id'];
+}
+
+if ($result = mysqli_query($conn, "SELECT * FROM event{$where} ORDER BY start")) {
     $events = array();
     
     while ($row = mysqli_fetch_array($result)) {
@@ -53,5 +58,9 @@ if ($result = mysqli_query($conn, 'SELECT * FROM event ORDER BY start')) {
 }
 
 mysqli_close($conn);
+
+if ($where) {
+    $events = $events[0];
+}
 
 echo json_encode($events);

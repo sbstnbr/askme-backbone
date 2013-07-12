@@ -1,0 +1,37 @@
+<form id="addEvent">
+    <label for="addEvent-title">Title</label>
+    <input id="addEvent-title" name="title" value="<%= title %>" />
+
+    <dl>
+        <dt><label for="addEvent-startDate">Start Date</label></dt>
+        <dd><input id="addEvent-startDate" name="startDate" value="<%= start %>" /></dd>
+        <dt><label for="addEvent-endDate">End Date</label></dt>
+        <dd><input id="addEvent-endDate" name="endDate" value="<%= end %>" /></dd>
+        <dt><label for="addEvent-location">Location</label></dt>
+        <dd><input id="addEvent-location" name="location" value="<%= location %>" /></dd>
+        <dt><label>All day?</label></dt>
+        <dd>
+            <label for="addEvent-allDay-yes">Yes</label>
+            <input type="radio" id="addEvent-allDay-yes" name="allDay" value="1" <% if (allDay) print("checked"); %> />
+            <label for="addEvent-allDay-no">No</label>
+            <input type="radio" id="addEvent-allDay-no" name="allDay" value="0" <% if (!allDay) print("checked"); %> />
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><label>Attendees</label></dt>
+    <% _.each(attendees, function(attendee) { %>
+        <dd>
+            <dl>
+                <dt><label for="addEvent-firstName">First Name</label></dt>
+                <dd><input id="addEvent-firstName" name="firstName" value="<%= attendee.first_name %>" /></dd>
+                <dt><label for="addEvent-lastName">Last Name</label></dt>
+                <dd><input id="addEvent-lastName" name="lastName" value="<%= attendee.last_name %>" /></dd>
+                <dt><label for="addEvent-enterpriseId">Enterprise ID</label></dt>
+                <dd><input id="addEvent-enterpriseId" name="enterpriseId" value="<%= attendee.enterprise_id %>" /></dd>
+            </dl>
+        </dd>
+    <% }); %>
+    <button>Cancel</button>
+    <button>Add event</button>
+</form>
