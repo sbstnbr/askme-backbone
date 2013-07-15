@@ -10,20 +10,15 @@
         <dd><%= end %></dd>
         <dt>Location</dt>
         <dd><%= location %></dd>
+        <dt>Abstract</dt>
+        <dd><%= description %></dd>
     </dl>
     <dl class="attendees">
-        <dt>Attendees</dt>
-        <%
-            var email = '';
-            _.each(attendees, function(attendee, i) {
-                email = attendee.enterprise_id + '@accenture.com';
-        %>
-        <dd><%= attendee.first_name %> <%= attendee.last_name %> <a class="email" href="mailto: <%= email %>"><%= email %></a></dd>
+        <dt>Presenters</dt>
+        <% _.each(presenters, function(presenter, i) { %>
+        <dd><%= presenter.name %></dd>
         <%
             });
         %>
     </dl>
-    <div class="editEventWrapper clearfix">
-        <a href="/#/edit-event/<%= id %>">Edit event</a>
-    </div>
 </section>
