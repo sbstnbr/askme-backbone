@@ -6,6 +6,11 @@
 <head>
     <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="stylesheet" href="../css/foundation.css" />
+    <style>
+        body {
+            padding: 3em 5ex;
+        }
+    </style>
 </head>
 <body>
     <header>

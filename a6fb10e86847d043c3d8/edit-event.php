@@ -8,6 +8,7 @@
         && !empty($_POST['subject'])
         && !empty($_POST['location'])
         && !empty($_POST['description'])
+        && !empty($_POST['category'])
     ) {
         function _escape($conn, $value) {
             return mysqli_real_escape_string($conn, htmlspecialchars(trim($value)));
@@ -20,12 +21,13 @@
         $subject = _escape($conn, $_POST['subject']);
         $location = _escape($conn, $_POST['location']);
         $description = _escape($conn, $_POST['description']);
+        $category = _escape($conn, $_POST['category']);
 
         mysqli_autocommit($conn, false);
 
         $query =
-            "INSERT INTO event(start, end, allDay, subject, location, description) "
-            . "VALUES ('{$start}', '{$end}', {$allDay}, '{$subject}', '{$location}', '{$description}')";
+            "INSERT INTO event(start, end, allDay, subject, location, description, category) "
+            . "VALUES ('{$start}', '{$end}', {$allDay}, '{$subject}', '{$location}', '{$description}', '{$category}')";
 
         if (!mysqli_query($conn, $query)) {
             echo 'Insert event failed<br />' . mysqli_error($conn);
@@ -55,10 +57,10 @@
                 mysqli_rollback($conn);
                 die;
             }
-            
+
         }
         mysqli_commit($conn);
-    } 
+    }
 
     /*** ADD / EDIT ***/
     $query = '';
@@ -74,7 +76,8 @@
         'allDay' => false,
         'title' => '',
         'presenters' => array(),
-        'description' => ''
+        'description' => '',
+        'category' => ''
     );
 
     if (!empty($_REQUEST['id']) && $result = mysqli_query($conn, $query)) {
@@ -85,6 +88,7 @@
             $event->start = $row['start'];
             $event->allDay = (bool)$row['allDay'];
             $event->title = $row['subject'];
+            $event->category = $row['category'];
 
             if (!empty($row['end'])) {
                 $event->end = $row['end'];
@@ -124,6 +128,10 @@
 
         input[type=text] {
             width: 50ex;
+        }
+
+        select {
+            width: auto;
         }
 
         label {
@@ -166,6 +174,17 @@
             <dd><input type="text" id="addEvent-location" name="location" value="<?php echo $event->location; ?>" /></dd>
             <dt><label required for="addEvent-description">Abstract</label></dt>
             <dd><textarea id="addEvent-description" name="description"><?php echo $event->description; ?></textarea></dd>
+            <dt><label required for="addEvent-category">Category</label></dt>
+            <dd><select id="addEvent-category" name="category" required>
+                <option></option>
+                <option value="architecture" <?php if ($event->category === 'architecture') echo 'selected'; ?>>Architecture</option>
+                <option value="applications" <?php if ($event->category === 'applications') echo 'selected'; ?>>Applications</option>
+                <option value="cloud" <?php if ($event->category === 'cloud') echo 'selected'; ?>>Cloud</option>
+                <option value="nextgen" <?php if ($event->category === 'nextgen') echo 'selected'; ?>>Next Generation Data</option>
+                <option value="emerging" <?php if ($event->category === 'emerging') echo 'selected'; ?>>Emerging Integration Trends</option>
+                <option value="mobile" <?php if ($event->category === 'mobile') echo 'selected'; ?>>Mobile/Web/Digital</option>
+                <option value="infrastructure" <?php if ($event->category === 'infrastructure') echo 'selected'; ?>>Infrastructure</option>
+            </select></dd>
         </dl>
 
         <div class="presenters">
