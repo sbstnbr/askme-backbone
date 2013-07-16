@@ -15,3 +15,10 @@ $collection: (100, 200, 400, 700, 900);
         font-style: italic;
     }
 }
+
+@font-face {
+    font-family: 'Rotis Sans Serif';
+    src: url('../fonts/Rotis Sans Serif Extra Bold 75.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}

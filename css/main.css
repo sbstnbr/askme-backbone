@@ -55,7 +55,7 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
 .pageContainer { background-color: rgba(0, 0, 0, 0.6); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
 .pageContainer > header { display: table; }
-.pageContainer > header h1 { background: #000; color: #dd4411; display: table-row; font-size: 2em; width: 100%; }
+.pageContainer > header h1 { background: #000; display: table-row; color: #dd4411; font: 900 2.5em/1.25em "Rotis Sans Serif", "Helvetica Neue", Helvetica; width: 100%; }
 .pageContainer > header h1 .logoWrapper { text-align: left; }
 .pageContainer > header h1 .logoWrapper .logo { vertical-align: middle; }
 @media only screen and (max-width: 480px) { .pageContainer > header h1 .logoWrapper .logo { display: none; } }
@@ -71,7 +71,7 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 .contentWrapper > .row { max-width: 100%; }
 .contentWrapper > .row section { margin-bottom: 3em; }
 
-.mainMenu ul { background: #3fa85e; background: -moz-linear-gradient(top, #3fa85e 0%, #3fa85e 60%, #59c178 100%); background: -webkit-linear-gradient(top, #3fa85e 0%, #3fa85e 60%, #59c178 100%); background: -o-linear-gradient(top, #3fa85e 0%, #3fa85e 60%, #59c178 100%); background: -ms-linear-gradient(top, #3fa85e 0%, #3fa85e 60%, #59c178 100%); background: linear-gradient(to bottom, #3fa85e 0%, #3fa85e 60%, #59c178 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 ); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); font-size: 1.5em; font-weight: bold; line-height: 2em; text-shadow: 0 1px 1px #666666; width: 100%; }
+.mainMenu ul { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 ); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); font: bold 1.75em/2em "Rotis Sans Serif", "Helvetica Neue", Helvetica; text-shadow: 0 1px 1px #666666; width: 100%; }
 .mainMenu ul li { background-color: rgba(255, 255, 255, 0); }
 .mainMenu ul li:hover { background-color: rgba(255, 255, 255, 0.12); }
 .mainMenu ul li a { color: white; display: block; }
@@ -80,13 +80,13 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #cube { margin: 3em 0; }
 
 #questions { margin: 3em 0; }
-#questions > header h1 { color: #3fa85e; font-size: 2em; }
+#questions > header h1 { color: #dd4411; font-size: 2em; }
 
 #schedule { margin: 3em 0; }
 #schedule .fc-header { background: none; border: none; }
 #schedule .fc-header td { vertical-align: middle; }
 @media only screen and (max-width: 768px) { #schedule .fc-header td { display: block; text-align: center; width: 100%; } }
-#schedule .fc-header-title > h2 { color: #3fa85e; font-size: 2em; }
+#schedule .fc-header-title > h2 { color: #dd4411; font: 900 2.5em/1.25em "Rotis Sans Serif", "Helvetica Neue", Helvetica; }
 #schedule .fc-content table { border-radius: 3px; }
-#schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #3fa85e 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #3fa85e)); background: -webkit-linear-gradient(top, white 0%, #3fa85e 100%); background: -o-linear-gradient(top, white 0%, #3fa85e 100%); background: -ms-linear-gradient(top, white 0%, #3fa85e 100%); background: linear-gradient(to bottom, white 0%, #3fa85e 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 ); background-repeat: repeat-x; }
+#schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #dd4411 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #dd4411)); background: -webkit-linear-gradient(top, white 0%, #dd4411 100%); background: -o-linear-gradient(top, white 0%, #dd4411 100%); background: -ms-linear-gradient(top, white 0%, #dd4411 100%); background: linear-gradient(to bottom, white 0%, #dd4411 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 ); background-repeat: repeat-x; }
 #schedule .addEvent { font-size: 1.25em; }

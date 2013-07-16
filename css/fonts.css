@@ -17,3 +17,5 @@
 @font-face { font-family: 'Helvetica Neue'; src: url("../fonts/HelveticaNeueLTStd-900.otf") format("opentype"); font-weight: 900; font-style: normal; }
 
 @font-face { font-family: 'Helvetica Neue'; src: url("../fonts/HelveticaNeueLTStd-900-It.otf") format("opentype"); font-weight: 900; font-style: italic; }
+
+@font-face { font-family: 'Rotis Sans Serif'; src: url("../fonts/Rotis Sans Serif Extra Bold 75.ttf") format("truetype"); font-weight: 900; font-style: normal; }
