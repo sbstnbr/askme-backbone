@@ -61,8 +61,10 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 @media only screen and (max-width: 480px) { .pageContainer > header h1 .logoWrapper .logo { display: none; } }
 .pageContainer > header h1 > div { display: table-cell; min-height: 5em; padding: 1em 0; vertical-align: middle; }
 .pageContainer > header h1 > div:first-child { width: 250px; }
-.pageContainer > header h1 > div.title { padding: 0 2ex; }
+@media only screen and (max-width: 640px) { .pageContainer > header h1 > div:first-child { display: none; } }
+.pageContainer > header h1 > div.title { padding: 1em 1ex; }
 .pageContainer > header h1 > div:last-child { width: 190px; }
+@media only screen and (max-width: 800px) { .pageContainer > header h1 > div:last-child { display: none; } }
 @media only screen and (max-width: 1080px) { .pageContainer { width: 100%; } }
 
 .contentWrapper { padding: 3em 40px; }

@@ -138,14 +138,22 @@ $contentPaddingSides: 40px;
 
                 &:first-child {
                     width: 250px;
+
+                    @include respond-to(max-width, $iPhone4Breakpoint) {
+                        display: none;
+                    }
                 }
 
                 &.title {
-                    padding: 0 2ex;
+                    padding: $headerPaddingVertical 1ex;
                 }
 
                 &:last-child {
                     width: 190px;
+
+                    @include respond-to(max-width, 800px) {
+                        display: none;
+                    }
                 }
             }
         }
