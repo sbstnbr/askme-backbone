@@ -1,60 +1,29 @@
 .eventInfo {
     > dl {
         display: inline-block;
-        margin-right: 5%;
+        margin-right: 3ex;
         vertical-align: top;
-        width: 44%;
+        width: 48%;
 
-        &.attendees {
+        &.location {
             margin-right: 0;
+            width: 44%;
 
-            > dt {
-                float: none;
-                text-align: center;
+            @include respond-to(max-width, $tabletBreakpoint) {
+                width: 100%;
             }
         }
 
-        @include respond-to(max-width, $breakpoint) {
+        @include respond-to(max-width, $tabletBreakpoint) {
             display: block;
             margin-bottom: 2em;
             width: 100%;
-        }
-
-        .email {
-            &:before,
-            &:after,
-            &:hover:before,
-            &:hover:after {
-                color: #000;
-            }
-
-            &:before {
-                content: "(";
-            }
-
-            &:after {
-                content: ")";
-            }
-
-            @include respond-to(max-width, $breakpoint) {
-                display: block;
-
-                &:before,
-                &:after {
-                    content: "";
-                }
-            }
         }
     }
 
     .editEventWrapper {
         margin: 1em 0;
         font-size: 1.25em;
-    }
-
-    @include respond-to(max-width, $breakpoint) {
-        margin: 0 auto;
-        width: 75%;
     }
 
     button {

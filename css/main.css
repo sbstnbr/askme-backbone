@@ -1,20 +1,14 @@
-.modal { background-color: rgba(0, 0, 0, 0.6); height: 100%; left: 0; overflow-y: auto; position: fixed; top: 0; width: 100%; z-index: 10; }
+.modal { background-color: rgba(0, 0, 0, 0.6); color: #222; height: 100%; left: 0; overflow-y: auto; position: fixed; top: 0; width: 100%; z-index: 10; }
 .modal .dialog { background-color: #FFF; border-radius: 10px; margin: 5% 0 0 -384px; left: 50%; padding: 2.5em 5ex 1em; position: relative; top: 0; width: 768px; }
 @media only screen and (max-width: 768px) { .modal .dialog { border-radius: 0; left: 0; height: 100%; margin: 0; width: 100%; } }
-.modal .dialog button.close { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; font-size: 1.5em; height: 0; line-height: 0; padding: 0.525em 0.5ex 0.75em; position: absolute; right: 2ex; top: 0.75em; }
+.modal .dialog button.close { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; font-size: 1em; height: 30px; line-height: 0; padding: 0; position: absolute; right: 2ex; top: 0.75em; width: 30px; }
 .modal .dialog button.close:hover, .modal .dialog button.close:focus { background-color: #ae350d; outline: none; }
 
-.eventInfo > dl { display: inline-block; margin-right: 5%; vertical-align: top; width: 44%; }
-.eventInfo > dl.attendees { margin-right: 0; }
-.eventInfo > dl.attendees > dt { float: none; text-align: center; }
-@media only screen and (max-width: 700px) { .eventInfo > dl { display: block; margin-bottom: 2em; width: 100%; } }
-.eventInfo > dl .email:before, .eventInfo > dl .email:after, .eventInfo > dl .email:hover:before, .eventInfo > dl .email:hover:after { color: #000; }
-.eventInfo > dl .email:before { content: "("; }
-.eventInfo > dl .email:after { content: ")"; }
-@media only screen and (max-width: 700px) { .eventInfo > dl .email { display: block; }
-  .eventInfo > dl .email:before, .eventInfo > dl .email:after { content: ""; } }
+.eventInfo > dl { display: inline-block; margin-right: 3ex; vertical-align: top; width: 48%; }
+.eventInfo > dl.location { margin-right: 0; width: 44%; }
+@media only screen and (max-width: 768px) { .eventInfo > dl.location { width: 100%; } }
+@media only screen and (max-width: 768px) { .eventInfo > dl { display: block; margin-bottom: 2em; width: 100%; } }
 .eventInfo .editEventWrapper { margin: 1em 0; font-size: 1.25em; }
-@media only screen and (max-width: 700px) { .eventInfo { margin: 0 auto; width: 75%; } }
 .eventInfo button { margin: 0 2ex 1.5em; }
 
 #eventDetails dl { text-align: left; }
@@ -47,7 +41,7 @@ dl dd { display: block; min-height: 2em; }
 button, .button { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; }
 button:hover, button:focus, .button:hover, .button:focus { background-color: #ae350d; outline: none; }
 
-button.close:before, .button.close:before { content: "x"; }
+button.close:before, .button.close:before { content: "X"; }
 
 label.radio { display: inline; margin-right: 3.5ex; }
 
@@ -55,7 +49,7 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
 .pageContainer { background-color: rgba(0, 0, 0, 0.6); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
 .pageContainer > header { display: table; }
-.pageContainer > header h1 { background: #000; display: table-row; color: #dd4411; font: 900 2.5em/1.25em "Rotis Sans Serif", "Helvetica Neue", Helvetica; width: 100%; }
+.pageContainer > header h1 { background: #000; color: #dd4411; display: table-row; font: 900 2.5em/1.25em "Rotis Sans Serif","Helvetica Neue",Helvetica; width: 100%; }
 .pageContainer > header h1 .logoWrapper { text-align: left; }
 .pageContainer > header h1 .logoWrapper .logo { vertical-align: middle; }
 @media only screen and (max-width: 480px) { .pageContainer > header h1 .logoWrapper .logo { display: none; } }
@@ -67,11 +61,11 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 @media only screen and (max-width: 800px) { .pageContainer > header h1 > div:last-child { display: none; } }
 @media only screen and (max-width: 1080px) { .pageContainer { width: 100%; } }
 
-.contentWrapper { padding: 3em 40px; }
+.contentWrapper { padding: 3em 40px 1.5em; }
 .contentWrapper > .row { max-width: 100%; }
 .contentWrapper > .row section { margin-bottom: 3em; }
 
-.mainMenu ul { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 ); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); font: bold 1.75em/2em "Rotis Sans Serif", "Helvetica Neue", Helvetica; text-shadow: 0 1px 1px #666666; width: 100%; }
+.mainMenu ul { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 ); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); font-size: 1.5em; font-weight: bold; line-height: 2em; text-shadow: 0 1px 1px #666666; width: 100%; }
 .mainMenu ul li { background-color: rgba(255, 255, 255, 0); }
 .mainMenu ul li:hover { background-color: rgba(255, 255, 255, 0.12); }
 .mainMenu ul li a { color: white; display: block; }
@@ -85,8 +79,11 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #schedule { margin: 3em 0; }
 #schedule .fc-header { background: none; border: none; }
 #schedule .fc-header td { vertical-align: middle; }
-@media only screen and (max-width: 768px) { #schedule .fc-header td { display: block; text-align: center; width: 100%; } }
-#schedule .fc-header-title > h2 { color: #dd4411; font: 900 2.5em/1.25em "Rotis Sans Serif", "Helvetica Neue", Helvetica; }
+#schedule .fc-header-title > h2 { color: #dd4411; font-size: 2em; }
 #schedule .fc-content table { border-radius: 3px; }
 #schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #dd4411 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #dd4411)); background: -webkit-linear-gradient(top, white 0%, #dd4411 100%); background: -o-linear-gradient(top, white 0%, #dd4411 100%); background: -ms-linear-gradient(top, white 0%, #dd4411 100%); background: linear-gradient(to bottom, white 0%, #dd4411 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 ); background-repeat: repeat-x; }
-#schedule .addEvent { font-size: 1.25em; }
+#schedule .fc-view > div > div:last-child { overflow-y: hidden !important; }
+
+footer { padding: 0 40px 3em; text-align: right; }
+@media only screen and (max-width: 768px) { footer { text-align: center; } }
+footer img { height: 125px; }

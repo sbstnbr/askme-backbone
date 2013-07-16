@@ -27,57 +27,23 @@ define([
         },
 
         adjustOnResize: function(dimensions) {
-            var isTablet = _isTabletViewport(dimensions.width),
-                header = {
-                    $first: this.$el.find('.fc-header td:eq(0)'),
-                    $second: this.$el.find('.fc-header td:eq(1)')
-                };
-
-            if (isTablet && header.$first.find('.fc-button-month').length) {
-                header.$first
-                    .removeClass('fc-header-left fc-header-center')
-                    .addClass('fc-header-center');
-                header.$second
-                    .removeClass('fc-header-left fc-header-center')
-                    .addClass('fc-header-left')
-                    .insertBefore(header.$first);
-            } else if (!isTablet && header.$first.find('.fc-header-title').length) {
-                header.$second
-                    .removeClass('fc-header-left fc-header-center')
-                    .addClass('fc-header-left');
-                header.$first
-                    .removeClass('fc-header-left fc-header-center')
-                    .addClass('fc-header-center')
-                    .insertAfter(header.$second);
-            }
         },
 
         render: function() {
-            var that = this,
-                windowWidth = $(window).width(),
-                header = {
-                    left: 'month,agendaWeek,agendaDay',
-                    center: 'title',
-                    right: 'today prev,next'
-                },
-                defaultView = 'agendaWeek';
-
-            if (_isTabletViewport(windowWidth)) {
-                header.left = 'title';
-                header.center = 'month,agendaWeek,agendaDay';
-            }
-
-            if (windowWidth <= Breakpoint.nexus.portrait) {
-                defaultView = 'agendaDay';
-            }
-
             this.$el.fullCalendar({
-                header: header,
-                defaultView: defaultView,
+                header: {
+                    left: 'prev',
+                    center: 'title',
+                    right: 'next'
+                },
+                defaultView: 'agendaDay',
                 selectable: false,
                 selectHelper: false,
                 editable: false,
                 ignoreTimezone: false,
+                minTime: 8,
+                maxTime: 22,
+                height: 999,
                 eventClick: function(event) {
                     var eventDetails = new EventDetails({ event: $.extend({}, event) });
                     eventDetails.render();
