@@ -10,6 +10,18 @@
         body {
             padding: 3em 5ex;
         }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-top: 0.75em;
+        }
+
+        .addEvent {
+            margin-top: 2em;
+        }
     </style>
 </head>
 <body>
@@ -45,5 +57,6 @@
         }
         mysqli_close($conn);
     ?>
+        <li class="addEvent"><a href="edit-event.php">+ Add event</a></li>
     </ul>
 </body>
