@@ -29,7 +29,7 @@
 
 html { font-size: 10px; }
 
-body { background: url(../img/background.jpg) no-repeat center center; background-size: cover; font-size: 1.2em; height: 100%; line-height: 1.5em; text-align: center; }
+body { background: url(../img/background.jpg) no-repeat center center; background-size: cover; color: white; font-size: 1.4em; height: 100%; line-height: 1.5em; text-align: center; }
 body.no-scroll { overflow-y: hidden; }
 
 a { color: #dd4411; }
@@ -53,14 +53,14 @@ label.radio { display: inline; margin-right: 3.5ex; }
 
 input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
-.pageContainer { background-color: rgba(255, 255, 255, 0.95); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
-.pageContainer > header .topBanner { width: 100%; }
-.pageContainer > header h1 { color: #dd4411; font-size: 2em; margin: 1em 40px; }
-.pageContainer > header h1 .logo { margin-right: 1ex; vertical-align: middle; }
-@media only screen and (max-width: 480px) { .pageContainer > header h1 .logo { display: none; } }
+.pageContainer { background-color: rgba(0, 0, 0, 0.6); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
+.pageContainer > header h1 { background: #000; color: #dd4411; font-size: 2em; min-height: 5em; padding: 1em 1ex; width: 100%; }
+.pageContainer > header h1 .logoWrapper { text-align: left; }
+.pageContainer > header h1 .logoWrapper .logo { vertical-align: middle; }
+@media only screen and (max-width: 480px) { .pageContainer > header h1 .logoWrapper .logo { display: none; } }
 @media only screen and (max-width: 1080px) { .pageContainer { width: 100%; } }
 
-.contentWrapper { padding: 0 40px 3em; }
+.contentWrapper { padding: 3em 40px; }
 .contentWrapper > .row { max-width: 100%; }
 .contentWrapper > .row section { margin-bottom: 3em; }
 
@@ -76,9 +76,10 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #questions > header h1 { color: #3fa85e; font-size: 2em; }
 
 #schedule { margin: 3em 0; }
-#schedule .calendar .fc-header { background: none; border: none; }
-#schedule .calendar .fc-header td { vertical-align: middle; }
+#schedule .fc-header { background: none; border: none; }
+#schedule .fc-header td { vertical-align: middle; }
 @media only screen and (max-width: 768px) { #schedule .fc-header td { display: block; text-align: center; width: 100%; } }
 #schedule .fc-header-title > h2 { color: #3fa85e; font-size: 2em; }
+#schedule .fc-content table { border-radius: 3px; }
 #schedule .fc-state-default { background: #ffffff; background: -moz-linear-gradient(top, white 0%, #3fa85e 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #3fa85e)); background: -webkit-linear-gradient(top, white 0%, #3fa85e 100%); background: -o-linear-gradient(top, white 0%, #3fa85e 100%); background: -ms-linear-gradient(top, white 0%, #3fa85e 100%); background: linear-gradient(to bottom, white 0%, #3fa85e 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 ); background-repeat: repeat-x; }
 #schedule .addEvent { font-size: 1.25em; }

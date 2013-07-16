@@ -1,3 +1,4 @@
+$bodyTextColor: #FFF;
 $primaryColor: #D41;
 $darkPrimaryColor: darken($primaryColor, 10%);
 $secondaryColor: #3FA85E;
@@ -17,7 +18,8 @@ html {
 body {
     background: url(../img/background.jpg) no-repeat center center;
     background-size: cover;
-    font-size: 1.2em;
+    color: $bodyTextColor;
+    font-size: 1.4em;
     height: 100%;
     line-height: 1.5em;
     text-align: center;
@@ -97,7 +99,7 @@ input[type=radio] {
 
 $contentPaddingSides: 40px;
 .pageContainer {
-    background-color: rgba(#FFF, 0.95);
+    background-color: rgba(#000, 0.6);
     box-shadow: 0 0 1px rgba(#000,0.6);
     height: 100%;
     margin: 0 auto;
@@ -105,22 +107,30 @@ $contentPaddingSides: 40px;
     width: $pageWidth;
 
     > header {
-        .topBanner {
-            width: 100%;
-        }
-
         h1 {
+            background: #000;
             color: $primaryColor;
             font-size: 2em;
-            margin: 1em $contentPaddingSides;
+            min-height: 5em;
+            padding: 1em 1ex;
+            width: 100%;
+            
+            .logoWrapper {
+                text-align: left;
+                
+                .logo {
+                    vertical-align: middle;
 
-            .logo {
-                margin-right: 1ex;
-                vertical-align: middle;
-
-                @include respond-to(max-width, $nexusBreakpoint) {
-                    display: none;
+                    @include respond-to(max-width, $nexusBreakpoint) {
+                        display: none;
+                    }
                 }
+            }
+            
+            .title {
+            }
+            
+            .highPerformanceLogo {
             }
         }
     }
@@ -131,7 +141,7 @@ $contentPaddingSides: 40px;
 }
 
 .contentWrapper {
-    padding: 0 $contentPaddingSides 3em;
+    padding: 3em $contentPaddingSides;
 
     > .row {
         max-width: 100%;
@@ -197,19 +207,13 @@ $sectionMargin: 3em 0;
 #schedule {
     margin: $sectionMargin;
 
-    .calendar {
-        .fc-header {
-            background: none;
-            border: none;
-
-            td {
-                vertical-align: middle;
-            }
-        }
-    }
-
     .fc-header {
+        background: none;
+        border: none;
+
         td {
+            vertical-align: middle;
+            
             @include respond-to(max-width, $tabletBreakpoint) {
                 display: block;
                 text-align: center;
@@ -222,6 +226,10 @@ $sectionMargin: 3em 0;
     .fc-header-title > h2 {
         color: $secondaryColor;
         font-size: 2em;
+    }
+
+    .fc-content table {
+        border-radius: 3px;
     }
 
     .fc-state-default {
