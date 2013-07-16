@@ -25,19 +25,34 @@
 
         mysqli_autocommit($conn, false);
 
-        $query =
-            "INSERT INTO event(start, end, allDay, subject, location, description, category) "
-            . "VALUES ('{$start}', '{$end}', {$allDay}, '{$subject}', '{$location}', '{$description}', '{$category}')";
+        $event_id = '';
+        if (!empty($_GET['id']) && preg_match('/^\d+$/', $_GET['id'])) {
+            $event_id = $_GET['id'];
+            $query =
+                "UPDATE event SET start = '{$start}', end = '{$end}', allDay = {$allDay}, subject = '{$subject}', "
+                    . "location = '{$location}', description = '{$description}', category = '{$category}' "
+                    . "WHERE id = {$event_id}";
+        } else {
+            $query =
+                "INSERT INTO event(start, end, allDay, subject, location, description, category) "
+                . "VALUES ('{$start}', '{$end}', {$allDay}, '{$subject}', '{$location}', '{$description}', '{$category}')";
+        }
 
         if (!mysqli_query($conn, $query)) {
-            echo 'Insert event failed<br />' . mysqli_error($conn);
+            echo 'Insert/update event failed<br />' . mysqli_error($conn);
             mysqli_rollback($conn);
             die;
         }
 
-        $event_id = mysqli_insert_id($conn);
+        $event_id = $event_id ?: mysqli_insert_id($conn);
 
         if (!empty($_POST['presenters'])) {
+            if (!mysqli_query($conn, "DELETE FROM presenter WHERE event_id = {$event_id}")) {
+                echo 'Delete presenters failed<br />' . mysqli_error($conn);
+                mysqli_rollback($conn);
+                die;
+            }
+
             $presenters = array();
             foreach($_POST['presenters'] as $presenter) {
                 $presenter = trim($presenter);
@@ -60,6 +75,9 @@
 
         }
         mysqli_commit($conn);
+
+        header('Location: events-list.php');
+        die;
     }
 
     /*** ADD / EDIT ***/
