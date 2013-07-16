@@ -106,18 +106,21 @@ $contentPaddingSides: 40px;
     padding: 0;
     width: $pageWidth;
 
+    $headerPaddingVertical: 1em;
+    $headerHeight: 5em;
     > header {
+        display: table;
+
         h1 {
             background: #000;
             color: $primaryColor;
+            display: table-row;
             font-size: 2em;
-            min-height: 5em;
-            padding: 1em 1ex;
             width: 100%;
-            
+
             .logoWrapper {
                 text-align: left;
-                
+
                 .logo {
                     vertical-align: middle;
 
@@ -126,11 +129,24 @@ $contentPaddingSides: 40px;
                     }
                 }
             }
-            
-            .title {
-            }
-            
-            .highPerformanceLogo {
+
+            > div {
+                display: table-cell;
+                min-height: $headerHeight;
+                padding: $headerPaddingVertical 0;
+                vertical-align: middle;
+
+                &:first-child {
+                    width: 250px;
+                }
+
+                &.title {
+                    padding: 0 2ex;
+                }
+
+                &:last-child {
+                    width: 190px;
+                }
             }
         }
     }
@@ -213,7 +229,7 @@ $sectionMargin: 3em 0;
 
         td {
             vertical-align: middle;
-            
+
             @include respond-to(max-width, $tabletBreakpoint) {
                 display: block;
                 text-align: center;

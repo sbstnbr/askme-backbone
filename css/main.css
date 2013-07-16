@@ -54,10 +54,15 @@ label.radio { display: inline; margin-right: 3.5ex; }
 input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
 .pageContainer { background-color: rgba(0, 0, 0, 0.6); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
-.pageContainer > header h1 { background: #000; color: #dd4411; font-size: 2em; min-height: 5em; padding: 1em 1ex; width: 100%; }
+.pageContainer > header { display: table; }
+.pageContainer > header h1 { background: #000; color: #dd4411; display: table-row; font-size: 2em; width: 100%; }
 .pageContainer > header h1 .logoWrapper { text-align: left; }
 .pageContainer > header h1 .logoWrapper .logo { vertical-align: middle; }
 @media only screen and (max-width: 480px) { .pageContainer > header h1 .logoWrapper .logo { display: none; } }
+.pageContainer > header h1 > div { display: table-cell; min-height: 5em; padding: 1em 0; vertical-align: middle; }
+.pageContainer > header h1 > div:first-child { width: 250px; }
+.pageContainer > header h1 > div.title { padding: 0 2ex; }
+.pageContainer > header h1 > div:last-child { width: 190px; }
 @media only screen and (max-width: 1080px) { .pageContainer { width: 100%; } }
 
 .contentWrapper { padding: 3em 40px; }
