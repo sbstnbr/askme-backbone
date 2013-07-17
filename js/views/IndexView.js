@@ -2,8 +2,9 @@ define([
     'underscore',
     'backbone',
     'text!/templates/index.tpl.html',
-    'modules/Schedule/controller'
-], function(_, Backbone, IndexTemplate, ScheduleController) {
+    'modules/Schedule/controller',
+    'modules/Questions/controller'
+], function(_, Backbone, IndexTemplate, ScheduleController, QuestionsController) {
     'use strict';
 
     return Backbone.View.extend({
@@ -16,6 +17,8 @@ define([
             this.$el.html(this.template({}));
 
             ScheduleController.initialize();
+
+            QuestionsController.initialize();
 
             var $window = $(window);
             $window.on('resize.app', function() {

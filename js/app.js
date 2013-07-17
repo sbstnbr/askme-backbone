@@ -8,8 +8,6 @@ define([
     'use strict';
 
     var initialize = function(){
-        $(document).foundation();
-
         Router.initialize();
     };
 

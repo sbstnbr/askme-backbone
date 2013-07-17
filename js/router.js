@@ -1,11 +1,10 @@
 define([
-    'jquery',
     'underscore',
     'backbone',
     'views/AppView',
     'views/IndexView',
     'modules/Schedule/controller'
-], function($, _, Backbone, AppView, IndexView, ScheduleController) {
+], function(_, Backbone, AppView, IndexView, ScheduleController) {
     'use strict';
 
     var initialize = function() {
@@ -18,7 +17,7 @@ define([
             },
 
             defaultAction: function(actions) {
-                new IndexView().render();
+                (new IndexView()).render();
             }
         }));
 

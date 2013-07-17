@@ -11,12 +11,6 @@ $nexusBreakpoint: 480px;
 @import '_modal';
 @import '_event';
 
-@mixin page-secondary-header {
-    color: $secondaryColor;
-    font-size: 2em;
-    text-align: center;
-}
-
 @mixin main-gradient($hasRoundedBorders: false) {
     $lightGradient: lighten($secondaryColor, 10%);
     $gradientChangePoint: 60%;
@@ -81,6 +75,12 @@ body {
     &.no-scroll {
         overflow-y: hidden;
     }
+}
+
+h2 {
+    color: $secondaryColor;
+    font-size: 2em;
+    text-align: center;
 }
 
 a {
@@ -268,10 +268,6 @@ $sectionMargin: 3em 0;
 #about {
     text-align: left;
 
-    h2 {
-        @include page-secondary-header;
-    }
-
     ul {
         list-style: disc;
         padding: 0 4ex;
@@ -301,12 +297,6 @@ $sectionMargin: 3em 0;
             font-weight: bold;
             font-size: (7em / 6);
         }
-    }
-}
-
-#twitter {
-    h2 {
-        @include page-secondary-header;
     }
 }
 
@@ -373,8 +363,30 @@ $sectionMargin: 3em 0;
     }
 }
 
+#questions {
+    #addQuestionForm {
+        input {
+            border-radius: 5px;
+            display: inline;
+            width: 90%;
+        }
+
+        button {
+            height: 2em;
+            line-height: 0;
+            margin: 0 0 0 1.5ex;
+            padding: 0 0 5px;
+            postion: relative;
+            top: -1px;
+            width: 2em;
+        }
+    }
+}
+
+
 footer {
-    padding: 0 $contentPaddingSides 3em;
+    margin: 3em 0 0;
+    padding: 3em $contentPaddingSides;
     text-align: right;
 
     @include respond-to(max-width, $tabletBreakpoint) {
