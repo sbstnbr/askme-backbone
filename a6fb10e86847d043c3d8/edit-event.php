@@ -193,8 +193,8 @@
             <dt><label required for="addEvent-description">Abstract</label></dt>
             <dd><textarea id="addEvent-description" name="description"><?php echo $event->description; ?></textarea></dd>
             <dt><label required for="addEvent-category">Category</label></dt>
-            <dd><select id="addEvent-category" name="category" required>
-                <option></option>
+            <dd><select id="addEvent-category" name="category">
+                <option value=""></option>
                 <option value="architecture" <?php if ($event->category === 'architecture') echo 'selected'; ?>>Architecture</option>
                 <option value="applications" <?php if ($event->category === 'applications') echo 'selected'; ?>>Applications</option>
                 <option value="cloud" <?php if ($event->category === 'cloud') echo 'selected'; ?>>Cloud</option>

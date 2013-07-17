@@ -6,13 +6,25 @@ require_once 'mysql-connection.php';
 if ($result = mysqli_query($conn, "SELECT * FROM event ORDER BY start")) {
     $events = array();
 
+    $colors = array(
+        '' => '#DDD',
+        'architecture' => '#CF9',
+        'applications' => '#0B0F0',
+        'cloud' => '#C9F',
+        'nextgen' => '#C5D9F1',
+        'emerging' => '#FF6',
+        'mobile' => '#E6B8B7',
+        'infrastructure' => '#FFC000'
+    );
+
     while ($row = mysqli_fetch_array($result)) {
         $event = (object)array(
             'id' => $row['id'],
             'start' => $row['start'],
             'allDay' => (bool)$row['allDay'],
             'title' => $row['subject'],
-            'presenters' => array()
+            'presenters' => array(),
+            'color' => $colors[$row['category']]
         );
 
         if (!empty($row['end'])) {
