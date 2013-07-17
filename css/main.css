@@ -108,6 +108,7 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #schedule .fc-event { color: #222; cursor: pointer; }
 
 #questions { text-align: left; }
+#questions h2 { text-align: left; }
 #questions #addQuestionForm input { border-radius: 5px; display: inline; width: 90%; }
 #questions #addQuestionForm button { height: 2em; line-height: 0; margin: 0 0 0 1.5ex; padding: 0 0 5px; postion: relative; top: -1px; width: 2em; }
 #questions .listing { color: #222; }

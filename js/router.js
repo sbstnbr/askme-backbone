@@ -3,8 +3,9 @@ define([
     'backbone',
     'views/AppView',
     'views/IndexView',
-    'modules/Schedule/controller'
-], function(_, Backbone, AppView, IndexView, ScheduleController) {
+    'modules/Schedule/controller',
+    'modules/Questions/controller'
+], function(_, Backbone, AppView, IndexView, ScheduleController, QuestionsController) {
     'use strict';
 
     var initialize = function() {
@@ -13,11 +14,16 @@ define([
 
         var appRouter = new (Backbone.Router.extend({
             routes: {
+                'questions(/)': 'questions',
                 '(*actions)(/)': 'defaultAction'
             },
 
+            questions: function() {
+                QuestionsController.initialize();
+            },
+
             defaultAction: function(actions) {
-                (new IndexView()).render();
+                (new IndexView).render();
             }
         }));
 

@@ -1,35 +1,32 @@
 define([
     'underscore',
     'backbone',
-    'text!/templates/question.tpl.html'
-], function(_, Backbone, QuestionTemplate) {
+    'text!/templates/questions-section.tpl.html',
+    'modules/Questions/models/Question',
+    'modules/Questions/collections/Questions',
+    'modules/Questions/views/QuestionsListing',
+    'modules/Questions/views/QuestionForm'
+], function(_, Backbone, QuestionsTemplate, QuestionModel, QuestionsCollection, QuestionsView, QuestionForm) {
     'use strict';
 
     return Backbone.View.extend({
 
-        el: $('#questions listing'),
+        el: $('.contentWrapper'),
 
-        template: _.template(QuestionTemplate),
+        template: _.template(QuestionsTemplate),
 
-        initialize: function() {
-            var that = this;
-            this.collection.fetch({
-                reset: true,
-                success: function(model, response, options) {
-                    that.render(model.toJSON());
-                },
-                error : function(model, response, options) {
-                    console.log('Error loading questions from server');
-                }
+        render: function() {
+            this.$el.html(this.template({}));
+
+            var questionsView = new QuestionsView({ el: $('#questions > .listing'), collection: new QuestionsCollection });
+            questionsView.render();
+
+            new QuestionForm({
+                model: new QuestionModel,
+                el: $('#addQuestionForm')
             });
-        },
 
-        render: function(json) {
-            json || (json = []);
-            this.$el.html('');
-            _.each(json, function(questionEntry, i) {
-                this.$el.append(this.template(questionEntry));
-            }, this);
+            return this;
         }
     });
 });

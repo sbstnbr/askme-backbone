@@ -367,6 +367,10 @@ $width: 90%;
 #questions {
     text-align: left;
 
+    h2 {
+        text-align: left;
+    }
+
     #addQuestionForm {
         input {
             border-radius: 5px;
