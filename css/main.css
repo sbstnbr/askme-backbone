@@ -59,6 +59,7 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 .pageContainer > header h1 .logoWrapper { text-align: left; }
 .pageContainer > header h1 .logoWrapper .logo { vertical-align: middle; }
 @media only screen and (max-width: 480px) { .pageContainer > header h1 .logoWrapper .logo { display: none; } }
+@media only screen and (max-width: 480px) { .pageContainer > header h1 { font-size: 2em; } }
 .pageContainer > header h1 > div { display: table-cell; min-height: 5em; padding: 1em 0; vertical-align: middle; }
 .pageContainer > header h1 > div:first-child { width: 250px; }
 @media only screen and (max-width: 640px) { .pageContainer > header h1 > div:first-child { display: none; } }

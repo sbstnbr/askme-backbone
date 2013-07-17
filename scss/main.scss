@@ -185,6 +185,10 @@ $contentPaddingSides: 40px;
                 }
             }
 
+            @include respond-to(max-width, $nexusBreakpoint) {
+                font-size: 2em;
+            }
+
             > div {
                 display: table-cell;
                 min-height: $headerHeight;
