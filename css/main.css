@@ -75,7 +75,7 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
 #about { text-align: left; }
 #about h2 { color: #dd4411; font-size: 2em; text-align: center; }
-#about ul { list-style: disc; padding: 0 4px; }
+#about ul { list-style: disc; padding: 0 4ex; }
 #about .signaturesBlock > div { float: left; font-size: 0.85714em; text-align: center; width: 33%; }
 
 #schedule { margin: 3em 0; }
