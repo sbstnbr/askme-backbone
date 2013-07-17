@@ -1,16 +1,22 @@
 define([
     'underscore',
-    'backbone'
-], function(_, Backbone) {
+    'backbone',
+    'text!/templates/question.tpl.html'
+], function(_, Backbone, QuestionTemplate) {
     'use strict';
 
     return Backbone.View.extend({
 
+        el: $('#questions listing'),
+
+        template: _.template(QuestionTemplate),
+
         initialize: function() {
+            var that = this;
             this.collection.fetch({
                 reset: true,
                 success: function(model, response, options) {
-                    var json = model.toJSON();
+                    that.render(model.toJSON());
                 },
                 error : function(model, response, options) {
                     console.log('Error loading questions from server');
@@ -18,8 +24,12 @@ define([
             });
         },
 
-        render: function() {
-            this.$el.html('These are questions');
+        render: function(json) {
+            json || (json = []);
+            this.$el.html('');
+            _.each(json, function(questionEntry, i) {
+                this.$el.append(this.template(questionEntry));
+            }, this);
         }
     });
 });

@@ -363,12 +363,15 @@ $sectionMargin: 3em 0;
     }
 }
 
+$width: 90%;
 #questions {
+    text-align: left;
+
     #addQuestionForm {
         input {
             border-radius: 5px;
             display: inline;
-            width: 90%;
+            width: $width;
         }
 
         button {
@@ -379,6 +382,40 @@ $sectionMargin: 3em 0;
             postion: relative;
             top: -1px;
             width: 2em;
+        }
+    }
+
+    .listing {
+        color: #222;
+
+        .questionWrapper {
+            background: rgba(#FFF, 0.9);
+            border-radius: 7px;
+            margin: 1em 0 0;
+            padding: 0.5em 3ex;
+        }
+
+        .question {
+            display: inline-block;
+            min-height: 2.8em;
+            width: $width;
+        }
+
+        .votingWrapper {
+            float: right;
+            text-align: center;
+
+            .votePositive {
+                height: 1.5em;
+                line-height: 1.5em;
+                margin: 0;
+                padding: 0;
+                width: 3ex;
+            }
+
+            .votes {
+                font-size: 0.9em;
+            }
         }
     }
 }
