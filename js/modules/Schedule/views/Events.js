@@ -30,7 +30,13 @@ define([
         },
 
         render: function() {
+            var today = new Date(),
+                wsFirst = new Date(2013, 6, 22),
+                minDate = (wsFirst > today) ? wsFirst : today;
             this.$el.fullCalendar({
+                date: minDate.getDate(),
+                month: minDate.getMonth(),
+                year: minDate.getFullYear(),
                 header: {
                     left: 'prev',
                     center: 'title',
