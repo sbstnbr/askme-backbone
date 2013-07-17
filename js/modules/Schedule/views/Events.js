@@ -44,6 +44,7 @@ define([
                 minTime: 8,
                 maxTime: 22,
                 height: 999,
+                allDaySlot: false,
                 eventClick: function(event) {
                     var eventDetails = new EventDetails({ event: $.extend({}, event) });
                     eventDetails.render();

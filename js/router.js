@@ -14,7 +14,7 @@ define([
 
         var appRouter = new (Backbone.Router.extend({
             routes: {
-                '(/)': 'defaultAction'
+                '(*actions)(/)': 'defaultAction'
             },
 
             defaultAction: function(actions) {

@@ -1,4 +1,8 @@
 .eventInfo {
+    header h1 {
+        color: $primaryColor;
+    }
+
     > dl {
         display: inline-block;
         margin-right: 3ex;

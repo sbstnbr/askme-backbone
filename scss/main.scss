@@ -11,6 +11,12 @@ $nexusBreakpoint: 480px;
 @import '_modal';
 @import '_event';
 
+@mixin page-secondary-header {
+    color: $secondaryColor;
+    font-size: 2em;
+    text-align: center;
+}
+
 @mixin main-gradient {
     $lightGradient: lighten($secondaryColor, 10%);
     $gradientChangePoint: 60%;
@@ -95,9 +101,10 @@ dl {
 
 button,
 .button {
-    background-color: $primaryColor;
-    border-color: $darkPrimaryColor;
+    @include content-with-gradient;
     border-radius: 5px;
+    border: none;
+    box-shadow: none;
 
     &:hover,
     &:focus {
@@ -234,9 +241,7 @@ $sectionMargin: 3em 0;
     text-align: left;
 
     h2 {
-        color: $secondaryColor;
-        font-size: 2em;
-        text-align: center;
+        @include page-secondary-header;
     }
 
     ul {
@@ -250,7 +255,18 @@ $sectionMargin: 3em 0;
             font-size: (12em / 14);
             text-align: center;
             width: 33%;
+
+            @include respond-to(max-width, $nexusBreakpoint) {
+                margin-bottom: 2em;
+                width: 100%;
+            }
         }
+    }
+}
+
+#twitter {
+    h2 {
+        @include page-secondary-header;
     }
 }
 
@@ -266,14 +282,34 @@ $sectionMargin: 3em 0;
         }
     }
 
-
     .fc-header-title > h2 {
         color: $secondaryColor;
         font-size: 2em;
+
+        @include respond-to(max-width, $nexusBreakpoint) {
+            font-size: 1.75em;
+            white-space: normal;
+        }
     }
 
-    .fc-content table {
-        border-radius: 3px;
+    .fc-content {
+        font-size: (8em/7);
+
+        table {
+            border-radius: 3px;
+
+            thead {
+                text-indent: -999em;
+            }
+        }
+
+        .fc-event-vert .fc-event-time {
+            font-size: inherit;
+        }
+
+        .fc-event-title {
+            font-weight: bold;
+        }
     }
 
     .fc-state-default {
@@ -281,12 +317,19 @@ $sectionMargin: 3em 0;
         background-repeat: repeat-x;
 
         .fc-text-arrow {
-            line-height: 0;
+            display: block;
+            height: 0.85em;
+            line-height: 0.85em;
         }
     }
 
     .fc-view > div > div:last-child {
         overflow-y: hidden !important;
+    }
+
+    .fc-event {
+        color: #222;
+        cursor: pointer;
     }
 }
 

@@ -1,9 +1,10 @@
 .modal { background-color: rgba(0, 0, 0, 0.6); color: #222; height: 100%; left: 0; overflow-y: auto; position: fixed; top: 0; width: 100%; z-index: 10; }
-.modal .dialog { background-color: #FFF; border-radius: 10px; margin: 5% 0 0 -384px; left: 50%; padding: 2.5em 5ex 1em; position: relative; top: 0; width: 768px; }
+.modal .dialog { background-color: #FFF; border-radius: 10px; margin: 5% 0 0 -384px; left: 50%; padding: 2.5em 5ex; position: relative; top: 0; width: 768px; }
 @media only screen and (max-width: 768px) { .modal .dialog { border-radius: 0; left: 0; height: 100%; margin: 0; width: 100%; } }
 .modal .dialog button.close { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; font-size: 1em; height: 30px; line-height: 0; padding: 0; position: absolute; right: 2ex; top: 0.75em; width: 30px; }
 .modal .dialog button.close:hover, .modal .dialog button.close:focus { background-color: #ae350d; outline: none; }
 
+.eventInfo header h1 { color: #dd4411; }
 .eventInfo > dl { display: inline-block; margin-right: 3ex; vertical-align: top; width: 48%; }
 .eventInfo > dl.location { margin-right: 0; width: 44%; }
 @media only screen and (max-width: 768px) { .eventInfo > dl.location { width: 100%; } }
@@ -38,7 +39,8 @@ dl dd { display: block; min-height: 2em; }
 
 .hidden { display: none; visibility: hidden; }
 
-button, .button { background-color: #dd4411; border-color: #ae350d; border-radius: 5px; }
+button, .button { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 ); color: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); text-shadow: 0 1px 1px #666666; border-radius: 5px; border: none; box-shadow: none; }
+button a, .button a { color: #FFF; }
 button:hover, button:focus, .button:hover, .button:focus { background-color: #ae350d; outline: none; }
 
 button.close:before, .button.close:before { content: "X"; }
@@ -78,16 +80,25 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #about h2 { color: #dd4411; font-size: 2em; text-align: center; }
 #about ul { list-style: disc; padding: 0 4ex; }
 #about .signaturesBlock > div { float: left; font-size: 0.85714em; text-align: center; width: 33%; }
+@media only screen and (max-width: 480px) { #about .signaturesBlock > div { margin-bottom: 2em; width: 100%; } }
+
+#twitter h2 { color: #dd4411; font-size: 2em; text-align: center; }
 
 #schedule { margin: 3em 0; }
 #schedule .fc-header { background: none; border: none; }
 #schedule .fc-header td { vertical-align: middle; }
 #schedule .fc-header-title > h2 { color: #dd4411; font-size: 2em; }
+@media only screen and (max-width: 480px) { #schedule .fc-header-title > h2 { font-size: 1.75em; white-space: normal; } }
+#schedule .fc-content { font-size: 1.14286em; }
 #schedule .fc-content table { border-radius: 3px; }
+#schedule .fc-content table thead { text-indent: -999em; }
+#schedule .fc-content .fc-event-vert .fc-event-time { font-size: inherit; }
+#schedule .fc-content .fc-event-title { font-weight: bold; }
 #schedule .fc-state-default { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 ); color: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); text-shadow: 0 1px 1px #666666; background-repeat: repeat-x; }
 #schedule .fc-state-default a { color: #FFF; }
-#schedule .fc-state-default .fc-text-arrow { line-height: 0; }
+#schedule .fc-state-default .fc-text-arrow { display: block; height: 0.85em; line-height: 0.85em; }
 #schedule .fc-view > div > div:last-child { overflow-y: hidden !important; }
+#schedule .fc-event { color: #222; cursor: pointer; }
 
 footer { padding: 0 40px 3em; text-align: right; }
 @media only screen and (max-width: 768px) { footer { text-align: center; } }
