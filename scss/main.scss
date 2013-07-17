@@ -1,5 +1,5 @@
 $bodyTextColor: #FFF;
-$primaryColor: #D41;
+$primaryColor: #DD4411;
 $darkPrimaryColor: darken($primaryColor, 10%);
 $secondaryColor: $primaryColor;//#3FA85E;
 $pageWidth: 1080px;
@@ -17,7 +17,7 @@ $nexusBreakpoint: 480px;
     text-align: center;
 }
 
-@mixin main-gradient {
+@mixin main-gradient($hasRoundedBorders: false) {
     $lightGradient: lighten($secondaryColor, 10%);
     $gradientChangePoint: 60%;
     background: $secondaryColor;
@@ -26,11 +26,18 @@ $nexusBreakpoint: 480px;
     background: -o-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
     background: -ms-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
     background: linear-gradient(to bottom,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0,startColorstr='#{$secondaryColor}', endColorstr='#{$lightGradient}' );
+
+    @if $hasRoundedBorders {
+        .lt-ie10 & {
+            background: $secondaryColor;
+            filter: progid:DXImageTransform.Microsoft.gradient( enabled=false );
+        }
+    }
 }
 
-@mixin content-with-gradient {
-    @include main-gradient;
+@mixin content-with-gradient($hasRoundedBorders: false) {
+    @include main-gradient($hasRoundedBorders);
     $color: #FFF;
     color: $color;
     box-shadow: 0 1px 2px rgba(#000,0.4);
@@ -43,6 +50,23 @@ $nexusBreakpoint: 480px;
 
 html {
     font-size: 10px;
+
+    &.lt-ie9 {
+        body {
+            background: none;
+        }
+
+        .chromeframe {
+            color: #222;
+            font-size: 2em;
+            margin: 2em auto;
+            width: 60%;
+        }
+
+        .pageContainer {
+            display: none;
+        }
+    }
 }
 
 body {
@@ -101,7 +125,7 @@ dl {
 
 button,
 .button {
-    @include content-with-gradient;
+    @include content-with-gradient(true);
     border-radius: 5px;
     border: none;
     box-shadow: none;
@@ -252,7 +276,8 @@ $sectionMargin: 3em 0;
     .signaturesBlock {
         > div {
             float: left;
-            font-size: (12em / 14);
+            font-size: (6em / 7);
+            line-height: 1.75em;
             text-align: center;
             width: 33%;
 
@@ -260,6 +285,17 @@ $sectionMargin: 3em 0;
                 margin-bottom: 2em;
                 width: 100%;
             }
+        }
+
+        img {
+            border-radius: 5px;
+            height: 75px;
+            margin-bottom: 1em;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: (7em / 6);
         }
     }
 }
@@ -313,7 +349,7 @@ $sectionMargin: 3em 0;
     }
 
     .fc-state-default {
-        @include content-with-gradient;
+        @include content-with-gradient(true);
         background-repeat: repeat-x;
 
         .fc-text-arrow {
