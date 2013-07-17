@@ -219,12 +219,27 @@ $sectionMargin: 3em 0;
     margin: $sectionMargin;
 }
 
-#questions {
-    margin: $sectionMargin;
+#about {
+    text-align: left;
 
-    > header h1 {
+    h2 {
         color: $secondaryColor;
         font-size: 2em;
+        text-align: center;
+    }
+    
+    ul {
+        list-style: disc;
+        padding: 0 4px;
+    }
+    
+    .signaturesBlock {
+        > div {
+            float: left;
+            font-size: (12em / 14);
+            text-align: center;
+            width: 33%;
+        }
     }
 }
 
