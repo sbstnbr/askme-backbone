@@ -11,6 +11,30 @@ $nexusBreakpoint: 480px;
 @import '_modal';
 @import '_event';
 
+@mixin main-gradient {
+    $lightGradient: lighten($secondaryColor, 10%);
+    $gradientChangePoint: 60%;
+    background: $secondaryColor;
+    background: -moz-linear-gradient(top,  $secondaryColor 0%, $secondaryColor $gradientChangePoint, $lightGradient 100%);
+    background: -webkit-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
+    background: -o-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
+    background: -ms-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
+    background: linear-gradient(to bottom,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 );
+}
+
+@mixin content-with-gradient {
+    @include main-gradient;
+    $color: #FFF;
+    color: $color;
+    box-shadow: 0 1px 2px rgba(#000,0.4);
+    text-shadow: 0 1px 1px darken($color, 60%);
+
+    a {
+        color: #FFF;
+    }
+}
+
 html {
     font-size: 10px;
 }
@@ -176,23 +200,11 @@ $contentPaddingSides: 40px;
     }
 }
 
-$textColor: #FFF;
-$lightGradient: lighten($secondaryColor, 10%);
-$gradientChangePoint: 60%;
 .mainMenu ul {
-    background: $secondaryColor;
-    background: -moz-linear-gradient(top,  $secondaryColor 0%, $secondaryColor $gradientChangePoint, $lightGradient 100%);
-    background: -webkit-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
-    background: -o-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
-    background: -ms-linear-gradient(top,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
-    background: linear-gradient(to bottom,  $secondaryColor 0%,$secondaryColor $gradientChangePoint,$lightGradient 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$secondaryColor', endColorstr='$lightGradient',GradientType=0 );
-
-    box-shadow: 0 1px 2px rgba(#000,0.4);
+    @include content-with-gradient;
     font-size: 1.5em;
     font-weight: bold;
     line-height: 2em;
-    text-shadow: 0 1px 1px darken($textColor, 60%);
     width: 100%;
 
     li {
@@ -203,7 +215,6 @@ $gradientChangePoint: 60%;
         }
 
         a {
-            color: $textColor;
             display: block;
         }
 
@@ -266,16 +277,12 @@ $sectionMargin: 3em 0;
     }
 
     .fc-state-default {
-        background: #ffffff;
-        background: -moz-linear-gradient(top,  #ffffff 0%, $secondaryColor 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,$secondaryColor));
-        background: -webkit-linear-gradient(top,  #ffffff 0%,$secondaryColor 100%);
-        background: -o-linear-gradient(top,  #ffffff 0%,$secondaryColor 100%);
-        background: -ms-linear-gradient(top,  #ffffff 0%,$secondaryColor 100%);
-        background: linear-gradient(to bottom,  #ffffff 0%,$secondaryColor 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='$secondaryColor',GradientType=0 );
-
+        @include content-with-gradient;
         background-repeat: repeat-x;
+
+        .fc-text-arrow {
+            line-height: 0;
+        }
     }
 
     .fc-view > div > div:last-child {
