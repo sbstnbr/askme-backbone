@@ -236,7 +236,7 @@ $contentPaddingSides: 40px;
         max-width: 100%;
 
         section {
-            margin-bottom: 3em;
+            margin-bottom: 5em;
         }
     }
 }
@@ -264,11 +264,6 @@ $contentPaddingSides: 40px;
             width: 100%;
         }
     }
-}
-
-$sectionMargin: 3em 0;
-#cube {
-    margin: $sectionMargin;
 }
 
 #about {
@@ -307,7 +302,7 @@ $sectionMargin: 3em 0;
 }
 
 #schedule {
-    margin: $sectionMargin;
+    margin: 0 0 3em;
 
     .fc-header {
         background: none;

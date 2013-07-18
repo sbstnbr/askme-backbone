@@ -17,6 +17,7 @@ define([
 
             if (!!$hiddenSections.length) {
                 $hiddenSections.removeClass('hidden');
+                $('#schedule').children('h2, p').addClass('hidden');
             } else {
                 this.$el.html(this.template({}));
 
@@ -36,6 +37,7 @@ define([
                 this.render();
             }
             this.$el.children('[id!=schedule]').addClass('hidden');
+            $('#schedule').children('.hidden').removeClass('hidden');
         }
     });
 });
