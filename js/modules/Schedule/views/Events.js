@@ -69,9 +69,6 @@ define([
                     element.find('.fc-event-inner').html(
                         eventTemplate({ model: attrs })
                     );
-                },
-                eventAfterAllRender: function(view) {
-                    console.log(view);
                 }
            });
 

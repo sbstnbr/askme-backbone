@@ -13,16 +13,29 @@ define([
         template: _.template(IndexTemplate),
 
         render: function() {
-            this.$el.html(this.template({}));
+            var $hiddenSections = this.$el.children('.hidden');
 
-            ScheduleController.initialize();
+            if (!!$hiddenSections.length) {
+                $hiddenSections.removeClass('hidden');
+            } else {
+                this.$el.html(this.template({}));
 
-            var $window = $(window);
-            $window.on('resize.app', function() {
-                ScheduleController.adjustOnResize( {width: $window.width()} );
-            });
+                ScheduleController.initialize();
+
+                var $window = $(window);
+                $window.on('resize.app', function() {
+                    ScheduleController.adjustOnResize( {width: $window.width()} );
+                });
+            }
 
             return this;
+        },
+
+        showOnlySchedule: function() {
+            if (this.$el.html() === '') {
+                this.render();
+            }
+            this.$el.children('[id!=schedule]').addClass('hidden');
         }
     });
 });

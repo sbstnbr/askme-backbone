@@ -10,12 +10,18 @@ define([
 
     var initialize = function() {
 
-        var appView = new AppView();
+        var appView = new AppView;
+        var indexView = new IndexView;
 
         var appRouter = new (Backbone.Router.extend({
             routes: {
+                'schedule(/)': 'schedules',
                 'questions(/)': 'questions',
                 '(*actions)(/)': 'defaultAction'
+            },
+
+            schedules: function() {
+                indexView.showOnlySchedule();
             },
 
             questions: function() {
@@ -23,7 +29,7 @@ define([
             },
 
             defaultAction: function(actions) {
-                (new IndexView).render();
+                indexView.render();
             }
         }));
 
