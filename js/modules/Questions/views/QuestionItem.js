@@ -14,8 +14,29 @@ define([
             this.$el
                 .attr('id', 'question-' + this.model.id)
                 .addClass('questionItem' + highlightedClass)
-                .html(this.template(this.model));
+                .html(this.template(this.model.attributes));
             return this;
+        },
+
+        events: {
+            'click button.votePositive' : 'addOneVote'
+        },
+
+        addOneVote: function(evt) {
+            var id = $(evt.currentTarget).data("id");
+            this.model.save(
+                {
+                    action: 'vote'
+                },
+                {
+                    success: function(model, response, options) {
+                        $('#question-' + response.id + ' .votes > .count').html(response.votes);
+                    },
+                    error: function(model, xhr, options) {
+                        console.log('Error on voting');
+                    }
+                }
+            );
         }
     });
 });

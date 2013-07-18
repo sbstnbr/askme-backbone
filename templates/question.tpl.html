@@ -1,5 +1,5 @@
 <div class="question"><%= question %></div>
 <div class="votingWrapper">
-    <a class="votePositive button" href="/#/question/<%= id %>/vote" title="Vote">&#10004;</a>
-    <div class="votes"><%= votes %> vote<% if (votes !== "1") print("s") %></div>
+    <button class="votePositive" data-id="<%= id %>" title="Vote">&#10004;</button>
+    <div class="votes"><span class="count"><%= votes %></span> vote<% if (votes !== "1") print("s") %></div>
 </div>
