@@ -160,7 +160,7 @@ input[type=radio] {
 
 $contentPaddingSides: 40px;
 .pageContainer {
-    background-color: rgba(#000, 0.6);
+    background-color: rgba(#000, 0.75);
     box-shadow: 0 0 1px rgba(#000,0.6);
     height: 100%;
     margin: 0 auto;
@@ -443,5 +443,6 @@ footer {
 
     img {
         height: 125px;
+        margin-bottom: 1.5em;
     }
 }

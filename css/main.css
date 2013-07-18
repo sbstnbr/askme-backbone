@@ -55,7 +55,7 @@ label.radio { display: inline; margin-right: 3.5ex; }
 
 input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
-.pageContainer { background-color: rgba(0, 0, 0, 0.6); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
+.pageContainer { background-color: rgba(0, 0, 0, 0.75); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
 .pageContainer > header { display: table; }
 .pageContainer > header h1 { background: #000; color: #dd4411; display: table-row; font: 900 2.5em/1.25em "Rotis Sans Serif","Helvetica Neue",Helvetica; width: 100%; }
 .pageContainer > header h1 .logoWrapper { text-align: left; }
@@ -120,4 +120,4 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #questions .listing .votingWrapper .votes { font-size: 0.9em; }
 
 footer { margin: 3em 0 0; padding: 3em 40px; text-align: center; }
-footer img { height: 125px; }
+footer img { height: 125px; margin-bottom: 1.5em; }
