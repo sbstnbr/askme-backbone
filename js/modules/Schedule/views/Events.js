@@ -56,6 +56,8 @@ define([
                     eventDetails.render();
                 }
            });
+
+           return this;
         },
 
         eventDropOrResize: function(event, allDay, revertFunc) {

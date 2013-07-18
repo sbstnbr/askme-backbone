@@ -25,6 +25,8 @@ define([
             this.$el
                 .html(this.template(this.options.event))
                 .parents('.modal:first').removeClass('hidden');
+
+            return this;
         }
     });
 });

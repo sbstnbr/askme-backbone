@@ -21,6 +21,8 @@ define([
             $window.on('resize.app', function() {
                 ScheduleController.adjustOnResize( {width: $window.width()} );
             });
+
+            return this;
         }
     });
 });

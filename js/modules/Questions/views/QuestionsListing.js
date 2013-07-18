@@ -11,12 +11,12 @@ define([
 
         template: _.template(QuestionTemplate),
 
-        initialize: function() {
+        render: function() {
             var that = this;
             this.collection.fetch({
                 reset: true,
                 success: function(model, response, options) {
-                    that.render(model.toJSON());
+                    that.addAll(model.toJSON());
                 },
                 error : function(model, response, options) {
                     console.log('Error loading questions from server');
@@ -24,12 +24,15 @@ define([
             });
         },
 
-        render: function(json) {
-            json || (json = []);
+        addAll: function(collection) {
             this.$el.html('');
-            _.each(json, function(questionEntry, i) {
-                this.$el.append(this.template(questionEntry));
+            _.each(collection, function(model) {
+                this.addOne(model);
             }, this);
+        },
+
+        addOne: function(model) {
+            this.$el.append(this.template(model));
         }
     });
 });

@@ -1,7 +1,8 @@
 define([
     'underscore',
-    'backbone'
-], function(_, Backbone) {
+    'backbone',
+    'modules/Questions/views/QuestionsListing'
+], function(_, Backbone, QuestionsView) {
     'use strict';
 
     return Backbone.View.extend({
@@ -17,10 +18,15 @@ define([
                     question: this.$('input[name=question]').val()
                 },
                 {
-                    success: function() {
-                        // display question
+                    success: function(model, response, options) {
+                        var model = {
+                            id: response.id,
+                            question: model.attributes.question,
+                            votes: 0
+                        };
+                        // display added model
                     },
-                    error: function() {
+                    error: function(model, xhr, options) {
                         console.log('Error saving question');
                     }
                 }

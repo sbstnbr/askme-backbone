@@ -21,6 +21,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $query = "INSERT INTO question (question) VALUES ('{$question}')";
             if (mysqli_query($conn, $query)) {
                 $result->success = true;
+                $result->id = mysqli_insert_id($conn);
             }
         }
 
