@@ -18,7 +18,7 @@ define([
                 },
                 {
                     success: function() {
-                        console.log('saved successfully');
+                        // display question
                     },
                     error: function() {
                         console.log('Error saving question');

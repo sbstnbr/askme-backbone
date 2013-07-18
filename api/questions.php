@@ -1,15 +1,32 @@
 <?php
-//header('Content-type: application/json');
+header('Content-type: application/json');
 
 require_once 'mysql-connection.php';
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
         $result = (object)array(
-            'success' => true
+            'success' => false
         );
-        $json = json_encode();
+
+        $data = json_decode(file_get_contents('php://input'));
+        $question = trim($data->question);
+
+        if ($question) {
+            $question = mysqli_real_escape_string(
+                $conn,
+                htmlspecialchars($question)
+            );
+
+            $query = "INSERT INTO question (question) VALUES ('{$question}')";
+            if (mysqli_query($conn, $query)) {
+                $result->success = true;
+            }
+        }
+
+        $json = json_encode($result);
         break;
+
     case 'GET':
     default:
         $questions = array();
