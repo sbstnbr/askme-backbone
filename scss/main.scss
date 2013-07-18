@@ -439,11 +439,7 @@ $width: 90%;
 footer {
     margin: 3em 0 0;
     padding: 3em $contentPaddingSides;
-    text-align: right;
-
-    @include respond-to(max-width, $tabletBreakpoint) {
-        text-align: center;
-    }
+    text-align: center;
 
     img {
         height: 125px;

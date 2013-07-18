@@ -119,6 +119,5 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #questions .listing .votingWrapper .votePositive { height: 1.5em; line-height: 1.5em; margin: 0; padding: 0; width: 3ex; }
 #questions .listing .votingWrapper .votes { font-size: 0.9em; }
 
-footer { margin: 3em 0 0; padding: 3em 40px; text-align: right; }
-@media only screen and (max-width: 768px) { footer { text-align: center; } }
+footer { margin: 3em 0 0; padding: 3em 40px; text-align: center; }
 footer img { height: 125px; }
