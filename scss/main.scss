@@ -329,7 +329,7 @@ $sectionMargin: 3em 0;
     }
 
     .fc-agenda-slots td div {
-        height: 3.0em;
+        height: 4em;
     }
 
     .fc-content {
@@ -343,8 +343,13 @@ $sectionMargin: 3em 0;
             }
         }
 
-        .fc-event-vert .fc-event-time {
-            font-size: inherit;
+        .fc-event {
+            color: #222;
+            cursor: pointer;
+        }
+
+        .fc-event-inner {
+            padding: 0.25em 0.75ex;
         }
 
         .fc-event-title {
@@ -353,6 +358,12 @@ $sectionMargin: 3em 0;
 
         .fc-event-presenters {
             font-style: italic;
+        }
+
+        .fc-event-presenters,
+        .fc-event-location,
+        .fc-event-time {
+            font-size: (6em/7);
         }
     }
 
@@ -369,11 +380,6 @@ $sectionMargin: 3em 0;
 
     .fc-view > div > div:last-child {
         overflow-y: hidden !important;
-    }
-
-    .fc-event {
-        color: #222;
-        cursor: pointer;
     }
 }
 
