@@ -20,11 +20,15 @@ define([
                 {
                     success: function(model, response, options) {
                         var model = {
-                            id: response.id,
-                            question: model.attributes.question,
-                            votes: 0
-                        };
-                        // display added model
+                                id: response.id,
+                                question: model.attributes.question,
+                                votes: 0
+                            },
+                            questionsView = new QuestionsView({ el: $('#questions > .listing') });
+
+                        questionsView.addOne(model, true);
+                        $('html, body').animate({ scrollTop: $(document).height() }, 250);
+                        $('#question-' + model.id).removeClass('highlighted');
                     },
                     error: function(model, xhr, options) {
                         console.log('Error saving question');

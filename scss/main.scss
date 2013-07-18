@@ -42,6 +42,12 @@ $nexusBreakpoint: 480px;
     }
 }
 
+@mixin transition($property, $time, $timingFunction) {
+    -moz-transition: $property $time $timingFunction;
+    -webkit-transition: $property $time $timingFunction;
+    transition: $property $time $timingFunction;
+}
+
 html {
     font-size: 10px;
 
@@ -397,6 +403,11 @@ $width: 90%;
             border-radius: 7px;
             margin: 1em 0 0;
             padding: 0.5em 3ex;
+            @include transition(background, 1s, ease-out);
+
+            &.highlighted {
+                background: lighten($primaryColor, 20%);
+            }
         }
 
         .question {

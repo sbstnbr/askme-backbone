@@ -1,15 +1,11 @@
 define([
     'underscore',
     'backbone',
-    'text!/templates/question.tpl.html'
-], function(_, Backbone, QuestionTemplate) {
+    'modules/Questions/views/QuestionItem'
+], function(_, Backbone, QuestionItemView) {
     'use strict';
 
     return Backbone.View.extend({
-
-        el: $('#questions listing'),
-
-        template: _.template(QuestionTemplate),
 
         render: function() {
             var that = this;
@@ -29,10 +25,16 @@ define([
             _.each(collection, function(model) {
                 this.addOne(model);
             }, this);
-        },
 
-        addOne: function(model) {
-            this.$el.append(this.template(model));
+            return this;
+        },
+        addOne: function(model, highlighted) {
+
+            highlighted || (highlighted = false);
+            var questionItemView = new QuestionItemView({ model: model, highlighted: highlighted });
+            this.$el.append(questionItemView.render().$el);
+
+            return this;
         }
     });
 });
