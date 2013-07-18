@@ -95,11 +95,13 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 #schedule .fc-header td { vertical-align: middle; }
 #schedule .fc-header-title > h2 { color: #dd4411; font-size: 2em; }
 @media only screen and (max-width: 480px) { #schedule .fc-header-title > h2 { font-size: 1.75em; white-space: normal; } }
+#schedule .fc-agenda-slots td div { height: 3.0em; }
 #schedule .fc-content { font-size: 1.14286em; }
 #schedule .fc-content table { border-radius: 3px; }
 #schedule .fc-content table thead { text-indent: -999em; }
 #schedule .fc-content .fc-event-vert .fc-event-time { font-size: inherit; }
 #schedule .fc-content .fc-event-title { font-weight: bold; }
+#schedule .fc-content .fc-event-presenters { font-style: italic; }
 #schedule .fc-state-default { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#dd4411', endColorstr='#ef6132' ); color: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); text-shadow: 0 1px 1px #666666; background-repeat: repeat-x; }
 .lt-ie10 #schedule .fc-state-default { background: #dd4411; filter: progid:DXImageTransform.Microsoft.gradient(enabled=false ); }
 #schedule .fc-state-default a { color: #FFF; }

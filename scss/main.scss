@@ -328,6 +328,10 @@ $sectionMargin: 3em 0;
         }
     }
 
+    .fc-agenda-slots td div {
+        height: 3.0em;
+    }
+
     .fc-content {
         font-size: (8em/7);
 
@@ -345,6 +349,10 @@ $sectionMargin: 3em 0;
 
         .fc-event-title {
             font-weight: bold;
+        }
+
+        .fc-event-presenters {
+            font-style: italic;
         }
     }
 

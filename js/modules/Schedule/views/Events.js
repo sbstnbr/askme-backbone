@@ -2,9 +2,10 @@ define([
     'underscore',
     'backbone',
     'modules/Schedule/views/EventDetails',
+    'text!/templates/event.tpl.html',
     'lib/breakpoints',
     'fullcalendar'
-], function(_, Backbone, EventDetails, Breakpoint) {
+], function(_, Backbone, EventDetails, EventTemplate, Breakpoint) {
     'use strict';
 
     var _isTabletViewport = function(width) {
@@ -32,7 +33,9 @@ define([
         render: function() {
             var today = new Date(),
                 wsFirst = new Date(2013, 6, 22),
-                minDate = (wsFirst > today) ? wsFirst : today;
+                minDate = (wsFirst > today) ? wsFirst : today,
+                eventTemplate = _.template(EventTemplate),
+                timeFormat = 'h:mm';
             this.$el.fullCalendar({
                 date: minDate.getDate(),
                 month: minDate.getMonth(),
@@ -49,11 +52,23 @@ define([
                 ignoreTimezone: false,
                 minTime: 8,
                 maxTime: 22,
-                height: 999,
+                height: 9999,
                 allDaySlot: false,
                 eventClick: function(event) {
                     var eventDetails = new EventDetails({ event: $.extend({}, event) });
                     eventDetails.render();
+                },
+                eventAfterRender: function(event, element) {
+                    var attrs = {
+                        title: event.title,
+                        start: $.fullCalendar.formatDate(event.start, timeFormat),
+                        end: $.fullCalendar.formatDate(event.end, timeFormat),
+                        location: event.location,
+                        presenters: event.presenters
+                    };
+                    element.find('.fc-event-inner').html(
+                        eventTemplate({ model: attrs })
+                    );
                 }
            });
 

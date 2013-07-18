@@ -14,16 +14,18 @@
         <dd><%= location %></dd>
         <dt>Presenters</dt>
         <%
-            var str = "",
-                glue = ", ";
+            var str = "";
             _.each(presenters, function(presenter, i) {
-                if (i === presenters.length - 1) {
-                    glue = " & ";
-                }
-                str = str + glue + presenter.name;
+                str = str + ", " + presenter.name;
             });
+            var index = str.lastIndexOf(",");
+            if (index > 0) {
+                str = str.substring(2, index + 1) + " &" + str.substr(index + 1);
+            } else {
+                str = str.substring(2);
+            }
         %>
-        <dd><%= str.substring(2) %></dd>
+        <dd><%= str %></dd>
     </dl>
     <div><%= description %></div>
 </section>

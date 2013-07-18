@@ -1,0 +1,16 @@
+<div class="fc-event-location"><%= model.location %></div>
+<div class="fc-event-time"><%= model.start %> - <%= model.end %></div>
+<div class="fc-event-title"><%= model.title %></div>
+<div class="fc-event-presenters"><%
+    var str = "";
+    _.each(model.presenters, function(presenter, i) {
+        str = str + ", " + presenter.name;
+    });
+    var index = str.lastIndexOf(",");
+    if (index > 0) {
+        str = str.substring(2, index + 1) + " &" + str.substr(index + 1);
+    } else {
+        str = str.substring(2);
+    }
+    print(str);
+%></div>
