@@ -231,14 +231,6 @@ $contentPaddingSides: 40px;
 
 .contentWrapper {
     padding: 3em $contentPaddingSides 1.5em;
-
-    > .row {
-        max-width: 100%;
-
-        section {
-            margin-bottom: 5em;
-        }
-    }
 }
 
 .mainMenu ul {
@@ -276,7 +268,7 @@ $contentPaddingSides: 40px;
 
     .signaturesBlock {
         > div {
-            float: left;
+            display: inline-block;
             font-size: (6em / 7);
             line-height: 1.75em;
             text-align: center;
@@ -299,6 +291,10 @@ $contentPaddingSides: 40px;
             font-size: (7em / 6);
         }
     }
+}
+
+#about {
+    margin-bottom: 5em;
 }
 
 #schedule {
