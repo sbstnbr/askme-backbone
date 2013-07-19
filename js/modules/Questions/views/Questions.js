@@ -1,7 +1,7 @@
 define([
     'underscore',
     'backbone',
-    'text!/templates/questions-section.tpl.html',
+    'text!../../../../templates/questions-section.tpl.html',
     'modules/Questions/models/Question',
     'modules/Questions/collections/Questions',
     'modules/Questions/views/QuestionsListing',

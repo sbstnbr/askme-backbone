@@ -1,7 +1,7 @@
 define([
     'underscore',
     'backbone',
-    'text!/templates/index.tpl.html',
+    'text!../../templates/index.tpl.html',
     'modules/Schedule/controller'
 ], function(_, Backbone, IndexTemplate, ScheduleController) {
     'use strict';

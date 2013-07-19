@@ -2,7 +2,7 @@ define([
     'underscore',
     'backbone',
     'modules/Schedule/views/EventDetails',
-    'text!/templates/event.tpl.html',
+    'text!../../../../templates/event.tpl.html',
     'lib/breakpoints',
     'fullcalendar'
 ], function(_, Backbone, EventDetails, EventTemplate, Breakpoint) {

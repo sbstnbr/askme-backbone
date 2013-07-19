@@ -3,8 +3,6 @@ require.config({
         text: 'vendor/text',
         modernizr: 'vendor/custom.modernizr',
         jquery: 'vendor/jquery',
-        foundation: 'foundation/foundation',
-        'foundation.reveal': 'foundation/foundation.reveal',
         underscore: 'vendor/underscore',
         backbone: 'vendor/backbone',
         fullcalendar: 'vendor/fullcalendar',
@@ -18,15 +16,6 @@ require.config({
         backbone: {
             deps: ['jquery', 'underscore'],
             exports: 'Backbone'
-        },
-        foundation: {
-            deps: ['jquery']
-        },
-        'foundation.reveal': {
-            deps: ['foundation']
-        },
-        fullcalendar: {
-            deps: ['jquery']
         }
     }
 });

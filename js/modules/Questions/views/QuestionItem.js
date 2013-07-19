@@ -1,7 +1,7 @@
 define([
     'underscore',
     'backbone',
-    'text!/templates/question.tpl.html'
+    'text!../../../../templates/question.tpl.html'
 ], function(_, Backbone, QuestionTemplate) {
     'use strict';
 

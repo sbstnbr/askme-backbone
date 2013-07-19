@@ -1,7 +1,7 @@
 define([
     'underscore',
     'backbone',
-    'text!/templates/event-details.tpl.html'
+    'text!../../../../templates/event-details.tpl.html'
 ], function(_, Backbone, EventDetailsTemplate) {
     'use strict';
 
