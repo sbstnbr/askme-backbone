@@ -22,6 +22,16 @@
 #editEvent > dl.attendees dd.attendee { border: 1px solid #DDD; border-radius: 3px; float: left; margin: 0 0 1em 3ex; padding: 0.5em 1ex; position: relative; width: 35ex; }
 #editEvent > dl.attendees dd.attendee button.close { border-radius: 100px 100px 100px 100px; height: 0; line-height: 0; padding: 0.5em 1.25ex 0.75em; position: absolute; right: -3.25ex; top: -0.75em; width: 0; }
 
+html, body { height: 100%; }
+
+#yj-embed { background-color: #FFF; border-radius: 10px; margin: 0 auto; text-align: left; width: 75%; }
+@media only screen and (max-width: 800px) { #yj-embed { width: 100%; } }
+#yj-embed .yj-component .yj-btn { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#dd4411', endColorstr='#ef6132' ); }
+#yj-embed .yj-hd { border-radius: 5px 5px 0 0; }
+#yj-embed .yj-hd h3 { background-color: #dd4411 !important; border-top: 0; border-left: 0; border-right: 0; border-radius: 5px 5px 0 0; text-align: center; }
+#yj-embed .yj-hd .yj-publisher-textarea.yj-auto-width-fake-textarea { height: 3em; }
+#yj-embed .yj-ft { border-radius: 0 0 5px 5px; }
+
 html { font-size: 10px; }
 html.lt-ie9 body { background: none; }
 html.lt-ie9 .chromeframe { color: #222; font-size: 2em; margin: 2em auto; width: 60%; }

@@ -30,6 +30,8 @@ $nexusBreakpoint: 480px;
     }
 }
 
+@import '_yammer';
+
 @mixin content-with-gradient($hasRoundedBorders: false) {
     @include main-gradient($hasRoundedBorders);
     $color: #FFF;

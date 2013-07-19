@@ -16,6 +16,15 @@
     <link rel="stylesheet" href="css/main.css" />
     
     <script src="js/vendor/mustache.js"></script>
+    <script src="js/vendor/zepto.js"></script>
+    <script>
+        fixHeight = setInterval(
+            function() {
+                $('html,body,.pageContainer').height($('body').prop('scrollHeight'));
+            },
+            50
+        );
+    </script>
 </head>
 <body>
     <!--[if lt IE 9]>
@@ -53,11 +62,16 @@
             <section id="feed">
                 <h2>What are people saying about the workshop?</h2>
                 <script data-app-id="hyB2pTvrL36Y50py8EWj6A" src="https://assets.yammer.com/platform/yam.js"></script>
-                <script> yam.connect.embedFeed({
-                    container: "#embedded-feed",
-                    network: "accenture.com",
-                    feedType: "group",
-                    feedId: "2286518"});
+                <script>
+                    yam.connect.embedFeed({
+                        container: "#embedded-feed",
+                        network: "accenture.com",
+                        feedType: "group",
+                        feedId: "2286518"
+                    });
+                    yam.on('/embed/feed/loadingCompleted', function() {
+                        setTimeout(function() { clearInterval(fixHeight); }, 5000);
+                    });
                 </script>
                 <div id="embedded-feed"></div>
             </section>
