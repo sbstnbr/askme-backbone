@@ -26,6 +26,7 @@ define([
                 var $window = $(window);
                 $window.on('resize.app', function() {
                     ScheduleController.adjustOnResize( {width: $window.width()} );
+                    $('html,body').css('background-size', 'cover');
                 });
             }
 

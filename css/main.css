@@ -37,10 +37,14 @@ html.lt-ie9 body { background: none; }
 html.lt-ie9 .chromeframe { color: #222; font-size: 2em; margin: 2em auto; width: 60%; }
 html.lt-ie9 .pageContainer { display: none; }
 
-body { background: url(../img/background.jpg) no-repeat center center; background-size: cover; color: white; font-size: 1.4em; height: 100%; line-height: 1.5em; text-align: center; }
+body { color: white; font-size: 1.4em; height: 100%; line-height: 1.5em; text-align: center; }
 body.no-scroll { overflow-y: hidden; }
 
-h2 { color: #dd4411; font-size: 2em; text-align: center; }
+.mainBackground { background: url(../img/background.jpg) no-repeat center center; background-size: cover; height: 100%; position: fixed; width: 100%; z-index: -2; }
+
+h2, h3 { color: #dd4411; font-size: 2em; text-align: center; }
+
+h3 { font-size: 1.5em; }
 
 a { color: #dd4411; }
 a:hover, a:focus { color: #ae350d; }
@@ -65,7 +69,7 @@ label.radio { display: inline; margin-right: 3.5ex; }
 
 input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
-.pageContainer { background-color: rgba(0, 0, 0, 0.75); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); height: 100%; margin: 0 auto; padding: 0; width: 1080px; }
+.pageContainer { background-color: rgba(0, 0, 0, 0.75); box-shadow: 0 0 1px rgba(0, 0, 0, 0.6); margin: 0 auto; min-height: 100%; padding: 0; width: 1080px; }
 .pageContainer > header { display: table; }
 .pageContainer > header h1 { background: #000; color: #dd4411; display: table-row; font: 900 2.5em/1.25em "Rotis Sans Serif","Helvetica Neue",Helvetica; width: 100%; }
 .pageContainer > header h1 .logoWrapper { text-align: left; }
@@ -82,12 +86,20 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
 .contentWrapper { padding: 3em 40px 1.5em; }
 
-.mainMenu ul { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#dd4411', endColorstr='#ef6132' ); color: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); text-shadow: 0 1px 1px #666666; font-size: 1.5em; font-weight: bold; line-height: 2em; width: 100%; }
-.mainMenu ul a { color: #FFF; }
-.mainMenu ul li { background-color: rgba(255, 255, 255, 0); }
-.mainMenu ul li:hover { background-color: rgba(255, 255, 255, 0.12); }
-.mainMenu ul li a { display: block; }
-@media only screen and (max-width: 480px) { .mainMenu ul li { display: block; width: 100%; } }
+.mainMenu { background: #dd4411; background: -moz-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -webkit-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -o-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: -ms-linear-gradient(top, #dd4411 0%, #dd4411 60%, #ef6132 100%); background: linear-gradient(to bottom, #dd4411 0%, #dd4411 60%, #ef6132 100%); filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#dd4411', endColorstr='#ef6132' ); color: white; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); text-shadow: 0 1px 1px #666666; font-size: 1.5em; font-weight: bold; width: 100%; }
+.mainMenu a { color: #FFF; }
+.mainMenu .menuToggleWrapper { display: none; margin-right: 0.5em; text-align: right; }
+.mainMenu .menuToggleWrapper label { color: white; display: inline-block; font-weight: bold; font-size: 1em; vertical-align: middle; }
+.mainMenu .menuToggleWrapper button { background-color: transparent; border: 1px solid #ae350d; box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.5); border-radius: 3px; display: inline-block; height: 2em; margin: 1rem 0.5rem; padding: 0; width: 2em; vertical-align: middle; }
+.mainMenu .menuToggleWrapper button .icon-bar { background-color: #ae350d; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; display: block; height: 0.4rem; margin: 0.5rem 0.7rem; }
+@media only screen and (max-width: 800px) { .mainMenu .menuToggleWrapper { display: block; } }
+.mainMenu ul { height: auto; overflow: visible; }
+@media only screen and (max-width: 800px) { .mainMenu ul { position: absolute; background-color: #f06a3e; }
+  .mainMenu ul.collapsed { height: 0; overflow: hidden; } }
+.mainMenu ul li.columns { background-color: rgba(255, 255, 255, 0); line-height: 2em; }
+.mainMenu ul li.columns:hover { background-color: rgba(255, 255, 255, 0.12); }
+.mainMenu ul li.columns a { display: block; }
+@media only screen and (max-width: 800px) { .mainMenu ul li.columns { border-top: 1px solid #ae350d; display: block; padding: 0; width: 100%; } }
 
 #about { text-align: left; }
 #about ul { list-style: disc; padding: 0 4ex; }
@@ -132,3 +144,5 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 
 footer { margin: 3em 0 0; padding: 3em 40px; text-align: center; }
 footer img { height: 125px; margin-bottom: 1.5em; }
+footer h3 { margin-bottom: 0.25em; }
+footer .email { margin-left: 0.75ex; }

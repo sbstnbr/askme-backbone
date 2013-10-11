@@ -15,16 +15,8 @@
 
     <link rel="stylesheet" href="css/main.css" />
     
+    <!-- scripts required for Yammer -->
     <script src="js/vendor/mustache.js"></script>
-    <script src="js/vendor/zepto.js"></script>
-    <script>
-        fixHeight = setInterval(
-            function() {
-                $('html,body,.pageContainer').height($('body').prop('scrollHeight'));
-            },
-            50
-        );
-    </script>
 </head>
 <body>
     <!--[if lt IE 9]>
@@ -38,6 +30,8 @@
         </div>
     </div>
 
+    <div class="mainBackground"></div>
+
     <div class="pageContainer">
         <header>
             <a href="/#/">
@@ -50,11 +44,10 @@
         </header>
         <nav class="mainMenu">
             <ul class="row">
-                <li class="large-2 small-2 columns"><a href="/#/">Home</a></li>
-                <li class="large-3 small-3 columns"><a href="/#/schedule">Schedule</a></li>
-                <li class="large-2 small-2 columns"><a href="/social.html">Social</a></li>
-                <li class="large-3 small-3 columns"><a href="/#/questions">Ask</a></li>
-                <li class="large-2 small-2 columns"><a href="/cube" target="_blank">Cube</a></li>
+                <li class="large-3 small-3 columns"><a href="#/">Home</a></li>
+                <li class="large-3 small-3 columns"><a href="#/schedule">Schedule</a></li>
+                <li class="large-3 small-3 columns"><a href="social.html">Social</a></li>
+                <li class="large-3 small-3 columns"><a href="#/questions">Ask</a></li>
             </ul>
         </nav>
 
@@ -84,5 +77,11 @@
             </p>
         </footer>
     </div>
+    <script src="js/vendor/zepto.js"></script>
+    <script>
+        $('.pageContainer > header').load('templates/header.tpl.html');
+        $('.mainMenu').load('templates/main-menu.tpl.html');
+        $('.pageContainer > footer').load('templates/footer.tpl.html');
+    </script>
 </body>
 </html>

@@ -1,7 +1,10 @@
 define([
     'underscore',
-    'backbone'
-], function(_, Backbone) {
+    'backbone',
+    'text!../../templates/header.tpl.html',
+    'text!../../templates/main-menu.tpl.html',
+    'text!../../templates/footer.tpl.html'
+], function(_, Backbone, HeaderTpl, MainMenuTpl, FooterTpl) {
     'use strict';
 
     function _closeModal($modal) {
@@ -17,9 +20,29 @@ define([
         initialize: function() {
             $(window).bind('resize.app', _.bind(this.$el.resize, this));
 
+            this.renderGlobalElements();
             this.attachCloseDialog();
         },
+        
+        events: {
+            'click .mainMenu .menuToggle' : 'toggleMainMenu'
+        },
+        
+        toggleMainMenu: function() {
+            $('.mainMenu ul').toggleClass('collapsed');
+        },
 
+        renderGlobalElements: function() {
+            var headerTpl = _.template(HeaderTpl),
+                mainMenuTpl = _.template(MainMenuTpl),
+                footerTpl = _.template(FooterTpl);
+                
+            $('.pageContainer > header').html(headerTpl());
+            $('.mainMenu').html(mainMenuTpl());
+            $('.pageContainer > footer').html(footerTpl());
+            
+        },
+        
         attachCloseDialog: function() {
             var $closeButton = $('.modal button.close');
             $closeButton.on('click', function() {
