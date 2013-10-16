@@ -33,8 +33,23 @@
     <div class="mainBackground"></div>
 
     <div class="pageContainer">
-        <header></header>
-        <nav class="mainMenu"></nav>
+        <header>
+            <a href="/#/">
+                <h1>
+                    <div><img class="logo" src="img/accenture-logo-orange.png" alt="Accenture" /></div>
+                    <div class="title">2013 NA/LA Technology Architecture Workshop</div>
+                    <div><img class="highPerformanceLogo" src="img/high-performance-logo-orange.png" alt="High Performance. Delivered." /></div>
+                </h1>
+            </a>
+        </header>
+        <nav class="mainMenu">
+            <ul class="row">
+                <li class="large-3 small-3 columns"><a href="#/">Home</a></li>
+                <li class="large-3 small-3 columns"><a href="#/schedule">Schedule</a></li>
+                <li class="large-3 small-3 columns"><a href="social.html">Social</a></li>
+                <li class="large-3 small-3 columns"><a href="#/questions">Ask</a></li>
+            </ul>
+        </nav>
 
         <div class="contentWrapper">
             <section id="feed">
@@ -55,17 +70,17 @@
             </section>
         </div>
 
-        <footer></footer>
+        <footer>
+            <img class="owpLogo" src="img/acn-owp-logo.png" alt="Built with Accenture Open Web Platform" />
+            <p>Question/Comments/Issues please send to:<br />
+                <a href="mailto:AOWP.Support@accenture.com">AOWP.Support@accenture.com</a>
+            </p>
+        </footer>
     </div>
     <script src="js/vendor/zepto.js"></script>
     <script>
         $('.pageContainer > header').load('templates/header.tpl.html');
-        var $mainMenu = $('.mainMenu');
-        $mainMenu.load('templates/main-menu.tpl.html', function() {
-            $mainMenu.find('.menuToggle').on('click', function() {
-                $mainMenu.find('ul:first').toggleClass('collapsed');
-            });
-        });
+        $('.mainMenu').load('templates/main-menu.tpl.html');
         $('.pageContainer > footer').load('templates/footer.tpl.html');
     </script>
 </body>

@@ -92,14 +92,14 @@ input[type=radio] { margin: 0 0.5ex 0 0; vertical-align: text-bottom; }
 .mainMenu .menuToggleWrapper label { color: white; display: inline-block; font-weight: bold; font-size: 1em; vertical-align: middle; }
 .mainMenu .menuToggleWrapper button { background-color: transparent; border: 1px solid #ae350d; box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.5); border-radius: 3px; display: inline-block; height: 2em; margin: 1rem 0.5rem; padding: 0; width: 2em; vertical-align: middle; }
 .mainMenu .menuToggleWrapper button .icon-bar { background-color: #ae350d; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -o-box-sizing: border-box; box-sizing: border-box; display: block; height: 0.4rem; margin: 0.5rem 0.7rem; }
-@media only screen and (max-width: 800px) { .mainMenu .menuToggleWrapper { display: block; } }
+@media only screen and (max-width: 640px) { .mainMenu .menuToggleWrapper { display: block; } }
 .mainMenu ul { height: auto; overflow: visible; }
-@media only screen and (max-width: 800px) { .mainMenu ul { position: absolute; background-color: #f06a3e; }
+@media only screen and (max-width: 640px) { .mainMenu ul { position: absolute; background-color: #f06a3e; }
   .mainMenu ul.collapsed { height: 0; overflow: hidden; } }
 .mainMenu ul li.columns { background-color: rgba(255, 255, 255, 0); line-height: 2em; }
 .mainMenu ul li.columns:hover { background-color: rgba(255, 255, 255, 0.12); }
 .mainMenu ul li.columns a { display: block; }
-@media only screen and (max-width: 800px) { .mainMenu ul li.columns { border-top: 1px solid #ae350d; display: block; padding: 0; width: 100%; } }
+@media only screen and (max-width: 640px) { .mainMenu ul li.columns { border-top: 1px solid #ae350d; display: block; padding: 0; width: 100%; } }
 
 #about { text-align: left; }
 #about ul { list-style: disc; padding: 0 4ex; }

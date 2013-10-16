@@ -293,7 +293,7 @@ $contentPaddingSides: 40px;
             }
         }
 
-        @include respond-to(max-width, $nexusLandscapeBreakpoint) {
+        @include respond-to(max-width, $iPhone4Breakpoint) {
             display: block;
         }
     }
@@ -302,7 +302,7 @@ $contentPaddingSides: 40px;
         height: auto;
         overflow: visible;
 
-        @include respond-to(max-width, $nexusLandscapeBreakpoint) {
+        @include respond-to(max-width, $iPhone4Breakpoint) {
             position: absolute;
             background-color: $lightPrimaryColor;
 
@@ -324,7 +324,7 @@ $contentPaddingSides: 40px;
                 display: block;
             }
 
-            @include respond-to(max-width, $nexusLandscapeBreakpoint) {
+            @include respond-to(max-width, $iPhone4Breakpoint) {
                 border-top: 1px solid $darkPrimaryColor;
                 display: block;
                 padding: 0;
