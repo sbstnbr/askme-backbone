@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `subject` varchar(255) NOT NULL,
   `location` varchar(255) DEFAULT NULL,
   `description` varchar(1024) DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
