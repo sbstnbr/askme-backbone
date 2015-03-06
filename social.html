@@ -4,78 +4,77 @@
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 
 <head>
-	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
     <title>2013 NA/LA Technology Architecture Workshop</title>
 
-    <link rel="shortcut icon" href="favicon.ico?_=1" />
+    <link rel="shortcut icon" href="favicon.ico?_=1"/>
 
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/fonts.css"/>
+    <link rel="stylesheet" href="css/foundation.css"/>
 
-    <link rel="stylesheet" href="css/main.css" />
-    
+    <link rel="stylesheet" href="css/main.css"/>
+
     <!-- scripts required for Yammer -->
     <script src="js/vendor/mustache.js"></script>
 </head>
 <body>
-    <!--[if lt IE 9]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
+<!--[if lt IE 9]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
 
-    <div class="modal hidden">
-        <div class="dialog">
-            <button class="close"></button>
-            <div class="content"></div>
-        </div>
+<div class="modal hidden">
+    <div class="dialog">
+        <button class="close"></button>
+        <div class="content"></div>
     </div>
+</div>
 
-    <div class="mainBackground"></div>
+<div class="mainBackground"></div>
 
-    <div class="pageContainer">
-        <header>
-            <a href="/#/">
-                <h1>
-                    <div><img class="logo" src="img/accenture-logo-orange.png" alt="Accenture" /></div>
-                    <div class="title">2013 NA/LA Technology Architecture Workshop</div>
-                    <div><img class="highPerformanceLogo" src="img/high-performance-logo-orange.png" alt="High Performance. Delivered." /></div>
-                </h1>
-            </a>
-        </header>
-        <nav class="mainMenu">
-            <ul class="row">
-                <li class="large-3 small-3 columns"><a href="#/">Home</a></li>
-                <li class="large-3 small-3 columns"><a href="#/schedule">Schedule</a></li>
-                <li class="large-3 small-3 columns"><a href="social.html">Social</a></li>
-                <li class="large-3 small-3 columns"><a href="#/questions">Ask</a></li>
-            </ul>
-        </nav>
+<div class="pageContainer">
+    <header>
+        <a href="/#/">
+            <h1>
+                <div><img class="logo" src="img/accenture-logo-orange.png" alt="Accenture"/></div>
+                <div class="title">2013 NA/LA Technology Architecture Workshop</div>
+                <div><img class="highPerformanceLogo" src="img/high-performance-logo-orange.png"
+                          alt="High Performance. Delivered."/></div>
+            </h1>
+        </a>
+    </header>
+    <nav class="mainMenu">
+        <ul class="row">
+            <li class="large-3 small-3 columns"><a href="#/">Home</a></li>
+            <li class="large-3 small-3 columns"><a href="#/schedule">Schedule</a></li>
+            <li class="large-3 small-3 columns"><a href="social.html">Social</a></li>
+            <li class="large-3 small-3 columns"><a href="#/questions">Ask</a></li>
+        </ul>
+    </nav>
 
-        <div class="contentWrapper">
-            <section id="feed">
-                <h2>What are people saying about the workshop?</h2>
-                <script data-app-id="hyB2pTvrL36Y50py8EWj6A" src="https://assets.yammer.com/platform/yam.js"></script>
-                <script>
-                    yam.connect.embedFeed({
-                        container: "#embedded-feed",
-                        network: "accenture.com",
-                        feedType: "group",
-                        feedId: "2286518"
-                    });
-                    yam.on('/embed/feed/loadingCompleted', function() {
-                        setTimeout(function() { clearInterval(fixHeight); }, 5000);
-                    });
-                </script>
-                <div id="embedded-feed"></div>
-            </section>
-        </div>
-
-        <footer>
-            <img class="owpLogo" src="img/acn-owp-logo.png" alt="Built with Accenture Open Web Platform" />
-            <p>Question/Comments/Issues please send to:<br />
-                <a href="mailto:AOWP.Support@accenture.com">AOWP.Support@accenture.com</a>
-            </p>
-        </footer>
+    <div class="contentWrapper">
+        <section id="feed">
+            <h2>What are people saying about the workshop?</h2>
+            <br/>
+            <script type="text/javascript" src="https://c64.assets-yammer.com/assets/platform_embed.js"></script>
+            <div id="embedded-feed" style="height:600px;"></div>
+            <script>
+                yam.connect.embedFeed(
+                        {
+                            container: '#embedded-feed',
+                            network: "accenture.com",
+                            feedType: "group",
+                            feedId: "2286518"
+                        });
+                yam.on('/embed/feed/loadingCompleted', function () {
+                    setTimeout(function () {
+                        clearInterval(fixHeight);
+                    }, 5000);
+                });
+            </script>
+        </section>
     </div>
     <script src="js/vendor/zepto.js"></script>
     <script>
