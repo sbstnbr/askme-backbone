@@ -2,3 +2,4 @@
 .htaccess
 .sass-cache/
 img/.raw
+bower_components

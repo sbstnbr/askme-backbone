@@ -1,0 +1,19 @@
+{
+  "name": "taw-2015",
+  "version": "0.0.1",
+  "description": "taw web app",
+  "dependencies": {
+    "jquery": "~1.10.1",
+    "backbone": "~1.0.0",
+    "underscore": "~1.4.4",
+    "fullcalendar": "~1.6.1",
+    "modernizr": "~2.6.2",
+    "requirejs-text": "~2.0.7",
+    "requirejs": "~2.1.6",
+    "foundation": "~5.5.1"
+  },
+  "resolutions": {
+    "modernizr": ">= 2.7.2",
+    "jquery": "~1.10.1"
+  }
+}
