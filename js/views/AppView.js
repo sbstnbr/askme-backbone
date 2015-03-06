@@ -1,10 +1,11 @@
 define([
     'underscore',
     'backbone',
-    'text!../../templates/header.tpl.html',
-    'text!../../templates/main-menu.tpl.html',
-    'text!../../templates/footer.tpl.html'
-], function(_, Backbone, HeaderTpl, MainMenuTpl, FooterTpl) {
+    'handlebars',
+    'text!../../templates/header.hbs',
+    'text!../../templates/main-menu.hbs',
+    'text!../../templates/footer.hbs'
+], function(_, Backbone, Handlebars, HeaderTpl, MainMenuTpl, FooterTpl) {
     'use strict';
 
     function _closeModal($modal) {
@@ -33,9 +34,9 @@ define([
         },
 
         renderGlobalElements: function() {
-            var headerTpl = _.template(HeaderTpl),
-                mainMenuTpl = _.template(MainMenuTpl),
-                footerTpl = _.template(FooterTpl);
+            var headerTpl = Handlebars.compile(HeaderTpl),
+                mainMenuTpl = Handlebars.compile(MainMenuTpl),
+                footerTpl = Handlebars.compile(FooterTpl);
                 
             $('.pageContainer > header').html(headerTpl());
             $('.mainMenu').html(mainMenuTpl());

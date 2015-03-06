@@ -6,7 +6,9 @@ require.config({
         underscore: 'vendor/underscore',
         backbone: 'vendor/backbone',
         fullcalendar: 'vendor/fullcalendar',
-        breakpoints: 'lib/breakpoints'
+        breakpoints: 'lib/breakpoints',
+        handlebars: 'vendor/handlebars',
+        handlebarsHelpers: 'lib/handlebarsHelpers'
     },
 
     shim: {

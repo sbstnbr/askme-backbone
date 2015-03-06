@@ -1,11 +1,12 @@
 define([
     'underscore',
     'backbone',
+    'handlebars',
     'modules/Schedule/views/EventDetails',
-    'text!../../../../templates/event.tpl.html',
+    'text!../../../../templates/event.hbs',
     'lib/breakpoints',
     'fullcalendar'
-], function(_, Backbone, EventDetails, EventTemplate, Breakpoint) {
+], function(_, Backbone, Handlebars, EventDetails, EventTemplate, Breakpoint) {
     'use strict';
 
     var _isTabletViewport = function(width) {
@@ -34,7 +35,7 @@ define([
             var today = new Date(),
                 wsFirst = new Date(2013, 6, 22),
                 minDate = (wsFirst > today) ? wsFirst : today,
-                eventTemplate = _.template(EventTemplate),
+                eventTemplate = Handlebars.compile(EventTemplate),
                 timeFormat = 'h:mm';
             this.$el.fullCalendar({
                 date: minDate.getDate(),

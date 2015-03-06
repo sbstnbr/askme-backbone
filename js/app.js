@@ -1,8 +1,9 @@
 define([
     'underscore',
     'backbone',
-    'router'
-], function(_, Backbone, Router){
+    'router',
+    'handlebarsHelpers'
+], function(_, Backbone, Router, HandlebarHelpers){
     'use strict';
 
     var initialize = function(){
