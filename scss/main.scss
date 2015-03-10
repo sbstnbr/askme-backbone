@@ -1,5 +1,5 @@
 $bodyTextColor: #FFF;
-$primaryColor: #DD4411;
+$primaryColor: #00A100;
 $lightPrimaryColor: lighten($primaryColor, 12.5%);
 $darkPrimaryColor: darken($primaryColor, 10%);
 $secondaryColor: $primaryColor;//#3FA85E;
@@ -87,7 +87,7 @@ body {
 }
 
 .mainBackground {
-    background: url(../img/background.jpg) no-repeat center center;
+    background-color: #551155;
     background-size: cover;
     height: 100%;
     position: fixed;
@@ -176,8 +176,8 @@ input[type=radio] {
 
 $contentPaddingSides: 40px;
 .pageContainer {
-    background-color: rgba(#000, 0.75);
-    box-shadow: 0 0 1px rgba(#000,0.6);
+    background-color: #002266;
+    box-shadow: 0 0 20px rgba(#000,0.6);
     margin: 0 auto;
     min-height: 100%;
     padding: 0;
@@ -189,7 +189,7 @@ $contentPaddingSides: 40px;
         display: table;
 
         h1 {
-            background: #000;
+            background: #002266;
             color: $primaryColor;
             display: table-row;
             font: 900 2.5em/1.25em "Rotis Sans Serif","Helvetica Neue",Helvetica;
