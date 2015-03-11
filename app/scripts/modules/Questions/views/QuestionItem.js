@@ -24,10 +24,8 @@ define([
 
         addOneVote: function(evt) {
             var id = $(evt.currentTarget).data("id");
-            this.model.save(
-                {
-                    action: 'vote'
-                },
+            this.model.set('votes', this.model.get('votes') + 1);
+            this.model.save(null,
                 {
                     success: function(model, response, options) {
                         $('#question-' + response.id + ' .votes > .count').html(response.votes);

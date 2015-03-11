@@ -5,6 +5,6 @@ define([
     'use strict';
 
     return Backbone.Model.extend({
-        url: 'api/questions.php'
+        urlRoot: 'api/questions'
     });
 });

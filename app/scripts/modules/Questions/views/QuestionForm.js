@@ -1,8 +1,10 @@
 define([
     'underscore',
     'backbone',
-    'modules/Questions/views/QuestionsListing'
-], function(_, Backbone, QuestionsView) {
+    'modules/Questions/views/QuestionsListing',
+    'modules/Questions/models/Question',
+
+], function(_, Backbone, QuestionsView, QuestionModel) {
     'use strict';
 
     return Backbone.View.extend({
@@ -13,9 +15,10 @@ define([
 
         save: function(evt) {
             evt.preventDefault();
+            var thisView = this;
             this.model.save(
                 {
-                    action: 'save',
+                    //action: 'save',
                     question: this.$('input[name=question]').val()
                 },
                 {
@@ -25,6 +28,7 @@ define([
                         questionsView.addOne(model, true);
                         $('html, body').animate({ scrollTop: $(document).height() }, 250);
                         $('#question-' + model.id).removeClass('highlighted');
+                        thisView.model = new QuestionModel();
                     },
                     error: function(model, xhr, options) {
                         console.log('Error saving question');

@@ -3,6 +3,8 @@
 .sass-cache/
 .tmp/
 img/.raw
+bower_components
+api/node_modules
 app/bower_components
 node_modules
 dist/

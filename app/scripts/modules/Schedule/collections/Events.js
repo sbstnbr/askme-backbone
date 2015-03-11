@@ -7,6 +7,6 @@ define([
 
     return Backbone.Collection.extend({
         model: EventModel,
-        url: 'api/events.php'
+        url: 'api/events'
     });
 });

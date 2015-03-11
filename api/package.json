@@ -1,0 +1,17 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "TAWorkshop backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "hapi": "^8.2.0",
+    "joi": "^6.0.4",
+    "mysql": "^2.5.5",
+    "q": "^1.2.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
