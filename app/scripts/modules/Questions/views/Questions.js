@@ -1,20 +1,19 @@
 define([
     'underscore',
     'backbone',
-    'handlebars',
-    'text!../../../../templates/questions-section.hbs',
+    'templates',
     'modules/Questions/models/Question',
     'modules/Questions/collections/Questions',
     'modules/Questions/views/QuestionsListing',
     'modules/Questions/views/QuestionForm'
-], function(_, Backbone, Handlebars, QuestionsTemplate, QuestionModel, QuestionsCollection, QuestionsView, QuestionForm) {
+], function(_, Backbone, JST, QuestionModel, QuestionsCollection, QuestionsView, QuestionForm) {
     'use strict';
 
     return Backbone.View.extend({
 
         el: $('.contentWrapper'),
 
-        template: Handlebars.compile(QuestionsTemplate),
+        template: JST['app/templates/questions-section.hbs'],
 
         render: function() {
             this.$el.html(this.template({}));

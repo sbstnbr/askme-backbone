@@ -1,17 +1,16 @@
 define([
     'underscore',
     'backbone',
-    'handlebars',
-    'text!../../templates/index.hbs',
+    'templates',
     'modules/Schedule/controller'
-], function(_, Backbone, Handlebars, IndexTemplate, ScheduleController) {
+], function(_, Backbone, JST, ScheduleController) {
     'use strict';
 
     return Backbone.View.extend({
 
         el: $('.contentWrapper'),
 
-        template: Handlebars.compile(IndexTemplate),
+        template: JST['app/templates/index.hbs'],
 
         render: function() {
             var $hiddenSections = this.$el.children('.hide');

@@ -7,10 +7,26 @@ var mountFolder = function (connect, dir) {
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
 module.exports = function (grunt) {
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    require('load-grunt-tasks')(grunt);
+
+    var yeomanConfig = {
+        app: 'app'
+    };
 
     grunt.initConfig({
+        yeoman: yeomanConfig,
 
+        handlebars: {
+            compile: {
+                options: {
+                    namespace: 'JST',
+                    amd: true
+                },
+                files: {
+                    '.tmp/scripts/templates.js': ['app/templates/**/*.hbs']
+                }
+            }
+        },
         watch: {
             options: {
                 nospawn: true,
@@ -30,6 +46,10 @@ module.exports = function (grunt) {
                 files: [
                     'app/*.html'
                 ]
+            },
+            handlebars: {
+                files: ['<%= yeoman.app %>/templates/**/*.hbs'],
+                tasks: ['handlebars']
             }
         },
         connect: {
@@ -160,6 +180,7 @@ module.exports = function (grunt) {
             'clean:server',
             'configureProxies',
             'sass:dist',
+            'handlebars',
             'connect:livereload',
             'open',
             'watch'
@@ -168,6 +189,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'handlebars',
         'sass',
         'useminPrepare',
         'cssmin',

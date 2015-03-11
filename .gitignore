@@ -1,6 +1,7 @@
 .idea/
 .htaccess
 .sass-cache/
+.tmp/
 img/.raw
 app/bower_components
 node_modules

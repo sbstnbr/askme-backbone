@@ -1,16 +1,15 @@
 define([
     'underscore',
     'backbone',
-    'handlebars',
-    'text!../../templates/social.hbs',
-], function(_, Backbone, Handlebars, SocialTemplate) {
+    'templates',
+], function(_, Backbone, JST) {
     'use strict';
 
     return Backbone.View.extend({
 
         el: $('.contentWrapper'),
 
-        template: Handlebars.compile(SocialTemplate),
+        template: JST['app/templates/social.hbs'],
 
         render: function() {
             this.$el.html(this.template({}));

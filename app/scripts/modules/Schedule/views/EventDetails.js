@@ -1,16 +1,15 @@
 define([
     'underscore',
     'backbone',
-    'handlebars',
-    'text!../../../../templates/event-details.hbs'
-], function(_, Backbone, Handlebars, EventDetailsTemplate) {
+    'templates'
+], function(_, Backbone, JST) {
     'use strict';
 
     return Backbone.View.extend({
 
         el: $('.reveal-modal > .dialog > .content')[0],
 
-        template: Handlebars.compile(EventDetailsTemplate),
+        template: JST['app/templates/event-details.hbs'],
 
         render: function() {
             if (_.isEmpty(this.options.event)) {

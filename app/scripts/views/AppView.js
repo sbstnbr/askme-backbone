@@ -1,11 +1,8 @@
 define([
     'underscore',
     'backbone',
-    'handlebars',
-    'text!../../templates/header.hbs',
-    'text!../../templates/main-menu.hbs',
-    'text!../../templates/footer.hbs'
-], function(_, Backbone, Handlebars, HeaderTpl, MainMenuTpl, FooterTpl) {
+    'templates'
+    ], function(_, Backbone, JST) {
     'use strict';
 
     return Backbone.View.extend({
@@ -27,18 +24,16 @@ define([
         },
 
         renderGlobalElements: function() {
-            var headerTpl = Handlebars.compile(HeaderTpl),
-                mainMenuTpl = Handlebars.compile(MainMenuTpl),
-                footerTpl = Handlebars.compile(FooterTpl);
-                
+            var headerTpl = JST['app/templates/header.hbs'],
+                mainMenuTpl = JST['app/templates/main-menu.hbs'],
+                footerTpl = JST['app/templates/footer.hbs'];
+
             $('.pageContainer > header').html(headerTpl());
             $('.mainMenu').html(mainMenuTpl());
             $('.pageContainer > footer').html(footerTpl());
-            
         },
 
         cleanCloseModal: function() {
-            console.log('juuu');
             $('body').removeClass('no-scroll');
         },
 

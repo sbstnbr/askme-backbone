@@ -1,14 +1,13 @@
 define([
     'underscore',
     'backbone',
-    'handlebars',
-    'text!../../../../templates/question.hbs'
-], function(_, Backbone, Handlebars, QuestionTemplate) {
+    'templates'
+], function(_, Backbone, JST) {
     'use strict';
 
     return Backbone.View.extend({
 
-        template: Handlebars.compile(QuestionTemplate),
+        template: JST['app/templates/question.hbs'],
 
         render: function() {
             var highlightedClass = this.options.highlighted ? ' highlighted' : '';
