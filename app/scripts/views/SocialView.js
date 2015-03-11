@@ -20,7 +20,7 @@ define([
                 container: '#embedded-feed',
                 network: "accenture.com",
                 feedType: "group",
-                feedId: "2286518"
+                feedId: "5406370"
             });
 
             yam.on('/embed/feed/loadingCompleted', function () {
