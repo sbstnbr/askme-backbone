@@ -135,7 +135,6 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     'app/css/main.css': 'app/scss/main.scss',
-                    'app/css/fonts.css': 'app/scss/fonts.scss'
                 }]
             }
         },

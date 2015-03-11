@@ -14,7 +14,7 @@ define([
             var highlightedClass = this.options.highlighted ? ' highlighted' : '';
             this.$el
                 .attr('id', 'question-' + this.model.id)
-                .addClass('questionItem' + highlightedClass)
+                .addClass('panel callout radius row questionItem' + highlightedClass)
                 .html(this.template(this.model.attributes));
             return this;
         },

@@ -1,5 +1,0 @@
-@mixin respond-to($val, $query) {
-    @media only screen and ($val: $query) {
-        @content
-    }
-}

@@ -8,21 +8,14 @@ define([
 ], function(_, Backbone, Handlebars, HeaderTpl, MainMenuTpl, FooterTpl) {
     'use strict';
 
-    function _closeModal($modal) {
-        $modal || ($modal = $('.modal:first'));
-        $modal.addClass('hidden');
-        $modal.find('.content').html('');
-        $('body').removeClass('no-scroll');
-    }
-
     return Backbone.View.extend({
         el: document.body,
 
         initialize: function() {
             $(window).bind('resize.app', _.bind(this.$el.resize, this));
+            $('.close-reveal-modal').on('click', this.cleanCloseModal);
 
             this.renderGlobalElements();
-            this.attachCloseDialog();
         },
         
         events: {
@@ -43,23 +36,10 @@ define([
             $('.pageContainer > footer').html(footerTpl());
             
         },
-        
-        attachCloseDialog: function() {
-            var $closeButton = $('.modal button.close');
-            $closeButton.on('click', function() {
-                _closeModal();
-            });
 
-            $(window).on('keyup', function(evt) {
-                if (evt.which === 27 && !$('.modal').hasClass('hidden')) { // ESC
-                    evt.preventDefault();
-                    _closeModal();
-                }
-            });
-        },
-        
-        clearModal: function() {
-            _closeModal();
+        cleanCloseModal: function() {
+            console.log('juuu');
+            $('body').removeClass('no-scroll');
         },
 
         remove: function() {

@@ -5,14 +5,12 @@
 
 <head>
 	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" />
     <title>2013 NA/LA Technology Architecture Workshop</title>
 
     <link rel="shortcut icon" href="favicon.ico?_=1" />
 
     <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="bower_components/foundation/css/foundation.css" />
-
     <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css" />
 
     <link rel="stylesheet" href="css/main.css" />
@@ -22,9 +20,16 @@
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="modal hidden">
+    <!-- <div id="modal" class="modal hide">
         <div class="dialog">
             <button class="close"></button>
+            <div class="content"></div>
+        </div>
+    </div> -->
+
+    <div id="modal" class="reveal-modal" data-reveal>
+        <div class="dialog">
+            <a class="close-reveal-modal">&#215;</a>
             <div class="content"></div>
         </div>
     </div>
@@ -35,9 +40,9 @@
         <header></header>
         <nav class="mainMenu"></nav>
 
-        <div class="contentWrapper"></div>
+        <div class="contentWrapper row"></div>
 
-        <footer></footer>
+        <footer class="footer"></footer>
     </div>
     <script type="text/javascript" src="https://c64.assets-yammer.com/assets/platform_embed.js"></script>
     <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>

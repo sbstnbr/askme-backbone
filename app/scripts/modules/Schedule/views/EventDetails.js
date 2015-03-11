@@ -8,7 +8,7 @@ define([
 
     return Backbone.View.extend({
 
-        el: $('.modal > .dialog > .content')[0],
+        el: $('.reveal-modal > .dialog > .content')[0],
 
         template: Handlebars.compile(EventDetailsTemplate),
 
@@ -18,14 +18,14 @@ define([
             }
 
             $('body').addClass('no-scroll');
-
+            
             var dateFormat = 'dddd MMMM dS yyyy, hh:mm tt';
             this.options.event.start = $.fullCalendar.formatDate(this.options.event.start, dateFormat);
             this.options.event.end = $.fullCalendar.formatDate(this.options.event.end, dateFormat);
 
             this.$el
                 .html(this.template(this.options.event))
-                .parents('.modal:first').removeClass('hidden');
+                .parents('.reveal-modal').foundation('reveal', 'open');
 
             return this;
         }

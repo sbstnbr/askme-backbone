@@ -14,11 +14,11 @@ define([
         template: Handlebars.compile(IndexTemplate),
 
         render: function() {
-            var $hiddenSections = this.$el.children('.hidden');
+            var $hiddenSections = this.$el.children('.hide');
 
             if (!!$hiddenSections.length) {
-                $hiddenSections.removeClass('hidden');
-                $('#schedule').children('h2, p').addClass('hidden');
+                $hiddenSections.removeClass('hide');
+                $('#schedule').children('h2, p').addClass('hide');
             } else {
                 this.$el.html(this.template({}));
 
@@ -38,8 +38,8 @@ define([
             if (this.$el.html() === '') {
                 this.render();
             }
-            this.$el.children('[id!=schedule]').addClass('hidden');
-            $('#schedule').children('.hidden').removeClass('hidden');
+            this.$el.children('[id!=schedule]').addClass('hide');
+            $('#schedule').children('.hide').removeClass('hide');
         }
     });
 });

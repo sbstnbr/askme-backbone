@@ -7,10 +7,11 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         fullcalendar: '../bower_components/fullcalendar/fullcalendar',
         breakpoints: 'lib/breakpoints',
-        handlebars: 'vendor/handlebars',
+        handlebars: '../bower_components/handlebars/handlebars',
         handlebarsHelpers: 'lib/handlebarsHelpers',
-        requirejs: '../bower_components/requirejs/require',
-        foundation: '../bower_components/foundation/js/foundation'
+        foundation: '../bower_components/foundation/js/foundation',
+        fastclick: '../bower_components/foundation/js/vendor/fastclick',
+        requirejs: '../bower_components/requirejs/require'
     },
     shim: {
         underscore: {
@@ -24,15 +25,17 @@ require.config({
             exports: 'Backbone'
         },
         fullcalendar: {
-            deps: [
-                'jquery'
-            ]
+            deps: ['jquery']
+        },
+        foundation: {
+            deps: ['jquery', 'fastclick']
         }
     }
 });
 
-require(['app'], function (App) {
+require(['app', 'foundation'], function (App) {
     'use strict';
 
     App.initialize();
+    $(document).foundation();
 });
