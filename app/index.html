@@ -4,7 +4,7 @@
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 
 <head>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" />
     <title>2013 NA/LA Technology Architecture Workshop</title>
 
@@ -16,35 +16,39 @@
     <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-    <!--[if lt IE 9]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
+<!--[if lt IE 9]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
 
-    <!-- <div id="modal" class="modal hide">
-        <div class="dialog">
-            <button class="close"></button>
-            <div class="content"></div>
-        </div>
-    </div> -->
-
-    <div id="modal" class="reveal-modal" data-reveal>
-        <div class="dialog">
-            <a class="close-reveal-modal">&#215;</a>
-            <div class="content"></div>
-        </div>
+<!-- <div id="modal" class="modal hide">
+    <div class="dialog">
+        <button class="close"></button>
+        <div class="content"></div>
     </div>
+</div> -->
 
-    <div class="mainBackground"></div>
+<div id="modal" class="reveal-modal" data-reveal>
+    <div class="dialog">
+        <a class="close-reveal-modal">&#215;</a>
+        <div class="content"></div>
+    </div>
+</div>
 
-    <div class="pageContainer">
-        <header></header>
+<div class="mainBackground"></div>
+
+<div class="pageContainer">
+
+    <header class="header row text-center"></header>
+    <div class="row shadow">
+
         <nav class="mainMenu"></nav>
 
-        <div class="contentWrapper row"></div>
-
-        <footer class="footer"></footer>
+    <div class="contentWrapper row"></div>
     </div>
-    <script type="text/javascript" src="https://c64.assets-yammer.com/assets/platform_embed.js"></script>
-    <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+    <footer class="footer row shadow"></footer>
+</div>
+
+<script type="text/javascript" src="https://c64.assets-yammer.com/assets/platform_embed.js"></script>
+<script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>
