@@ -4,8 +4,8 @@ var Q = require('q');
 function GenericDao(config) {
     var connection = mysql.createConnection({
         host: 'localhost',
-        user: 'admin',
-        password: '9aRGzKUZlkPy',
+        user: 'taw2013',
+        password: 'x2YfU8vHqAATS7Sh',
         database: 'taw2013'
     });
 

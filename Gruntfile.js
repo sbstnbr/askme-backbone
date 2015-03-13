@@ -133,7 +133,8 @@ module.exports = function (grunt) {
                     ],
                     'dist/css/fonts.css': [
                         'app/css/{,*/}*.css'
-                    ]                }]
+                    ]
+                }]
             }
         },
         htmlmin: {
@@ -159,7 +160,7 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 files: [{
-                    'app/css/main.css': 'app/scss/main.scss',
+                    'app/css/main.css': 'app/scss/main.scss'
                 }]
             }
         },
@@ -171,6 +172,9 @@ module.exports = function (grunt) {
                     cwd: 'fonts',
                     src: '{,*/}*.{otf,ttf}',
                     dest: 'dist/fonts'
+                }, {
+                    src: '.tmp/scripts/templates.js',
+                    dest: 'dist/scripts/templates.js'
                 }]
             }
         }
