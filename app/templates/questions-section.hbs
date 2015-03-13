@@ -3,13 +3,16 @@
     <div class="intro">
         <p>During Wednesday morning's plenary, we will be holding a Q&amp;A session with the Accenture Leadership panel. Please use the form below to submit your questions. You can also "+1" other questions that have been submitted below so that we can ensure the most popular ones are asked.</p>
     </div>
-    <form id="addQuestionForm" class="row">
-    	<div class="small-9 medium-10 columns">
-        	<input type="text" id="addQuestionForm-question" name="question" required placeholder="Enter your question here" />
+    <form id="addQuestionForm" >
+        <div class="row collapse">
+            <div class="small-9 medium-10 columns">
+                <input type="text" id="addQuestionForm-question" name="question" required placeholder="Enter your question here" />
+            </div>
+            <div class="small-3 medium-2 columns">
+                <button class="button radius postfix" id="addQuestionForm-add">Post</button>
+            </div>
         </div>
-        <div class="small-3 medium-2 columns">
-  	    	<button class="button expand radius" id="addQuestionForm-add"><i class="fa fa-plus"></i></button>
-  	    </div>
+
     </form>
     <div class="listing"></div>
 </section>

@@ -11,7 +11,9 @@ require.config({
         handlebarsHelpers: 'lib/handlebarsHelpers',
         foundation: '../bower_components/foundation/js/foundation',
         fastclick: '../bower_components/foundation/js/vendor/fastclick',
-        requirejs: '../bower_components/requirejs/require'
+        requirejs: '../bower_components/requirejs/require',
+        'socket.io': '../bower_components/sio-client/socket.io'
+
     },
     shim: {
         underscore: {
