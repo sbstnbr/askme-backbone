@@ -5,8 +5,9 @@ define([
     'views/IndexView',
     'views/SocialView',
     'modules/Schedule/controller',
-    'modules/Questions/controller'
-], function(_, Backbone, AppView, IndexView, SocialView, ScheduleController, QuestionsController) {
+    'modules/Questions/controller',
+    'modules/Nominate/controller',
+], function(_, Backbone, AppView, IndexView, SocialView, ScheduleController, QuestionsController, NominateController) {
     'use strict';
 
     var initialize = function() {
@@ -20,6 +21,8 @@ define([
                 'schedule(/)': 'schedules',
                 'questions(/)': 'questions',
                 'social(/)': 'social',
+                'nominate(/)':'nominate',
+                'nominate/{id}(/)': 'nominateDetail',
                 '(*actions)(/)': 'defaultAction'
             },
 
@@ -38,8 +41,11 @@ define([
 
             social: function() {
                 socialView.render();
-            }
+            },
 
+            nominate: function() {
+                NominateController.initialize();
+            }
         }));
 
         Backbone.history.start();

@@ -26,7 +26,22 @@ CREATE TABLE IF NOT EXISTS `event` (
 -- Dumping structure for table taw2013.presenter
 CREATE TABLE IF NOT EXISTS `presenter` (
   `event_id` int(10) unsigned NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Presenters for nomination
+CREATE TABLE IF NOT EXISTS `presenters` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `image_path` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `nominations` (
+  `presenters_id` int(10) unsigned NOT NULL,
+  `uuid` varchar(255) NOT NULL DEFAULT 'NO-UUID',
+  `explenation` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `question` (
@@ -36,9 +51,9 @@ CREATE TABLE IF NOT EXISTS `question` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 CREATE USER 'taw2013'@'localhost' IDENTIFIED BY 'x2YfU8vHqAATS7Sh';
 GRANT ALL PRIVILEGES ON taw2013.* TO 'taw2013'@'%';
-
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

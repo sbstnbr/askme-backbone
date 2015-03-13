@@ -16,6 +16,9 @@ server.route(questionRoutes);
 var eventRoutes = require('./modules/events/events-routes');
 server.route(eventRoutes);
 
+var presentersRouters = require('./modules/presenters/presenters-routes');
+server.route(presentersRouters);
+
 var io = SocketIO.listen(server.listener);
 
 server.start(function () {

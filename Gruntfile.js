@@ -44,7 +44,9 @@ module.exports = function (grunt) {
                     livereload: LIVERELOAD_PORT
                 },
                 files: [
-                    'app/*.html'
+                    'app/*.html',
+                    'app/scripts/*.js',
+                    'app/templates/*.hbs'
                 ]
             },
             handlebars: {
