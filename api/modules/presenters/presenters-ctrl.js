@@ -16,7 +16,9 @@ exports.create = {
     },
     validate: {
         payload: {
-            question: Joi.string().required().min(3)
+            name: Joi.string().required().min(3),
+            description: Joi.string().required().min(3),
+            image_path: Joi.string().required().min(3)
         }
     }
 };
