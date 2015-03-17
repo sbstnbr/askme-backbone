@@ -31,6 +31,12 @@ module.exports = (function () {
             path: '/api/presenters/{id}',
             method: 'DELETE',
             config: presentersController.delete
+        },
+        {
+            path: '/api/presenters/finalists',
+            method: 'GET',
+            config: presentersController.listFinalists
         }
+        
     ]
 }());

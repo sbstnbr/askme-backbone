@@ -30,6 +30,13 @@ exports.list = {
     }
 };
 
+exports.listFinalists = {
+    handler: function (request, reply) {
+        var handler = new ResponseHandler(reply);
+        nominationsDAO.listFinalist().then(handler.success, handler.error);
+    }
+};
+
 exports.get = {
     handler: function (request, reply) {
         var id = request.params.id;

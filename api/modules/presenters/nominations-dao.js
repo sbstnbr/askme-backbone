@@ -19,3 +19,8 @@ exports.get = function (id) {
     sqlQuery = dao.connection.format(sqlQuery, values);
     return dao.get(sqlQuery);
 };
+
+exports.listFinalist = function() {
+    var sqlQuery = 'SELECT presenters.name, COUNT(*) as count FROM `presenters` INNER JOIN `nominations` on presenters.id = nominations.presenters_id GROUP BY presenters.id ORDER BY count DESC;';
+    return dao.promiseQuery(sqlQuery);
+}
