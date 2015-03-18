@@ -93,14 +93,21 @@ module.exports = function (grunt) {
         },
         requirejs: {
             dist: {
+                // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
                     dir: 'dist',
                     appDir: 'app',
                     baseUrl: 'scripts',
+                    paths: {
+                        'templates': '../../.tmp/scripts/templates'
+                    },
                     mainConfigFile: 'app/scripts/main.js',
                     removeCombined: true,
                     findNestedDependencies: true,
-                    optimize: 'uglify'
+                    optimize: 'uglify',
+                    modules: [{
+                        name: 'main'
+                    }]
                 }
             }
         },
@@ -175,8 +182,8 @@ module.exports = function (grunt) {
                     src: '{,*/}*.{otf,ttf}',
                     dest: 'dist/fonts'
                 }, {
-                    src: '.tmp/scripts/templates.js',
-                    dest: 'dist/scripts/templates.js'
+                    src: 'app/taw.appcache',
+                    dest: 'dist/taw.appcache'
                 }]
             }
         }
