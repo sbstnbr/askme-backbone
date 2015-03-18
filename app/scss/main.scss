@@ -1,29 +1,42 @@
+@import "_settings.scss";
 @import "../bower_components/foundation/scss/foundation.scss";
 @import "../bower_components/foundation/scss/normalize.scss";
 @import "../bower_components/font-awesome/scss/font-awesome.scss";
 @import "_footer.scss";
 
-// TODO: import for each custom file;
-
 .no-scroll {
   overflow-y: hidden;
 }
-.row {
-  max-width: 80%;
-}
-.contentWrapper,
-.header {
-  padding: 5em 5em 2.5em 2.5em;
-}
+
 .mainMenu,
 .icon-bar {
   max-height: 93px;
-  background-color: #3fa85e;
+  background-color: $primary-color;
   a:hover {
-    background-color: #337722;
+    background-color: scale-color($primary-color, $lightness: $button-function-factor);;
   }
 }
-.shadow,
-.header {
-  box-shadow: 0 20px 50px #000;
+
+.top-bar {
+	background-color: #32864b;
+}
+
+.contentWrapper {
+  @media #{$medium-up} { 
+    padding: 0 50px 0 50px;
+  }
+
+  @media #{$small-only} { 
+    padding: 0 25px 0 25px;
+  }	
+}
+
+.top-bar-section {
+  position: relative;
+  z-index: 300;
+}
+
+.fix-header-row {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
