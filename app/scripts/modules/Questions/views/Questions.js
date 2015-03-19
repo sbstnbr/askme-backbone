@@ -10,17 +10,19 @@ define([
     'use strict';
 
     return Backbone.View.extend({
-
         el: $('.contentWrapper'),
-
         template: JST['app/templates/questions-section.hbs'],
-
+        initialize: function() {
+            var that = this;
+            this.questionsView = new QuestionsView({ el: $('#questions > .listing'), collection: new QuestionsCollection });
+            this.questionsView.listenTo(this.questionsView.collection, 'add', function(model) {
+                that.questionsView.render();
+            });
+        },
         render: function() {
             this.$el.html(this.template({}));
-
-            var questionsView = new QuestionsView({ el: $('#questions > .listing'), collection: new QuestionsCollection });
-            questionsView.render();
-
+            this.questionsView.$el = this.$('#questions > .listing');
+            this.questionsView.render();
             new QuestionForm({
                 model: new QuestionModel,
                 el: $('#addQuestionForm')

@@ -30,7 +30,7 @@ define([
 
         addOneVote: function(evt) {
             var id = $(evt.currentTarget).data("id");
-            socket.emit('vote', {id: this.model.get('id')});
+            socket.emit('vote', {id: this.model.get('id'), uuid: localStorage.getItem('uuid')});
         }
     });
 });

@@ -4,11 +4,12 @@ define([
     'views/AppView',
     'views/IndexView',
     'views/SocialView',
+    'modules/Questions/views/Questions',
     'modules/Schedule/controller',
     'modules/Questions/controller',
     'modules/Nominate/controller',
     'modules/Finalists/views/Finalists'
-], function(_, Backbone, AppView, IndexView, SocialView, ScheduleController, QuestionsController, NominateController, FinalistsView) {
+], function(_, Backbone, AppView, IndexView, SocialView, QuestionsView, ScheduleController, QuestionsController, NominateController, FinalistsView) {
     'use strict';
 
     var initialize = function() {
@@ -17,6 +18,7 @@ define([
         var indexView = new IndexView;
         var socialView = new SocialView;
         var finalistsView = new FinalistsView;
+        var questionsView = new QuestionsView();
 
         var appRouter = new (Backbone.Router.extend({
             routes: {
@@ -35,7 +37,7 @@ define([
             },
 
             questions: function() {
-                QuestionsController.initialize();
+                questionsView.render();
             },
 
             defaultAction: function(actions) {

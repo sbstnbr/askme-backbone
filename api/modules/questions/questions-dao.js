@@ -14,8 +14,15 @@ exports.list = function () {
     return dao.promiseQuery(sqlQuery);
 };
 
+exports.filterByUUID = function (uuid) {
+    var sqlQuery = 'SELECT id, question, votes FROM uuid_votes INNER JOIN question ON uuid_votes.question_id = question.id WHERE uuid = ?';
+    var values = [uuid];
+    sqlQuery = dao.connection.format(sqlQuery, values);
+    return dao.promiseQuery(sqlQuery);
+};
+
 exports.get = function (id) {
-    var sqlQuery = 'SELECT  * FROM question WHERE id = ?';
+    var sqlQuery = 'SELECT * FROM question WHERE id = ?';
     var values = [id];
     sqlQuery = dao.connection.format(sqlQuery, values);
     return dao.get(sqlQuery);

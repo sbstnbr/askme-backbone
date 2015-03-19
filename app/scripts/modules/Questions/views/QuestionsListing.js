@@ -7,7 +7,6 @@ define([
     'use strict';
 
     return Backbone.View.extend({
-
         render: function() {
             var that = this;
             this.collection.fetch({

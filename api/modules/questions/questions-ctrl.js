@@ -2,7 +2,6 @@ var Joi = require('joi'),
     questionsDAO = require('./questions-dao'),
     ResponseHandler = require('../common/generic-response-handler');
 
-
 exports.create = {
     handler: function (request, reply) {
         var handler = new ResponseHandler(reply);
@@ -22,8 +21,18 @@ exports.create = {
 
 exports.list = {
     handler: function (request, reply) {
+        var uuid = request.query.id;
         var handler = new ResponseHandler(reply);
-        questionsDAO.list().then(handler.success, handler.error);
+        if (uuid === undefined) {
+            questionsDAO.list().then(handler.success, handler.error);
+        } else {
+            questionsDAO.filterByUUID(uuid).then(handler.success, handler.error);
+        }
+    },
+    validate: {
+        query: {
+            id: Joi.string().optional()
+        }
     }
 };
 
@@ -45,7 +54,7 @@ exports.update = {
         var id = request.params.id;
         var handler = new ResponseHandler(reply);
         questionsDAO.update(id, request.payload)
-            .then(function(data) {
+            .then(function (data) {
                 return questionsDAO.get(id);
             })
             .then(handler.success, handler.error);

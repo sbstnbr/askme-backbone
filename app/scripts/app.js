@@ -2,12 +2,16 @@ define([
     'underscore',
     'backbone',
     'router',
-    'handlebarsHelpers'
-], function(_, Backbone, Router, HandlebarHelpers){
+    'handlebarsHelpers',
+    'lil-uuid'
+], function(_, Backbone, Router, HandlebarHelpers, lil){
     'use strict';
 
     var initialize = function(){
         Router.initialize();
+        if(localStorage.getItem('uuid') === null) {
+            localStorage.setItem('uuid', lil.uuid());
+        }
     };
 
     return {

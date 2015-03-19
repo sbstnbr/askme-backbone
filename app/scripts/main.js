@@ -12,7 +12,8 @@ require.config({
         foundation: '../bower_components/foundation/js/foundation',
         fastclick: '../bower_components/foundation/js/vendor/fastclick',
         requirejs: '../bower_components/requirejs/require',
-        'socket.io': '../bower_components/sio-client/socket.io'
+        'socket.io': '../bower_components/sio-client/socket.io',
+        'lil-uuid':'../bower_components/lil-uuid/uuid'
 
     },
     shim: {
