@@ -79,7 +79,11 @@ exports.nominate = {
 
         presentersDAO.get(id)
             .then(function (doc) {
-                return nominationsDAO.create({presenters_id: id, explenation: request.payload.explenation});
+                return nominationsDAO.create({
+                    presenters_id: id, 
+                    explenation: request.payload.explenation, 
+                    nominator: request.payload.nominator
+                });
             })
             .then(handler.success, handler.error);
     },
@@ -88,7 +92,8 @@ exports.nominate = {
             id: Joi.number().required().min(0)
         },
         payload: {
-            explenation: Joi.string().required().min(3)
+            explenation: Joi.string().required().min(3),
+            nominator: Joi.string().required().min(3)
         }
     }
 };

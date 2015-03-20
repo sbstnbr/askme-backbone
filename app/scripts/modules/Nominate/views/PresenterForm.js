@@ -25,22 +25,35 @@ define([
 
         performNomination:function(event) {
             event.preventDefault();
-            var input = this.$el.find('input').val();
-            if(input.length < 3) {
-                var label = this.$el.find('label');
-                if(label.children('.error').length === 0 ) {
-                    label.addClass('error');
-                    label.append('<small class="lbl-small error">Please fill this out</small>');
+            var errors = this.$el.find('.error');
+            _.forEach(errors, function(error) {
+                $(error).removeClass('error');
+                $(error).closest('small').remove();
+            });
+
+            var inputs = this.$el.find('input');
+            
+            for(var i = 0 ; i < inputs.length; i++) {
+                if($(inputs[i]).val().length < 3 ) {
+                    var label = $(inputs[i]).closest('label');
+                    if(label.children('.error').length === 0 ) {
+                        label.addClass('error');
+                        label.append('<small class="lbl-small error">Please fill this out</small>');
+                    }
+                    
+                    return;
                 }
-                
-                return;
+    
             }
 
             var id = this.model.id;
             var that = this;
 
+            console.log('input1: ', inputs[0]);
+            console.log('input2: ', inputs[1]);
+
             this.model.clear();
-            this.model.set({explenation: input});
+            this.model.set({explenation: $(inputs[0]).val(), nominator: $(inputs[1]).val()});
             this.model.save(null,
                 {
                     url: this.model.url + id + '/nominate',

@@ -2,8 +2,8 @@ var GenericDao = require('../common/generic-dao');
 var dao = new GenericDao();
 
 exports.create = function(doc) {
-    var sqlQuery = 'INSERT INTO nominations(presenters_id, explenation) VALUES (?, ?)';
-    var values = [doc.presenters_id, doc.explenation];
+    var sqlQuery = 'INSERT INTO nominations(presenters_id, explenation, nominator) VALUES (?, ?, ?)';
+    var values = [doc.presenters_id, doc.explenation, doc.nominator];
     sqlQuery = dao.format(sqlQuery, values);
     return dao.promiseQuery(sqlQuery);
 };

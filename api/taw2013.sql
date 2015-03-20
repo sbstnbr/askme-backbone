@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS `presenters` (
 CREATE TABLE IF NOT EXISTS `nominations` (
   `presenters_id` int(10) unsigned NOT NULL,
   `uuid` varchar(255) NOT NULL DEFAULT 'NO-UUID',
-  `explenation` varchar(255) NOT NULL
+  `explenation` varchar(255) NOT NULL,
+  `nominator` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `question` (
