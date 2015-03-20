@@ -2,16 +2,17 @@ var mysql = require('mysql');
 var Q = require('q');
 
 function GenericDao(config) {
-    var connection = mysql.createConnection({
+    var connectionConfig = {
         host: 'localhost',
         user: 'taw2013',
         password: 'x2YfU8vHqAATS7Sh',
         database: 'taw2013'
-    });
+    };
 
     return {
-        connection: connection,
+        format: mysql.format,
         promiseQuery: function (sql) {
+            var connection = mysql.createConnection(connectionConfig);
             var deferred = Q.defer();
             connection.query(sql, function (err, results) {
                 if (err) {
@@ -19,10 +20,12 @@ function GenericDao(config) {
                 } else {
                     deferred.resolve(results);
                 }
+                connection.end();
             });
             return deferred.promise;
         },
         get: function (sql) {
+            var connection = mysql.createConnection(connectionConfig);
             var deferred = Q.defer();
             connection.query(sql, function (err, results) {
                 if (err) {
@@ -30,6 +33,7 @@ function GenericDao(config) {
                 } else {
                     deferred.resolve(results[0]);
                 }
+                connection.end();
             });
             return deferred.promise;
         }

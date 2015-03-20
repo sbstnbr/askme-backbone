@@ -50,6 +50,9 @@ define([
                 selectHelper: false,
                 editable: false,
                 ignoreTimezone: false,
+                titleFormat: {
+                    day: 'MMM d, yyyy'                  // Tuesday, Sep 8, 2009
+                },
                 minTime: 8,
                 maxTime: 22,
                 height: 9999,
