@@ -224,13 +224,12 @@
             <dt><label required for="addEvent-category">Category</label></dt>
             <dd><select id="addEvent-category" name="category">
                 <option value=""></option>
-                <option value="architecture" <?php if ($event->category === 'architecture') echo 'selected'; ?>>Architecture</option>
-                <option value="applications" <?php if ($event->category === 'applications') echo 'selected'; ?>>Applications</option>
-                <option value="cloud" <?php if ($event->category === 'cloud') echo 'selected'; ?>>Cloud</option>
-                <option value="nextgen" <?php if ($event->category === 'nextgen') echo 'selected'; ?>>Next Generation Data</option>
-                <option value="emerging" <?php if ($event->category === 'emerging') echo 'selected'; ?>>Emerging Integration Trends</option>
-                <option value="mobile" <?php if ($event->category === 'mobile') echo 'selected'; ?>>Mobile/Web/Digital</option>
-                <option value="infrastructure" <?php if ($event->category === 'infrastructure') echo 'selected'; ?>>Infrastructure</option>
+                <option value="plenary" <?php if ($event->category === 'plenary') echo 'selected'; ?>>Plenary</option>
+                <option value="deepdive" <?php if ($event->category === 'deepdive') echo 'selected'; ?>>Deep Dive</option>
+                <option value="breakoutliquid" <?php if ($event->category === 'breakoutliquid') echo 'selected'; ?>>Breakout Liquid</option>
+                <option value="intelligentbreakout" <?php if ($event->category === 'intelligentbreakout') echo 'selected'; ?>>Intelligent Breakout</option>
+                <option value="connectedbreakout" <?php if ($event->category === 'connectedbreakout') echo 'selected'; ?>>Connected Breakout</option>
+                <option value="breakoutother" <?php if ($event->category === 'breakoutother') echo 'selected'; ?>>Breakout-Other</option>
             </select></dd>
         </dl>
 
