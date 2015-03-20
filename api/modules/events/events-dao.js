@@ -4,8 +4,8 @@ var underscore = require('underscore');
 var dao = new GenericDao();
 
 exports.create = function(doc) {
-    var sqlQuery = 'INSERT INTO event(start, end, allDay, subject, location, description, category) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    var values = [doc.start, doc.end, doc.allDay, doc.subject, doc.location, doc.description, doc.category];
+    var sqlQuery = 'INSERT INTO event(start, end, allDay, subject, location, description, category, vote, value, average) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    var values = [doc.start, doc.end, doc.allDay, doc.subject, doc.location, doc.description, doc.category, doc.vote, doc.value, doc.average];
     sqlQuery = dao.format(sqlQuery, values);
     return dao.promiseQuery(sqlQuery);
 };
@@ -17,13 +17,18 @@ exports.list = function () {
 
 exports.findPresenters = function(eventId) {
     var sqlQuery = 'SELECT presenters.* FROM `presenters` JOIN `event_presenter` on presenters.id = event_presenter.presenter_id WHERE event_presenter.event_id = ?';
-    sqlQuery = dao.connection.format(sqlQuery, eventId);
+    sqlQuery = dao.format(sqlQuery, eventId);
     return dao.promiseQuery(sqlQuery);
 };
-
+exports.get = function (id) {
+    var sqlQuery = 'SELECT  * FROM event WHERE id = ?';
+    var values = [id];
+    sqlQuery = dao.format(sqlQuery, values);
+    return dao.get(sqlQuery);
+};
 exports.update = function (id, doc) {
-    var sqlQuery = 'UPDATE event SET start = ?, end = ?, allDay = ?, subject = ?, location = ?, description = ?, category = ?  WHERE id = ?';
-    var values = [doc.start, doc.end, doc.allDay, doc.subject, doc.location, doc.description, doc.category, id];
+    var sqlQuery = 'UPDATE event SET start = ?, end = ?, allDay = ?, subject = ?, location = ?, description = ?, category = ?, votes = ?, value = ?, average = ?  WHERE id = ?';
+    var values = [doc.start, doc.end, doc.allDay, doc.subject, doc.location, doc.description, doc.category, doc.votes, doc.value, doc.average, id];
     sqlQuery = dao.format(sqlQuery, values);
     return dao.promiseQuery(sqlQuery);
 };

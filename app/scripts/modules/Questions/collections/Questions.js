@@ -2,11 +2,11 @@ define([
     'underscore',
     'backbone',
     'modules/Questions/models/Question'
-], function(_, Backbone, EventModel) {
+], function(_, Backbone, QuestionModel) {
     'use strict';
 
     return Backbone.Collection.extend({
-        model: EventModel,
+        model: QuestionModel,
         url: 'api/questions',
         initialize: function () {
             this.listenTo(Backbone, 'question:update', this.updateHandler);

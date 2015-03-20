@@ -19,6 +19,9 @@ CREATE TABLE IF NOT EXISTS `event` (
   `location` varchar(255) DEFAULT NULL,
   `description` varchar(1024) DEFAULT NULL,
   `category` varchar(255) DEFAULT NULL,
+  `votes` int(1) NOT NULL DEFAULT '0',
+  `value` int(1) NOT NULL DEFAULT '0',
+  `average` float(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

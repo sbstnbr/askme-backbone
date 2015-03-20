@@ -12,5 +12,6 @@ define(['handlebars', 'underscore'], function (Handlebars, _) {
         }
 
         return str;
-    }); 
+    });
+
 });

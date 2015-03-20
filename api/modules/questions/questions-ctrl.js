@@ -82,7 +82,6 @@ exports.vote = {
                 return questionsDAO.update(id, doc)
             })
             .then(handler.success, handler.error);
-
     },
     validate: {
         params: {

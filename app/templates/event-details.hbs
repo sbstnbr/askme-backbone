@@ -20,4 +20,21 @@
     </dl>
 
     <div>{{description}}</div>
+
+    <strong>Rate this talk</strong>
+    <form id="ratingsForm">
+    <div class="stars">
+        <input type="radio" name="star" class="star-1" id="star1" />
+        <label class="star-1 votePositive" data-id="{{id}}"  data-value="1" for="star-1">1</label>
+        <input type="radio" name="star"  class="star-2" id="star2" />
+        <label class="star-2 votePositive" data-id="{{id}}" data-value="2"  for="star-2">2</label>
+        <input type="radio" name="star"  class="star-3" id="star3"  />
+        <label class="star-3 votePositive" data-id="{{id}}" data-value="3" for="star-3">3</label>
+        <input type="radio" name="star" class="star-4" id="star4"  />
+        <label class="star-4 votePositive" data-id="{{id}}" data-value="4" for="star-4">4</label>
+        <input type="radio" name="star" class="star-5" id="star5"  />
+        <label class="star-5 votePositive" data-id="{{id}}" data-value="5" for="star-5">5</label>
+        <span></span>
+    </div>
+</form>
 </section>

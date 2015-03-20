@@ -4,5 +4,7 @@ define([
 ], function(_, Backbone) {
     'use strict';
 
-    return Backbone.Model.extend({});
+    return Backbone.Model.extend({
+        urlRoot: 'api/events'
+    });
 });

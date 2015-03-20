@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'modules/Schedule/collections/Events',
-    'modules/Schedule/views/Events'
+    'modules/Schedule/views/Events',
 ], function($, _, Backbone, EventsCollection, EventsView) {
     'use strict';
 

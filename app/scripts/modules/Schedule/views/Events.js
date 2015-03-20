@@ -3,14 +3,15 @@ define([
     'backbone',
     'templates',
     'modules/Schedule/views/EventDetails',
+    'modules/Schedule/models/Event',
     'lib/breakpoints',
     'fullcalendar'
-], function(_, Backbone, JST, EventDetails, Breakpoint) {
+], function(_, Backbone, JST, EventDetails, EventModel, Breakpoint) {
     'use strict';
 
     var _isTabletViewport = function(width) {
         return width <= Breakpoint.iPad.portrait;
-    }
+    };
 
     return Backbone.View.extend({
 
@@ -18,19 +19,22 @@ define([
             var that = this;
             this.collection.fetch({
                 reset: true,
-                success: function(model, response, options) {
+                success: function(model,  collection, response, options) {
                     that.$el.fullCalendar('addEventSource', model.toJSON());
                 },
                 error : function(model, response, options) {
                     console.log('Error loading events from server');
                 }
             });
+            this.eventDetails = new EventDetails();
         },
 
         adjustOnResize: function(dimensions) {
         },
 
         render: function() {
+
+            var that = this;
             var today = new Date(),
                 wsFirst = new Date(2013, 6, 22),
                 minDate = (wsFirst > today) ? wsFirst : today,
@@ -58,9 +62,14 @@ define([
                 height: 9999,
                 allDaySlot: false,
                 eventClick: function(event) {
-                    var eventDetails = new EventDetails({ event: $.extend({}, event) });
-          
-                    eventDetails.render();
+                    that.collection.fetch({
+                        success: function(model) {
+                            that.eventDetails.event = $.extend({}, event);
+                            that.eventDetails.event.votes = model.get(event.id).get('votes');
+                            that.eventDetails.event.average = model.get(event.id).get('average');
+                            that.eventDetails.render();
+                        }
+                    });
                 },
                 eventAfterRender: function(event, element) {
                     var attrs = {
@@ -68,12 +77,13 @@ define([
                         start: $.fullCalendar.formatDate(event.start, timeFormat),
                         end: $.fullCalendar.formatDate(event.end, timeFormat),
                         location: event.location,
-                        presenters: event.presenters
+                        presenters: event.presenters,
                     };
                     element.find('.fc-event-inner').html(
                         eventTemplate({ model: attrs })
                     );
                 }
+
            });
 
            return this;

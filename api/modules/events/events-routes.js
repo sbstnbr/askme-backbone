@@ -14,8 +14,18 @@ module.exports = (function () {
         },
         {
             path: '/api/events/{id}',
+            method: 'GET',
+            config: eventsController.get
+        },
+        {
+            path: '/api/events/{id}',
             method: 'PUT',
             config: eventsController.update
+        },
+        {
+            path: '/api/events/{id}/vote/{value}',
+            method: 'PUT',
+            config: eventsController.vote
         },
         {
             path: '/api/events/{id}/presenters',
