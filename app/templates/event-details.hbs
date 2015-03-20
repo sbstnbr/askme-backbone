@@ -1,6 +1,6 @@
 <section id="eventDetails" class="eventInfo">
     <header>
-        <h1>{{title}}</h1>
+        <h1>{{subject}}</h1>
     </header>
 
     <dl>
@@ -12,8 +12,12 @@
     <dl class="location">
         <dt>Location</dt>
         <dd>{{location}}</dd>
-        <dt>Presenters</dt>
-        <dd>{{handlePresenters presenters}}</dd>
     </dl>
+
+    <dl>
+        <dt>Presetners</dt>
+        <dd id="presenters"></dd>
+    </dl>
+
     <div>{{description}}</div>
 </section>

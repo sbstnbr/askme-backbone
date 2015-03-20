@@ -61,7 +61,7 @@ define([
                 },
                 eventAfterRender: function(event, element) {
                     var attrs = {
-                        title: event.title,
+                        subject: event.subject,
                         start: $.fullCalendar.formatDate(event.start, timeFormat),
                         end: $.fullCalendar.formatDate(event.end, timeFormat),
                         location: event.location,

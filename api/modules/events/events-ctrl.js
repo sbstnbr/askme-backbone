@@ -9,6 +9,19 @@ exports.list = {
     }
 };
 
+exports.findPresenters = {
+    handler: function(request, reply) {
+        var handler = new ResponseHandler(reply);
+        eventsDAO.findPresenters(request.params.id)
+                .then(handler.success, handler.error);
+    },
+    validate: {
+        params: {
+            id: Joi.number().required().min(0)
+        }
+    }
+}
+
 exports.create = {
     handler: function(request, reply) {
         var handler = new ResponseHandler(reply);

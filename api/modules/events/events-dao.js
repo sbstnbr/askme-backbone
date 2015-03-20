@@ -1,4 +1,6 @@
 var GenericDao = require('../common/generic-dao');
+var underscore = require('underscore');
+
 var dao = new GenericDao();
 
 exports.create = function(doc) {
@@ -9,7 +11,13 @@ exports.create = function(doc) {
 };
 
 exports.list = function () {
-    var sqlQuery = 'SELECT  * FROM event';
+    var sqlQuery = 'SELECT event.*, GROUP_CONCAT(presenters.name SEPARATOR ", ") as presenters FROM `event` JOIN `event_presenter` ON event.id = event_presenter.event_id JOIN `presenters` ON event_presenter.presenter_id = presenters.id GROUP BY event.id';
+    return dao.promiseQuery(sqlQuery);
+};
+
+exports.findPresenters = function(eventId) {
+    var sqlQuery = 'SELECT presenters.* FROM `presenters` JOIN `event_presenter` on presenters.id = event_presenter.presenter_id WHERE event_presenter.event_id = ?';
+    sqlQuery = dao.connection.format(sqlQuery, eventId);
     return dao.promiseQuery(sqlQuery);
 };
 

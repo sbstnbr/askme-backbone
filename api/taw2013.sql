@@ -22,11 +22,10 @@ CREATE TABLE IF NOT EXISTS `event` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 -- Dumping structure for table taw2013.presenter
-CREATE TABLE IF NOT EXISTS `presenter` (
+CREATE TABLE IF NOT EXISTS `event_presenter` (
   `event_id` int(10) unsigned NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `presenter_id` int(10) NOT NULL
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Presenters for nomination
@@ -34,7 +33,8 @@ CREATE TABLE IF NOT EXISTS `presenters` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `image_path` varchar(255) NOT NULL,
+  `image_path` varchar(255) NOT NULL DEFAULT 'noimage',
+  `link` varchar(255) NOT NULL DEFAULT '#',
   PRIMARY KEY (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

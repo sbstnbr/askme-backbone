@@ -9,7 +9,7 @@ exports.create = function(doc) {
 };
 
 exports.list = function () {
-    var sqlQuery = 'SELECT  * FROM presenters';
+    var sqlQuery = 'SELECT * FROM presenters GROUP BY name';
     return dao.promiseQuery(sqlQuery);
 };
 

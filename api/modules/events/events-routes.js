@@ -18,6 +18,11 @@ module.exports = (function () {
             config: eventsController.update
         },
         {
+            path: '/api/events/{id}/presenters',
+            method: 'GET',
+            config: eventsController.findPresenters  
+        },
+        {
             path: '/api/events/{id}',
             method: 'DELETE',
             config: eventsController.delete

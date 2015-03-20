@@ -14,6 +14,14 @@
             return mysqli_real_escape_string($conn, htmlspecialchars(trim($value)));
         }
 
+        function add_https($str) {
+            if (strlen($str) > 0 && strpos($str,'http') === false ) {
+                $str = "http://" . $str;
+            }
+
+            return $str;
+        }
+
         /*** SAVE ***/
         $start = _escape($conn, $_POST['start']);
         $end = _escape($conn, $_POST['end']);
@@ -47,32 +55,53 @@
         $event_id = $event_id ?: mysqli_insert_id($conn);
 
         if (!empty($_POST['presenters'])) {
-            if (!mysqli_query($conn, "DELETE FROM presenter WHERE event_id = {$event_id}")) {
+
+            // DELETE the presenters table entries referenced form current event
+            $getPresenters = "DELETE presenters.*,event_presenter.* FROM `presenters` JOIN `event_presenter` on presenters.id = event_presenter.presenter_id WHERE event_presenter.event_id = " . $event_id;
+
+            if (!mysqli_query($conn, $getPresenters)) {
+                echo 'Delete event_presenter failed<br />' . mysqli_error($conn);
+                echo "<br />Event id is: {$getPresenters}";
+                mysqli_rollback($conn);
+                die;
+            }
+
+            if (!mysqli_query($conn, "DELETE FROM event_presenter WHERE event_id = {$event_id}")) {
                 echo 'Delete presenters failed<br />' . mysqli_error($conn);
                 mysqli_rollback($conn);
                 die;
             }
 
-            $presenters = array();
-            foreach($_POST['presenters'] as $presenter) {
-                $presenter = trim($presenter);
-                if (!empty($presenter)) {
-                    $presenters[] = _escape($conn, $presenter);
+            // CREATE EVENT_PRESENTER table entry
+            foreach($_POST['presenters'] as $idx => $presenter) {
+                $presenter_description = _escape($conn, trim($_POST['descriptions'][$idx]));
+                $link = _escape($conn, trim($_POST['links'][$idx]));
+                $presenter = _escape($conn, trim($presenter));
+
+                if (empty($presenter)) {
+                    continue;
+                }
+
+                $link = add_https($link);
+
+                // SAVE PRESENTER into presenters
+                $create_presenter_query = "INSERT INTO presenters(name, description, link) VALUES ( '". $presenter ."', '". $presenter_description ."', '". $link ."' )";
+                if(!mysqli_query($conn, $create_presenter_query) ) {
+                    echo "Insert presenter failed<br />" . mysqli_error($conn);
+                    mysqli_rollback($conn);
+                    die;
+                }
+
+                //CREATE event_presenter entry
+                $last_presenter_id = mysqli_insert_id($conn);
+                echo "<br /> mysql_insert_id: " . $last_presenter_id . " ...";
+                $create_event_presenter_query = "INSERT INTO event_presenter(event_id, presenter_id) VALUES ( '". $event_id ."', '". $last_presenter_id . "' )";
+                if(!mysqli_query($conn, $create_event_presenter_query)) {
+                    echo "Insert event_presenter failed <br />" . mysqli_error($conn);
+                    mysqli_rollback($conn);
+                    die;
                 }
             }
-
-            $query =
-                "INSERT INTO presenter(event_id, name) "
-                . "VALUES({$event_id}, '"
-                . implode("'), ({$event_id}, '", $presenters)
-                . "')";
-
-            if (!mysqli_query($conn, $query)) {
-                echo 'Insert presenter failed<br />' . mysqli_error($conn);
-                mysqli_rollback($conn);
-                die;
-            }
-
         }
         mysqli_commit($conn);
 
@@ -120,13 +149,13 @@
                 $event->description = $row['description'];
             }
 
-            $query = "SELECT * "
-               . "FROM presenter "
-               . "WHERE event_id = {$event->id}";
+            $query = "SELECT presenters.* FROM `presenters` JOIN `event_presenter` on presenters.id = event_presenter.presenter_id WHERE event_presenter.event_id = {$event->id}";
             if ($resultPresenter = mysqli_query($conn, $query)) {
                 while ($rowPresenter = mysqli_fetch_array($resultPresenter)) {
                     $event->presenters[] = (object)array(
-                        'name' => $rowPresenter['name']
+                        'name' => $rowPresenter['name'],
+                        'description' => $rowPresenter['description'],
+                        'link' => $rowPresenter['link']
                     );
                 }
             }
@@ -174,12 +203,12 @@
             <dt><label for="addEvent-startDate">Start Date</label></dt>
             <dd>
                 <input required type="text" id="addEvent-startDate" name="start" value="<?php echo $event->start; ?>" />
-                <sup>Provide date in ISO-8601 format: 2013-07-22T13:00:00</sup>
+                <sup>Provide date in ISO-8601 format: 2015-04-01T13:00:00</sup>
             </dd>
             <dt><label for="addEvent-endDate">End Date</label></dt>
             <dd>
                 <input required type="text" id="addEvent-endDate" name="end" value="<?php echo $event->end; ?>" />
-                <sup>Provide end date in ISO-8601 format: 2013-07-22T13:00:00</sup>
+                <sup>Provide end date in ISO-8601 format: 2015-04-01T14:00:00</sup>
             </dd>
             <dt><label>All day?</label></dt>
             <dd>
@@ -214,7 +243,10 @@
         ?>
             <dl>
                 <dt><label>Presenter <?php echo $i; ?></label></dt>
-                <dd><input type="text" name="presenters[]" value="<?php echo !empty($presenter->name) ? $presenter->name : ''; ?>" /></dd>
+                <dd>Name: <input type="text" name="presenters[]" value="<?php echo !empty($presenter->name) ? $presenter->name : ''; ?>" /></dd>
+                <dd>Bio: <textarea type="text" name="descriptions[]" /><?php echo !empty($presenter->description) ? $presenter->description : ''; ?></textarea></dd>
+                <dd>Link: <input type="text" name="links[]" value="<?php echo !empty($presenter->link) ? $presenter->link : ''; ?>" />
+                <sup>In form: http://your.link.com</sup></dd>
             </dl>
         <?php
             }
