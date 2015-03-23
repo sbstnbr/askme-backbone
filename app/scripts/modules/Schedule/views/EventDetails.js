@@ -68,6 +68,7 @@ define([
             'click .votePositive': 'addOneVote'
         },
         addOneVote: function (evt) {
+            if(localStorage.getItem('votes') !== 'voted'){
             console.log('vote positive');
             var id = $(evt.currentTarget).data('id');
             var value = $(evt.currentTarget).data('value');
@@ -75,8 +76,9 @@ define([
                 url: 'api/events/' + id + '/vote/' + value,
                 method: 'PUT'
             }).done(function () {
-                console.log('successful');
+                localStorage.setItem('votes', 'voted');
             });
+            }
         }
     });
 });

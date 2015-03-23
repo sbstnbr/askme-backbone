@@ -66,6 +66,7 @@ define([
                         success: function(model) {
                             that.eventDetails.event = $.extend({}, event);
                             that.eventDetails.event.votes = model.get(event.id).get('votes');
+                            that.eventDetails.event.value = model.get(event.id).get('value');
                             that.eventDetails.event.average = model.get(event.id).get('average');
                             that.eventDetails.render();
                         }
