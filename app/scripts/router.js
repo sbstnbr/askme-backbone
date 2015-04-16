@@ -8,8 +8,21 @@ define([
     'modules/Schedule/controller',
     'modules/Questions/controller',
     'modules/Nominate/controller',
-    'modules/Finalists/views/Finalists'
-], function(_, Backbone, AppView, IndexView, SocialView, QuestionsView, ScheduleController, QuestionsController, NominateController, FinalistsView) {
+    'modules/Statistics/views/Finalists',
+    'modules/Statistics/views/Presentations'
+], function(
+    _, 
+    Backbone, 
+    AppView, 
+    IndexView, 
+    SocialView, 
+    QuestionsView, 
+    ScheduleController, 
+    QuestionsController, 
+    NominateController, 
+    FinalistsView,
+    PresentationsView
+){
     'use strict';
 
     var initialize = function() {
@@ -18,6 +31,7 @@ define([
         var indexView = new IndexView;
         var socialView = new SocialView;
         var finalistsView = new FinalistsView;
+        var presentationsView = new PresentationsView;
         var questionsView = new QuestionsView();
 
         var appRouter = new (Backbone.Router.extend({
@@ -28,6 +42,7 @@ define([
                 'nominate(/)': 'nominate',
                 'nominate/{id}(/)': 'nominateDetail',
                 'finalists(/)': 'finalist',
+                'presentations(/)': 'presentations',
                 '(*actions)(/)': 'defaultAction'
             },
 
@@ -54,6 +69,10 @@ define([
 
             finalist: function() {
                 finalistsView.render();
+            },
+
+            presentations: function() {
+                presentationsView.render();
             }
         }));
 

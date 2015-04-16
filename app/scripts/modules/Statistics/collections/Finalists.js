@@ -6,6 +6,6 @@ define([
 
     return Backbone.Collection.extend({
         model: Backbone.Model,
-        url: 'api/presenters/finalists'
+        url: 'api/statistics/finalists'
     });
 });

@@ -33,9 +33,14 @@ module.exports = (function () {
             config: presentersController.delete
         },
         {
-            path: '/api/presenters/finalists',
+            path: '/api/statistics/finalists',
             method: 'GET',
             config: presentersController.listFinalists
+        },
+        {
+            path: '/api/statistics/presentations',
+            method: 'GET',
+            config: presentersController.listRatings
         }
         
     ]

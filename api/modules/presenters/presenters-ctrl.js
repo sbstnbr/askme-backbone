@@ -37,6 +37,13 @@ exports.listFinalists = {
     }
 };
 
+exports.listRatings = {
+    handler: function(request, reply) {
+        var handler = new ResponseHandler(reply);
+        nominationsDAO.listRatings().then(handler.success, handler.error);
+    }
+};
+
 exports.get = {
     handler: function (request, reply) {
         var id = request.params.id;

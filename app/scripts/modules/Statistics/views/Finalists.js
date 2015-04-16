@@ -1,8 +1,8 @@
 define([
     'underscore',
     'backbone',
-    'modules/Finalists/collections/Finalists',
-    'modules/Finalists/views/FinalistItem'
+    'modules/Statistics/collections/Finalists',
+    'modules/Statistics/views/FinalistItem'
 ], function(_, Backbone,FinalistsCollection, FinalistItemView) {
     'use strict';
 
