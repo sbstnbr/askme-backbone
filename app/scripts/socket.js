@@ -7,5 +7,5 @@ define(['socket.io', 'backbone'], function(io, Backbone) {
     socket.on('question:new', function(message) {
         Backbone.trigger('question:new', message);
     });
-    return socket
+    return socket;
 });

@@ -1,8 +1,4 @@
-<sectionc id="questions">
-    <h2>Submit your questions below</h2>
-    <div class="intro">
-        <p>New questions are appended at the end of the list. Questions are ordered by number of votes. You can upvote each question only once thus moving it up the list.</p>
-    </div>
+<section>
     <form id="addQuestionForm" >
         <div class="row collapse">
             <div class="small-9 medium-10 columns">
@@ -14,5 +10,21 @@
         </div>
 
     </form>
-    <div class="listing"></div>
+    <div class="row">
+        <div class="small-12 medium-6 columns padded-column">
+            <div class="row">
+                <div class="small-10 medium-10 columns">
+                    <h4>New Questions</h4>
+                </div>
+                <div class="small-2 medium-2 columns">
+                    <span id="nr-of-questions" class="label">0</span>
+                </div>
+            </div>
+            <div id="new-questions"></div>
+        </div>
+        <div class="small-12 medium-6 columns padded-column">
+            <h4>Most Voted Questions</h4>
+            <div id="top-questions"></div>
+        </div>
+    </div>
 </section>

@@ -32,7 +32,7 @@ define([
         addOne: function(model, highlighted) {
             highlighted || (highlighted = false);
             var questionItemView = new QuestionItemView({ model: model, highlighted: highlighted });
-            this.$el.append(questionItemView.render().$el);
+            this.$el.prepend(questionItemView.render().$el);
 
             return this;
         }

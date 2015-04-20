@@ -16,14 +16,12 @@ define([
             console.log('model:update handler with ' + message);
             var model = this.get(message.id);
             model.set('votes', message.votes);
+            this.sort();
         },
         newHandler: function (message) {
             console.log('model:new handler with ' + message);
             var model = new this.model(message);
             this.add(model);
-        },
-        comparator: function(model) {
-            return -model.get('votes');
         }
     });
 });
