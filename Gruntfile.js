@@ -10,7 +10,8 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
     var yeomanConfig = {
-        app: 'app'
+        app: 'app',
+        dist: 'dist'
     };
 
     grunt.initConfig({
@@ -139,9 +140,6 @@ module.exports = function (grunt) {
                 files: [{
                     'dist/css/main.css': [
                         'app/css/{,*/}*.css'
-                    ],
-                    'dist/css/fonts.css': [
-                        'app/css/{,*/}*.css'
                     ]
                 }]
             }
@@ -178,12 +176,15 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: 'fonts',
-                    src: '{,*/}*.{otf,ttf}',
-                    dest: 'dist/fonts'
-                }, {
-                    src: 'app/taw.appcache',
-                    dest: 'dist/taw.appcache'
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        '*.{ico,txt}',
+                        '.htaccess',
+                        'fonts/{,*/}*.*',
+                        'img/*.*',
+                        'index.html'
+                    ]
                 }]
             }
         }

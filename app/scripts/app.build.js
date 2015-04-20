@@ -9,8 +9,6 @@
         modernizr: '../bower_components/modernizr/modernizr.js',
         jquery: '../bower_components/jquery/jquery',
         underscore: '../bower_components/underscore/underscore',
-        backbone: '../bower_components/backbone/backbone',
-        fullcalendar: '../bower_components/fullcalendar/fullcalendar',
-        breakpoints: 'lib/breakpoints'
+        backbone: '../bower_components/backbone/backbone'
     }
 })

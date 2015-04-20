@@ -6,7 +6,6 @@
     "jquery": "~1.10.1",
     "backbone": "~1.0.0",
     "underscore": "~1.4.4",
-    "fullcalendar": "~1.6.1",
     "modernizr": "~2.6.2",
     "requirejs-text": "~2.0.7",
     "requirejs": "~2.1.6",

@@ -1,5 +1,6 @@
 var Hapi = require('hapi');
 var SocketIO = require('socket.io');
+var path = require('path');
 var PORT = 8081;
 
 var options = {
@@ -12,16 +13,20 @@ server.connection(options);
 var questionRoutes = require('./modules/questions/questions-routes');
 server.route(questionRoutes);
 
-var eventRoutes = require('./modules/events/events-routes');
-server.route(eventRoutes);
-
-var presentersRouters = require('./modules/presenters/presenters-routes');
-server.route(presentersRouters);
-
 var io = SocketIO.listen(server.listener);
 
 server.start(function () {
     console.log('Server started', server.info.uri);
+});
+
+server.route({
+    method: 'GET',
+    path: '/{param*}',
+    handler: {
+        directory: {
+            path: path.join(__dirname, '../dist/')
+        }
+    }
 });
 
 var questionsDao = require('./modules/questions/questions-dao');

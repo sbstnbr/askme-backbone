@@ -4,9 +4,9 @@ var Q = require('q');
 function GenericDao(config) {
     var connectionConfig = {
         host: 'localhost',
-        user: 'taw2013',
+        user: 'questions',
         password: 'x2YfU8vHqAATS7Sh',
-        database: 'taw2013'
+        database: 'questions'
     };
 
     return {

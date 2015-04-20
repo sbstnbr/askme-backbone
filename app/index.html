@@ -6,12 +6,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8" />
-    <title>2015 NA/LA Technology Architecture Workshop</title>
+    <title>Accenture Questions App</title>
 
     <link rel="shortcut icon" href="favicon.ico?_=1" />
-
-    <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css" />
-
     <link rel="stylesheet" href="css/main.css" />
 </head>
 <body class="row">
@@ -19,35 +16,39 @@
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 
-<!-- <div id="modal" class="modal hide">
-    <div class="dialog">
-        <button class="close"></button>
-        <div class="content"></div>
-    </div>
-</div> -->
-
-<div id="modal" class="reveal-modal" data-reveal>
-    <div class="dialog">
-        <a class="close-reveal-modal">&#215;</a>
-        <div class="content"></div>
-    </div>
-</div>
-
 <div class="mainBackground"></div>
 
 <div class="pageContainer">
-
-    <header class="header text-center"></header>
+    <header class="header text-center">
+        <div class="row fix-header-row">
+            <div class="hide-for-small medium-3 columns">
+                <img class="logo" src="img/accenture-logo-orange.png" alt="Accenture" />
+            </div>
+            <div class="small-12 medium-6 columns">
+                <h1>Accenture Questions App</h1>
+            </div>
+            <div class="hide-for-small medium-3 columns">
+                <img class="highPerformanceLogo" src="img/high-performance-logo-green.png" alt="High Performance. Delivered." />
+            </div>
+        </div>
+    </header>
     <div class="">
-
         <nav class="mainMenu"></nav>
-
-    <div class="contentWrapper content"></div>
+        <div class="contentWrapper content"></div>
     </div>
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <div class="row full-width">
+            <div class="powered-by">Powered By</div>
+            <div class="small-12">
+                <img class="aowpLogo" src="img/aowp-logo.png" alt="Built with Accenture Open Web Platform" />
+                <p>Question/Comments/Issues please send to:<br />
+                    <a href="mailto:AOWP.Support@accenture.com">AOWP.Support@accenture.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 </div>
 
-<script type="text/javascript" src="https://c64.assets-yammer.com/assets/platform_embed.js"></script>
 <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
 
 </body>
