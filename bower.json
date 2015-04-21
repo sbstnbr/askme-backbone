@@ -15,6 +15,12 @@
     "sio-client": "~1.3.3",
     "lil-uuid": "~0.1.0"
   },
+  "devDependencies": {
+      "chai": "~1.10.0",
+      "sinon-chai": "~2.6.0",
+      "mocha": "~2.0.1",
+      "sinonjs": "~1.10.2"
+  },
   "resolutions": {
     "modernizr": ">= 2.7.2",
     "jquery": "~1.10.1"

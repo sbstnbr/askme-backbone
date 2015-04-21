@@ -1,0 +1,14 @@
+app:
+    build: . 
+#    links:
+#        - db
+    ports:
+        - "8081:8081"
+    volumes:
+        - dist:/dist
+#db:
+#    image: mysql
+#    environment:
+#        - MYSQL_ROOT_PASSWORD=pass
+#    volumes:
+#        - database:/var/lib/mysql

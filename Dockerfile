@@ -3,23 +3,23 @@
 FROM ubuntu:14.04
 
 # Installing dependencies & utilities
-RUN apt-get update -q && apt-get install -q -y supervisor mysql-server npm && apt-get clean
+RUN apt-get update -q && apt-get install -q -y npm && apt-get clean
 
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-ADD ./supervisord.conf /etc/supervisor/conf.d/
+# Make a folder for our backend
+RUN mkdir /app
 
-# Make a folder for our sources
-RUN mkdir /usr/src/question-app
+# Attach backend to container
+ADD ./ /app/
 
-# Attach sources to container
-ADD ./ /usr/src/question-app/
+# Mount point for static files
+VOLUME ["/app/dist"]
 
-WORKDIR /usr/src/question-app
+WORKDIR /app
 
-RUN npm install -g bower grunt-cli && npm install && bower install --allow-root
-RUN grunt build && service mysql start && mysql -uroot < /usr/src/question-app/api/questions.sql
+RUN npm install
 
 EXPOSE 8081
 
-CMD ["node" "/usr/src/question-app/api/index.js"]
+CMD ["node" "/app/api"]

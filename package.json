@@ -38,9 +38,25 @@
     "q": "^1.2.0",
     "socket.io": "^1.3.5",
     "underscore": "^1.8.2",
-    "grunt-contrib-handlebars": "^0.9.3"
+    "grunt-contrib-handlebars": "^0.9.3",
+    "karma-requirejs": "~0.2.2",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "qunitjs": "~1.18.0",
+    "karma-qunit": "~0.1.4",
+    "karma": "~0.12.31",
+    "sinon-chai": "~2.7.0",
+    "chai": "~2.2.0",
+    "mocha": "~2.2.4",
+    "karma-mocha": "~0.1.10",
+    "karma-chai": "~0.1.0",
+    "karma-junit-reporter": "~0.2.2",
+    "karma-sinon-chai": "~0.3.0",
+    "karma-handlebars-preprocessor": "~0.2.0",
+    "grunt-karma": "~0.10.1"
   },
   "dependencies": {
-
+    "karma-firefox-launcher": "~0.1.4",
+    "karma-sinon": "~1.0.4",
+    "grunt-contrib-jshint": "~0.11.2"
   }
 }

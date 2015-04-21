@@ -81,7 +81,17 @@ module.exports = function (grunt) {
                         ];
                     }
                 }
-            }
+            },
+            test: {
+                options: {
+                    middleware: function (connect) {
+                        return [
+                            mountFolder(connect, '.tmp'),
+                            mountFolder(connect, 'tests')
+                        ];
+                    }
+                }
+            },
         },
         open: {
             server: {
@@ -90,6 +100,7 @@ module.exports = function (grunt) {
         },
         clean: {
             server: '.tmp',
+            test: 'app/scripts/templates.js',
             dist: 'dist/'
         },
         requirejs: {
@@ -186,6 +197,25 @@ module.exports = function (grunt) {
                         'index.html'
                     ]
                 }]
+            },
+            test: {
+                files: [{
+                    src: '.tmp/scripts/templates.js',
+                    dest: '<%= yeoman.app %>/scripts/templates.js'
+                }]
+            }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
+        },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            files: {
+                src: ['app/scripts/**/*.js', 'tests/**/*.js']
             }
         }
     });
@@ -219,8 +249,17 @@ module.exports = function (grunt) {
         'copy'
     ]);
 
-    grunt.registerTask('default', [
-        'build'
+    grunt.registerTask('test', [
+        'clean:server',
+        'handlebars',
+        'copy:test',
+        'karma',
+        'clean:test'
     ]);
 
+    grunt.registerTask('default', [
+        'jshint',
+        'test',
+        'build'
+    ]);
 };
