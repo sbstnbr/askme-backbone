@@ -9,3 +9,5 @@ app/bower_components
 node_modules
 dist/
 css/
+database/storage
+app/scripts/templates.js
