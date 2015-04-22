@@ -82,12 +82,13 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            test: {
+            report: {
                 options: {
                     middleware: function (connect) {
                         return [
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'tests')
+                            proxySnippet,
+                            lrSnippet,
+                            mountFolder(connect, 'reports')
                         ];
                     }
                 }
@@ -96,12 +97,15 @@ module.exports = function (grunt) {
         open: {
             server: {
                 path: 'http://localhost:<%= connect.options.port %>'
+            },
+            report: {
+                path: 'http:/localhost:<%= connect.options.port %>'
             }
         },
         clean: {
             server: '.tmp',
             test: 'app/scripts/templates.js',
-            dist: 'dist/'
+            dist: 'dist'
         },
         requirejs: {
             dist: {
@@ -210,12 +214,12 @@ module.exports = function (grunt) {
                 configFile: 'karma.conf.js'
             }
         },
-        jshint: {
+        plato: {
             options: {
-                jshintrc: '.jshintrc'
+                jshint: grunt.file.readJSON('.jshintrc')
             },
-            files: {
-                src: ['app/scripts/**/*.js', 'tests/**/*.js']
+            report: {
+                files: {'reports': ['app/scripts/**/*.js', 'tests/**/*.js']},
             }
         }
     });
@@ -231,7 +235,7 @@ module.exports = function (grunt) {
             'sass:dist',
             'handlebars',
             'connect:livereload',
-            'open',
+            'open:server',
             'watch'
         ]);
     });
@@ -247,6 +251,13 @@ module.exports = function (grunt) {
         'imagemin',
         'requirejs',
         'copy'
+    ]);
+
+    grunt.registerTask('report', [
+        'plato',
+        'connect:report',
+        'open:report',
+        'watch'
     ]);
 
     grunt.registerTask('test', [
