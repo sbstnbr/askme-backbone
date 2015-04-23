@@ -16,7 +16,7 @@ define([
             var that = this;
             this.questionsView = new QuestionsView({ 
                 el: $('#new-questions'), 
-                collection: new QuestionsCollection 
+                collection: new QuestionsCollection() 
             });
             this.questionsView.collection.comparator = function(model) {
                 return model.get('id');
@@ -24,13 +24,13 @@ define([
 
             this.topQuestionsView = new QuestionsView({
                 el: $('#top-questions'),
-                collection: new QuestionsCollection
+                collection: new QuestionsCollection()
             });
             this.topQuestionsView.collection.comparator = function(model) {
                 return model.get('votes');
             };
 
-            this.questionsView.listenTo(this.questionsView.collection, 'add', function(model) {
+            this.questionsView.listenTo(this.questionsView.collection, 'add', function() {
                 that.questionsView.render();
                 that.topQuestionsView.render();
                 that.$el.find('#nr-of-questions').text(that.questionsView.collection.length);
@@ -53,7 +53,7 @@ define([
             this.topQuestionsView.render();
 
             new QuestionForm({
-                model: new QuestionModel,
+                model: new QuestionModel(),
                 el: $('#addQuestionForm')
             });
 

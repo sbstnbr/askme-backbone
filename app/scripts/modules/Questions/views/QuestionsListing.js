@@ -11,10 +11,10 @@ define([
             var that = this;
             this.collection.fetch({
                 reset: true,
-                success: function(collection, response, options) {
+                success: function(collection) {
                     that.addAll(collection.models);
                 },
-                error : function(model, response, options) {
+                error : function() {
                     console.log('Error loading questions from server');
                 }
             });
@@ -30,7 +30,7 @@ define([
         },
 
         addOne: function(model, highlighted) {
-            highlighted || (highlighted = false);
+            highlighted = highlighted || false;
             var questionItemView = new QuestionItemView({ model: model, highlighted: highlighted });
             this.$el.prepend(questionItemView.render().$el);
 

@@ -4,7 +4,7 @@ define([
     'modules/Questions/views/QuestionItem',
     'modules/Questions/models/Question',
     'handlebarsHelpers',
-], function(_, Backbone, QuestionsItemView, QuestionModel, Helpers) {
+], function(_, Backbone, QuestionsItemView, QuestionModel) {
     'use strict';
     describe('QuestionItem view', function() {
         beforeEach(function() {

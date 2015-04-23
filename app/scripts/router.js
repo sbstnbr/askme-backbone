@@ -13,15 +13,15 @@ define([
 
         var questionsView = new QuestionsView();
 
-        var appRouter = new (Backbone.Router.extend({
+        new (Backbone.Router.extend({
             routes: {
                 '(*actions)(/)': 'defaultAction'
             },
 
-            defaultAction: function(actions) {
+            defaultAction: function() {
                 questionsView.render();
             }
-        }));
+        }))();
 
         Backbone.history.start();
     };

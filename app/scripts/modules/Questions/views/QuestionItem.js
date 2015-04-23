@@ -28,8 +28,7 @@ define([
             'click button.votePositive' : 'addOneVote'
         },
 
-        addOneVote: function(evt) {
-            var id = $(evt.currentTarget).data("id");
+        addOneVote: function() {
             socket.emit('vote', {id: this.model.get('id'), uuid: localStorage.getItem('uuid')});
         }
     });

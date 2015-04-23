@@ -221,6 +221,14 @@ module.exports = function (grunt) {
             report: {
                 files: {'reports': ['app/scripts/**/*.js', 'tests/**/*.js']},
             }
+        },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            files: {
+                src: ['app/scripts/**/*.js', 'tests/**/*.js']
+            }
         }
     });
 
@@ -250,7 +258,7 @@ module.exports = function (grunt) {
         'htmlmin',
         'imagemin',
         'requirejs',
-        'copy'
+        'copy:dist'
     ]);
 
     grunt.registerTask('report', [

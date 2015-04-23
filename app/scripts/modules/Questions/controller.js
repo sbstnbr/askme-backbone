@@ -7,10 +7,10 @@ define([
     'use strict';
 
     var initialize = function() {
-        (new QuestionsSectionView).render();
+        (new QuestionsSectionView()).render();
     };
 
     return {
         initialize: initialize
-    }
+    };
 });

@@ -1,5 +1,6 @@
 'use strict';
-define(['handlebars', 'underscore'], function (Handlebars, _) {
+
+define(['handlebars'], function (Handlebars) {
 
     Handlebars.registerHelper('handleVotes', function(numberOfVotes) {
         return numberOfVotes === '1' ? '' : 's';
