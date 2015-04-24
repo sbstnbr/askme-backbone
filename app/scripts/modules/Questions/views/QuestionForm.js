@@ -12,7 +12,9 @@ define([
         },
         save: function(evt) {
             evt.preventDefault();
-            this.model.set('question',this.$('input[name=question]').val());
+            var question = localStorage.userName + ': ' + this.$('input[name=question]').val();
+            console.log('question: ', question);
+            this.model.set('question', question);
             socket.emit('question:new', this.model.attributes);
             this.$('input[name=question]').val('');
         }

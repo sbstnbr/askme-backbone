@@ -25,11 +25,17 @@ define([
         },
 
         events: {
-            'click button.votePositive' : 'addOneVote'
+            'click button.votePositive' : 'addOneVote',
+            'click button.voteNegative' : 'removeOneVote',
         },
 
         addOneVote: function() {
             socket.emit('vote', {id: this.model.get('id'), uuid: localStorage.getItem('uuid')});
+        },
+
+        removeOneVote: function () {
+            socket.emit('downvote', {id: this.model.get('id'), uuid: localStorage.getItem('uuid')});
         }
+
     });
 });

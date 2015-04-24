@@ -90,6 +90,25 @@ exports.vote = {
     }
 };
 
+exports.downvote = {
+    handler: function (request, reply) {
+        var id = request.params.id;
+        var handler = new ResponseHandler(reply);
+        questionsDAO.get(id)
+            .then(function (doc) {
+                var votes = doc.votes - 1;
+                doc.votes = votes;
+                return questionsDAO.update(id, doc)
+            })
+            .then(handler.success, handler.error);
+    },
+    validate: {
+        params: {
+            id: Joi.number().required().min(0)
+        }
+    }
+};
+
 exports.delete = {
     handler: function (request, reply) {
         var id = request.params.id;

@@ -28,6 +28,11 @@ module.exports = (function () {
             config: questionController.vote
         },
         {
+            path: '/api/questions/{id}/downvote',
+            method: 'PUT',
+            config: questionController.downvote
+        },
+        {
             path: '/api/questions/{id}',
             method: 'DELETE',
             config: questionController.delete
