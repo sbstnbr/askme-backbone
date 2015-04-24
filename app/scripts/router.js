@@ -22,7 +22,7 @@ define([
                 questionsView.render();
 
                 if(!localStorage.userName) {
-                    var userName = prompt('Please enter your name.', 'No name') || 'No name';
+                    var userName = prompt('Please enter your name.', 'Name') || 'Name';
                     localStorage.setItem('userName', userName);
                 }
             }
