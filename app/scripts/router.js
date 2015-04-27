@@ -11,6 +11,11 @@ define([
 
     var initialize = function() {
 
+        if(!localStorage.userName) {
+            var userName = prompt('Please enter your name.', 'No name') || 'No name';
+            localStorage.setItem('userName', userName);
+        }
+
         var questionsView = new QuestionsView();
 
         new (Backbone.Router.extend({
@@ -20,11 +25,6 @@ define([
 
             defaultAction: function() {
                 questionsView.render();
-
-                if(!localStorage.userName) {
-                    var userName = prompt('Please enter your name.', 'No name') || 'No name';
-                    localStorage.setItem('userName', userName);
-                }
             }
         }))();
 

@@ -6,12 +6,21 @@ define([
 ], function(_, Backbone, JST, socket) {
     'use strict';
 
+    function getVotesForQuestion(id) {
+        return JSON.parse(localStorage.questions)[id] || 0;
+    }
+
+    function saveQuestion(votes, id) {
+        var questions = JSON.parse(localStorage.questions);
+        questions[id] = votes;
+        localStorage.setItem('questions', JSON.stringify(questions));
+    }
+
     return Backbone.View.extend({
 
         template: JST['app/templates/question.hbs'],
         initialize: function() {
             this.listenTo(this.model, 'change', function() {
-                console.log('Model changed');
                 this.render();
             });
         },
@@ -30,12 +39,24 @@ define([
         },
 
         addOneVote: function() {
-            socket.emit('vote', {id: this.model.get('id'), uuid: localStorage.getItem('uuid')});
+            // [{id, votes}]
+            var id = this.model.get('id');
+            var votes = getVotesForQuestion(id);
+            if(votes === 0 || votes === -1) {
+                votes++;
+                saveQuestion(votes, id);
+                socket.emit('vote', {id: id, uuid: localStorage.getItem('uuid')});
+            }
         },
 
         removeOneVote: function () {
-            socket.emit('downvote', {id: this.model.get('id'), uuid: localStorage.getItem('uuid')});
+            var id = this.model.get('id');
+            var votes = getVotesForQuestion(id);
+            if(votes === 0 || votes === 1) {
+                votes--;
+                saveQuestion(votes, id);
+                socket.emit('downvote', {id: id, uuid: localStorage.getItem('uuid')});
+            }
         }
-
     });
 });

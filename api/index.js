@@ -30,7 +30,6 @@ server.route({
 });
 
 var questionsDao = require('./modules/questions/questions-dao');
-var userQuestionDao = require('./modules/questions/uuid-dao');
 io.sockets.on('connection', function (client) {
     console.log('a user connected');
     client.on('disconnect', function () {
@@ -38,44 +37,32 @@ io.sockets.on('connection', function (client) {
     });
     client.on('vote', function (message) {
         console.log('vote handler');
-        var uuid = message.uuid;
-        userQuestionDao.get(uuid, message.id).then(function (result) {
-            if (result !== undefined && result !== null && result.length === 0) {
-                userQuestionDao.create(message);
-                questionsDao.get(message.id)
-                    .then(function (result) {
-                        result.votes = result.votes + 1;
-                        return questionsDao.update(message.id, result);
-                    })
-                    .then(function () {
-                        return questionsDao.get(message.id);
-                    })
-                    .then(function (doc) {
-                        io.sockets.emit('question:update', {id: message.id, votes: doc.votes});
-                    });
-            }
-        });
+        questionsDao.get(message.id)
+            .then(function (result) {
+                result.votes = result.votes + 1;
+                return questionsDao.update(message.id, result);
+            })
+            .then(function () {
+                return questionsDao.get(message.id);
+            })
+            .then(function (doc) {
+                io.sockets.emit('question:update', {id: message.id, votes: doc.votes});
+            });
     });
 
     client.on('downvote', function (message) {
         console.log('downvote handler');
-        var uuid = message.uuid;
-        userQuestionDao.get(uuid, message.id).then(function (result) {
-            if (result !== undefined && result !== null && result.length === 0) {
-                userQuestionDao.create(message);
-                questionsDao.get(message.id)
-                    .then(function (result) {
-                        result.votes = result.votes + -1;
-                        return questionsDao.update(message.id, result);
-                    })
-                    .then(function () {
-                        return questionsDao.get(message.id);
-                    })
-                    .then(function (doc) {
-                        io.sockets.emit('question:update', {id: message.id, votes: doc.votes});
-                    });
-            }
-        });
+        questionsDao.get(message.id)
+            .then(function (result) {
+                result.votes = result.votes + -1;
+                return questionsDao.update(message.id, result);
+            })
+            .then(function () {
+                return questionsDao.get(message.id);
+            })
+            .then(function (doc) {
+                io.sockets.emit('question:update', {id: message.id, votes: doc.votes});
+            });
     });
 
     client.on('question:new', function(message) {

@@ -31,6 +31,7 @@ define([
 
         addOne: function(model, highlighted) {
             highlighted = highlighted || false;
+            model.handleVoteButtons();
             var questionItemView = new QuestionItemView({ model: model, highlighted: highlighted });
             this.$el.prepend(questionItemView.render().$el);
 

@@ -32,6 +32,7 @@
         "require": false,
         "define": false,
         "sinon": false,
-        "afterEach" : false
+        "afterEach" : false,
+        "prompt": false
     }
 }

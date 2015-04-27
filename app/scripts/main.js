@@ -33,6 +33,16 @@ require.config({
 require(['app', 'foundation'], function (App) {
     'use strict';
 
+    function initLocalSotrage() {
+        if(!localStorage.questions) {
+            localStorage.setItem('questions', JSON.stringify({}));    
+        }
+    }   
+
     App.initialize();
     $(document).foundation();
+    initLocalSotrage();
+    
+    
 });
+
