@@ -10,7 +10,7 @@
 
 .mainMenu,
 .icon-bar {
-  max-height: 93px;
+  max-height: 6rem;
   background-color: $primary-color;
   a:hover {
     background-color: scale-color($primary-color, $lightness: $button-function-factor);;

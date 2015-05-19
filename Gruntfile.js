@@ -35,7 +35,7 @@ module.exports = function (grunt) {
             },
             sass: {
                 options: {
-                    livereload: false
+                    livereload: true
                 },
                 files: ['app/scss/*.scss'],
                 task: ['sass:dist']
@@ -47,7 +47,8 @@ module.exports = function (grunt) {
                 files: [
                     'app/*.html',
                     'app/scripts/*.js',
-                    'app/templates/*.hbs'
+                    'app/templates/*.hbs',
+                    'app/scss/*.scss'
                 ]
             },
             handlebars: {

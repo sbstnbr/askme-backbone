@@ -1,7 +1,7 @@
 'use strict';
 
 define(['socket.io', 'backbone'], function(io, Backbone) {
-    var socket = io.connect({transports: ['websocket', 'xhr-polling']});
+    var socket = io.connect({transports: ['websocket']});
     socket.on('question:update', function(message) {
         Backbone.trigger('question:update', message);
 
