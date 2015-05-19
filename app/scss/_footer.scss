@@ -3,7 +3,7 @@ $text-color: #fff;
 // footer CSS
 
 .footer {
-  background-color: $primary-color;
+  background-color: #F6F6F6;
   padding: 1rem 4rem;
   text-align: center;
   color: $text-color;
@@ -37,8 +37,12 @@ $text-color: #fff;
 
 .footer {
   img {
-    height: 90px;
-    margin-bottom: 1.5em;  
+    position: relative; 
+    height: 3.5rem;
+    margin-bottom: 0.4em;
+    @media #{medium-up} {
+      left: 3rem;  
+    }
   }
 }
 

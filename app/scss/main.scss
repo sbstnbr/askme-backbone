@@ -17,9 +17,35 @@
   }
 }
 
+.custom-postfix {
+  height: 3.1235rem;
+}
+
+.hint-text { 
+  font-size: 0.8rem;
+}
+
+.alert-color {
+  color: red;
+}
+
+.logo {
+  margin-top: 0.5em;
+}
+
 h1, h4 {
   color: #32864b;
   font-weight: bold;
+}
+
+.main-title { 
+  color: white;
+  font-size: $h4-font-size;
+  padding-top: 0.5em;
+  
+  @media #{$medium-up} {
+    font-size: 2em;
+  }
 }
 
 .custom-label {
@@ -28,6 +54,8 @@ h1, h4 {
 
 header {
   margin-bottom: 2rem;
+  background-color: $primary-color;
+  color: white;
 }
 
 #addQuestionForm {
@@ -60,4 +88,31 @@ header {
 
 .padded-column {
   padding: 0 25px 0 25px;
+
+}
+
+.voting-buttons {
+  padding-top: 25px;
+}
+
+.voting-nums {
+  @media #{medium-up} {
+    padding-top: 0.8rem;
+    
+    .count {
+      font-size: 1.2rem;
+    }    
+  }
+  
+  padding-top: 0.5rem;
+
+  .count {
+    font-size: 1.5rem;
+  }
+}
+
+.votePositive {
+  @media #{medium-up} {
+    margin-right: 0.25rem;
+  }
 }

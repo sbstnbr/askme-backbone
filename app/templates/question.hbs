@@ -1,6 +1,16 @@
-<div class="question small-8 medium-9 columns">{{question}}</div>
-<div class="votingWrapper small-4 medium-3 columns">
-    <button class="votePositive button radius tiny {{#if upvoteDisabled}}disabled{{/if}}" data-id="{{id}}" title="Vote"><i class="fa fa-plus"> 1</i></button>
-    <button class="voteNegative button radius tiny {{#if downvoteDisabled}}disabled{{/if}}" data-id="{{id}}" title="Vote"><i class="fa fa-minus"> 1</i></button>
-    <div class="votes text-center"><span class="count">{{votes}}</span> vote{{handleVotes votes}}</div>
+<div class="row">
+    <div class="small-12 columns">
+        <div class="row">
+            <div class="small-12 columns"><b>{{takeName question}}</b></br>{{takeMessage question}}</div>
+        </div>
+        <div class="row">
+            <div class="small-7 medium-10 columns voting-buttons">
+                <button class="votePositive button radius tiny {{#if upvoteDisabled}}disabled{{/if}}" data-id="{{id}}" title="Vote"><i class="fa fa-thumbs-up fa-2x"></i></button>
+                <button class="voteNegative button radius tiny {{#if downvoteDisabled}}disabled{{/if}}" data-id="{{id}}" title="Vote"><i class="fa fa-thumbs-down fa-2x"></i></button>
+            </div>    
+            <div class="text-center small-4 medium-2 columns voting-nums">
+                <span class="count">{{votes}}</span></br> vote{{handleVotes votes}}
+            </div>
+        </div>
+    </div>
 </div>
