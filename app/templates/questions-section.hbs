@@ -2,7 +2,7 @@
     <form id="addQuestionForm" >
         <div class="row collapse">
             <div class="small-9 medium-10 columns">
-                <input type="text" id="addQuestionForm-question" name="question" required placeholder="Enter your question here" />
+                <textarea id="addQuestionForm-question" name="question" required placeholder="Enter your question here" />
             </div>
             <div class="small-3 medium-2 columns">
                 <button class="button radius postfix" id="addQuestionForm-add">Post</button>
@@ -11,21 +11,21 @@
 
     </form>
      <div class="row">
-         <div class="small-12 label">
+         <div class="small-12 label custom-label">
             Total questions: <span id="nr-of-questions">0</span>
         </div>
     </div>
     <div class="row">
         <div class="small-12 medium-6 columns padded-column">
             <div class="row">
-                <div class="small-12 medium-12 columns">
+                <div class="small-12 medium-12 columns text-center custom-label">
                     <h4>New Questions</h4>
                 </div>     
             </div>
             <div id="new-questions"></div>
         </div>
-        <div class="small-12 medium-6 columns padded-column">
-            <h4>Most Voted Questions</h4>
+        <div class="small-12 medium-6 columns padded-column ">
+            <h4 class="text-center custom-label">Most Voted Questions</h4>
             <div id="top-questions"></div>
         </div>
     </div>

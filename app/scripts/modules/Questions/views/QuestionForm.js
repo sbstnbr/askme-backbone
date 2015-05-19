@@ -12,11 +12,11 @@ define([
         },
         save: function(evt) {
             evt.preventDefault();
-            var question = localStorage.userName + ': ' + this.$('input[name=question]').val();
+            var question = localStorage.userName + ': ' + this.$('#addQuestionForm-question').val();
             console.log('question: ', question);
             this.model.set('question', question);
             socket.emit('question:new', this.model.attributes);
-            this.$('input[name=question]').val('');
+            this.$('#addQuestionForm-question').val('');
         }
     });
 });
