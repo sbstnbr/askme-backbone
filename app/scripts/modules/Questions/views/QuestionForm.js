@@ -8,7 +8,8 @@ define([
     'use strict';
     return Backbone.View.extend({
         events: {
-            submit: 'save'
+            submit: 'save',
+            'keyup #addQuestionForm-question': 'updateCounter' 
         },
         save: function(evt) {
             evt.preventDefault();
@@ -17,6 +18,10 @@ define([
             this.model.set('question', question);
             socket.emit('question:new', this.model.attributes);
             this.$('#addQuestionForm-question').val('');
+            this.$('#counter').html(0);
+        },
+        updateCounter: function(evt) {
+            this.$('#counter').html(evt.target.value.length);
         }
     });
 });

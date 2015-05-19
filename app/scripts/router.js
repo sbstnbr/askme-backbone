@@ -11,7 +11,7 @@ define([
 
     var initialize = function() {
 
-        if(!localStorage.userName) {
+        if(!localStorage.userName || localStorage.userName === 'No name') {
             var userName = prompt('Please enter your name.', 'No name') || 'No name';
             localStorage.setItem('userName', userName);
         }
