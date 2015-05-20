@@ -6,7 +6,12 @@
         <div class="row">
             <div class="small-7 medium-10 columns voting-buttons">
                 <button class="votePositive button radius tiny {{#if upvoteDisabled}}disabled{{/if}}" data-id="{{id}}" title="Vote"><i class="fa fa-thumbs-up fa-2x"></i></button>
+                
                 <button class="voteNegative button radius tiny {{#if downvoteDisabled}}disabled{{/if}}" data-id="{{id}}" title="Vote"><i class="fa fa-thumbs-down fa-2x"></i></button>
+                
+                {{#if shortMessage}}
+                <a id="twitter-button" href="https://twitter.com/intent/tweet?text={{takeMessage question}}" class="twitter-share-button" data-count="none" data-url="">Tweet</a>
+                {{/if}}
             </div>    
             <div class="text-center small-4 medium-2 columns voting-nums">
                 <span class="count">{{votes}}</span></br> vote{{handleVotes votes}}

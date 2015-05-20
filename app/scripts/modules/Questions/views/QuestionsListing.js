@@ -25,13 +25,14 @@ define([
             _.each(collection, function(model) {
                 this.addOne(model);
             }, this);
-
             return this;
         },
 
         addOne: function(model, highlighted) {
             highlighted = highlighted || false;
             model.handleVoteButtons();
+            model.handleMessages();
+
             var questionItemView = new QuestionItemView({ model: model, highlighted: highlighted });
             this.$el.prepend(questionItemView.render().$el);
 

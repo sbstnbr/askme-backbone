@@ -22,5 +22,4 @@ define(['handlebars'], function (Handlebars) {
 
         return str;
     });
-
 });

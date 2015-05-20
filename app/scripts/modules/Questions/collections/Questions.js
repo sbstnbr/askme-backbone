@@ -13,14 +13,12 @@ define([
             this.listenTo(Backbone, 'question:new', this.newHandler);
         },
         updateHandler: function (message) {
-            // console.log('model:update handler with ' + message);
             var model = this.get(message.id);
             model.set('votes', message.votes);
             model.handleVoteButtons();
             this.sort();
         },
         newHandler: function (message) {
-            // console.log('model:new handler with ' + message);
             var model = new this.model(message);
             this.add(model);
         }
