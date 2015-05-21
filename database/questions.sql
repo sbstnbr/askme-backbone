@@ -24,9 +24,9 @@ CREATE TABLE IF NOT EXISTS `uuid_votes` (
 
 CREATE TABLE IF NOT EXISTS `uuid_rating` (
   `uuid` varchar(255) NOT NULL,
-  `overall_rating` int(10) unsigned NOT NULL,
-  `relevance_rating` int(10) unsigned NOT NULL,
-  `entertaining_rating` int(10) unsigned NOT NULL,
+  `overall` int(10) unsigned NOT NULL,
+  `relevance` int(10) unsigned NOT NULL,
+  `entertaining` int(10) unsigned NOT NULL,
     PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

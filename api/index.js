@@ -87,6 +87,8 @@ io.sockets.on('connection', function (client) {
     });
 
     client.on('rating:neworupdate', function(message) {
+        console.log('rating:neworupdate handler');
+        console.log(message);
         var array = [];
         var consoleHandler = function(message) {
             console.log(message);
@@ -119,12 +121,21 @@ io.sockets.on('connection', function (client) {
             .done(function(m) {
                 if(m === undefined) {
                     //create new
-                    ratingDao.create(message).then(handler);
-                    console.log('new handler')
+                    var newMessage = {
+                        uuid: message.uuid,
+                        overall: 0,
+                        relevance: 0,
+                        entertaining: 0
+                    };
+                    newMessage[message.type] = message.value;
+                    ratingDao.create(newMessage).then(handler);
+                    console.log('new handler');
+                    console.log();
                 } else {
-                    //update old
                     console.log('update handler');
-                    ratingDao.update(message.uuid, message).then(handler)
+                    //update old
+                    m[message.type] = message.value;
+                    ratingDao.update(message.uuid, m).then(handler)
                 }
             });
     });
