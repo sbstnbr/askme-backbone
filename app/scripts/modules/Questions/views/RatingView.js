@@ -16,7 +16,7 @@ define([
         render: function() {
             this.computeAverageRating();
             this.$el.html(this.template(this.model.attributes));
-            // this.presetStars();
+            this.presetStars();
             return this;
         },
         showRating: function(evt) {
@@ -30,7 +30,11 @@ define([
         },
         presetStars: function() {
             // for type get average
-            var average = this.model.get('average');
+            var average = localStorage.getItem(this.model.get('type'));
+            if(! average) {
+                return;
+            }
+
             if ((average >= 1) && (average < 2)) {
                 this.$el.find('#star1').attr('checked', true);
             }
@@ -52,6 +56,7 @@ define([
             console.log(evt.target);
             $(evt.target).siblings('input[type=radio]:checked').prop('checked', false);
             $(evt.target).prev('input[type=radio]').prop('checked', true);
+            localStorage.setItem(this.model.get('type'), $(evt.target).data('value'));
         }
     });
 });
