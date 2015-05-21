@@ -27,8 +27,8 @@ define([
         computeAverageRating: function() {
             var sum = this.model.get('sum');
             var votes = this.model.get('votes');
-            var average = sum / votes;
-            this.model.set('average', average || 0);
+            var average = (sum / votes) || 0;
+            this.model.set('average', average);
         },
         presetStars: function() {
             // for type get average

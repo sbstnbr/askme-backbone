@@ -11,6 +11,7 @@ define([
         initialize: function () {
             this.listenTo(Backbone, 'question:update', this.updateHandler);
             this.listenTo(Backbone, 'question:new', this.newHandler);
+            this.fetch({async:false});
         },
         updateHandler: function (message) {
             var model = this.get(message.id);
