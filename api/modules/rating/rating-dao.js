@@ -31,17 +31,17 @@ exports.delete = function(id) {
 
 
 exports.overall = function() {
-    var sqlQuery = 'SELECT sum(overall_rating) AS overall_rating, count(*) votes FROM uuid_rating WHERE overall_rating > 0 ';
+    var sqlQuery = 'SELECT sum(overall_rating) AS sum, count(*) votes FROM uuid_rating WHERE overall_rating > 0 ';
     return dao.get(sqlQuery);
 };
 
 exports.relevance = function() {
-    var sqlQuery = 'SELECT sum(relevance_rating) AS relevance_rating, count(*) votes FROM uuid_rating WHERE relevance_rating > 0 ';
+    var sqlQuery = 'SELECT sum(relevance_rating) AS sum, count(*) votes FROM uuid_rating WHERE relevance_rating > 0 ';
     return dao.get(sqlQuery);
 };
 
 exports.entertaining = function() {
-    var sqlQuery = 'SELECT sum(entertaining_rating) AS entertaining_rating, count(*) votes FROM uuid_rating WHERE entertaining_rating > 0 ';
+    var sqlQuery = 'SELECT sum(entertaining_rating) AS sum, count(*) votes FROM uuid_rating WHERE entertaining_rating > 0 ';
     return dao.get(sqlQuery);
 };
 

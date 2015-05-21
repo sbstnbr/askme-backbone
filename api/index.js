@@ -87,6 +87,45 @@ io.sockets.on('connection', function (client) {
     });
 
     client.on('rating:neworupdate', function(message) {
-        //ratingDao.get(message)
+        var array = [];
+        var consoleHandler = function(message) {
+            console.log(message);
+        };
+        var handler = function() {
+            ratingDao.overall()
+                .then(function(result) {
+                    result.type = "overall";
+                    array.push(result);
+                    return ratingDao.entertaining();
+                })
+                .then(function(result) {
+                    result.type = "entertaining";
+                    array.push(result);
+                    return ratingDao.relevance();
+                })
+                .then(function(result) {
+                    result.type = "relevance";
+                    array.push(result);
+                    return array;
+                })
+                .done(function() {
+                    console.log('handler done');
+                    io.sockets.emit('rating:update', array);
+                });
+            //io.sockets.emit('rating:update', doc);
+        };
+        ratingDao.get(message.uuid)
+            .catch(consoleHandler)
+            .done(function(m) {
+                if(m === undefined) {
+                    //create new
+                    ratingDao.create(message).then(handler);
+                    console.log('new handler')
+                } else {
+                    //update old
+                    console.log('update handler');
+                    ratingDao.update(message.uuid, message).then(handler)
+                }
+            });
     });
 });
