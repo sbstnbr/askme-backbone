@@ -27,6 +27,16 @@ define([
             this.questionsView.collection.comparator = function(model) {
                 return model.get('id');
             };
+
+            var startCollection = this.ratingListView.collection;
+            startCollection.listenTo(Backbone, 'rating:update', function(message) {
+                 startCollection.reset(message);
+            });
+
+            this.ratingListView.listenTo(startCollection, 'reset', function() {
+                that.ratingListView.render();
+            });
+
             this.questionsView.listenTo(this.questionsView.collection, 'add', function() {
                 that.questionsView.render();
                 that.topQuestionsView.render();
