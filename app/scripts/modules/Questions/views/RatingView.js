@@ -1,8 +1,9 @@
 define([
     'underscore',
     'backbone',
-    'templates'
-], function(_, Backbone, JST) {
+    'templates',
+    'socket'
+], function(_, Backbone, JST, socket) {
     'use strict';
 
     return Backbone.View.extend({
@@ -53,7 +54,15 @@ define([
             return this;
         },
         vote: function(evt) {
-            console.log(evt.target);
+            var value = $(evt.target).data('value');
+            var type = $(evt.target).data('id');
+            console.log(type + ':' + value);
+            socket.emit('rating:neworupdate', {
+                uuid: localStorage.getItem('uuid'),
+                value: value,
+                type: type
+            });
+
             $(evt.target).siblings('input[type=radio]:checked').prop('checked', false);
             $(evt.target).prev('input[type=radio]').prop('checked', true);
             localStorage.setItem(this.model.get('type'), $(evt.target).data('value'));

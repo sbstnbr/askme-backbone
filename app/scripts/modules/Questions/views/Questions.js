@@ -18,23 +18,7 @@ define([
             var that = this;
 
             this.ratingListView = new RatingListView({
-                collection: new RatingCollection([
-                    {
-                        "sum": 4,
-                        "votes": 2,
-                        "type": "overall"
-                    },
-                    {
-                        "sum": 10,
-                        "votes": 3,
-                        "type": "entertaining"
-                    },
-                    {
-                        "sum": 6,
-                        "votes": 2,
-                        "type": "relevance"
-                    }
-                ])
+                collection: new RatingCollection()
             });
 
             this.questionsView = new QuestionsView({ 

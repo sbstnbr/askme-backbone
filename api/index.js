@@ -87,6 +87,56 @@ io.sockets.on('connection', function (client) {
     });
 
     client.on('rating:neworupdate', function(message) {
-        //ratingDao.get(message)
+        console.log('rating:neworupdate handler');
+        console.log(message);
+        var array = [];
+        var consoleHandler = function(message) {
+            console.log(message);
+        };
+        var handler = function() {
+            ratingDao.overall()
+                .then(function(result) {
+                    result.type = "overall";
+                    array.push(result);
+                    return ratingDao.entertaining();
+                })
+                .then(function(result) {
+                    result.type = "entertaining";
+                    array.push(result);
+                    return ratingDao.relevance();
+                })
+                .then(function(result) {
+                    result.type = "relevance";
+                    array.push(result);
+                    return array;
+                })
+                .done(function() {
+                    console.log('handler done');
+                    io.sockets.emit('rating:update', array);
+                });
+            //io.sockets.emit('rating:update', doc);
+        };
+        ratingDao.get(message.uuid)
+            .catch(consoleHandler)
+            .done(function(m) {
+                if(m === undefined) {
+                    //create new
+                    var newMessage = {
+                        uuid: message.uuid,
+                        overall: 0,
+                        relevance: 0,
+                        entertaining: 0
+                    };
+                    newMessage[message.type] = message.value;
+                    ratingDao.create(newMessage).then(handler);
+                    console.log('new handler');
+                    console.log();
+                } else {
+                    console.log('update handler');
+                    //update old
+                    m[message.type] = message.value;
+                    ratingDao.update(message.uuid, m).then(handler)
+                }
+            });
     });
 });

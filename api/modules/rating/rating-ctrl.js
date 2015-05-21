@@ -21,14 +21,17 @@ exports.list = {
         var array = [];
         ratingDAO.overall()
             .then(function(result) {
+                result.type = "overall";
                 array.push(result);
                 return ratingDAO.entertaining();
             })
             .then(function(result) {
+                result.type = "entertaining";
                 array.push(result);
                 return ratingDAO.relevance();
             })
             .then(function(result) {
+                result.type = "relevance";
                 array.push(result);
                 return array;
             })

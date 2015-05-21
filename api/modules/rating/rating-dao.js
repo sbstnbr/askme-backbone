@@ -2,8 +2,8 @@ var GenericDao = require('../common/generic-dao');
 var dao = new GenericDao();
 
 exports.create = function(doc) {
-    var sqlQuery = 'INSERT INTO uuid_rating (uuid, overall_rating, relevance_rating, entertaining_rating) VALUES (?, ?, ?, ?)';
-    var values = [doc.uuid, doc.overall_rating, doc.relevance_rating, doc.entertaining_rating];
+    var sqlQuery = 'INSERT INTO uuid_rating (uuid, overall, relevance, entertaining) VALUES (?, ?, ?, ?)';
+    var values = [doc.uuid, doc.overall, doc.relevance, doc.entertaining];
     sqlQuery = dao.format(sqlQuery, values);
     return dao.promiseQuery(sqlQuery);
 };
@@ -16,8 +16,8 @@ exports.get = function(id) {
 };
 
 exports.update = function(id, doc) {
-    var sqlQuery = 'UPDATE uuid_rating SET overall_rating = ?, relevance_rating = ?, entertaining_rating = ?  WHERE uuid = ?';
-    var values = [doc.overall_rating, doc.relevance_rating, doc.entertaining_rating, id];
+    var sqlQuery = 'UPDATE uuid_rating SET overall = ?, relevance = ?, entertaining = ?  WHERE uuid = ?';
+    var values = [doc.overall, doc.relevance, doc.entertaining, id];
     sqlQuery = dao.format(sqlQuery, values);
     return dao.promiseQuery(sqlQuery);
 };
@@ -31,17 +31,17 @@ exports.delete = function(id) {
 
 
 exports.overall = function() {
-    var sqlQuery = 'SELECT sum(overall_rating) AS overall_rating, count(*) votes FROM uuid_rating WHERE overall_rating > 0 ';
+    var sqlQuery = 'SELECT COALESCE(sum(overall), 0) AS sum, count(*) votes FROM uuid_rating WHERE overall > 0 ';
     return dao.get(sqlQuery);
 };
 
 exports.relevance = function() {
-    var sqlQuery = 'SELECT sum(relevance_rating) AS relevance_rating, count(*) votes FROM uuid_rating WHERE relevance_rating > 0 ';
+    var sqlQuery = 'SELECT COALESCE(sum(relevance), 0) AS sum, count(*) votes FROM uuid_rating WHERE relevance > 0 ';
     return dao.get(sqlQuery);
 };
 
 exports.entertaining = function() {
-    var sqlQuery = 'SELECT sum(entertaining_rating) AS entertaining_rating, count(*) votes FROM uuid_rating WHERE entertaining_rating > 0 ';
+    var sqlQuery = 'SELECT COALESCE(sum(entertaining), 0) AS sum, count(*) votes FROM uuid_rating WHERE entertaining > 0 ';
     return dao.get(sqlQuery);
 };
 

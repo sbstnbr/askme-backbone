@@ -9,5 +9,14 @@ define(['socket.io', 'backbone'], function(io, Backbone) {
     socket.on('question:new', function(message) {
         Backbone.trigger('question:new', message);
     });
+
+    socket.on('rating:update', function(message) {
+        console.log('rating:update socket handler');
+        console.log(message);
+        message.forEach(function(m) {
+            console.log('Update: ' + m.type + ', ' + m.votes + ', ' + m.sum);
+        });
+        Backbone.trigger('rating:update', message);
+    });
     return socket;
 });
