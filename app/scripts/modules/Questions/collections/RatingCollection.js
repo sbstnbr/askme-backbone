@@ -9,6 +9,7 @@ define([
         model: RatingModel,
         url: 'api/ratings',
         initialize: function () {
+            this.fetch({async:false});
             // this.listenTo(Backbone, 'question:update', this.updateHandler);
         },
         updateHandler: function (message) {
