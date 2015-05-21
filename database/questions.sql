@@ -21,6 +21,15 @@ CREATE TABLE IF NOT EXISTS `uuid_votes` (
     PRIMARY KEY (`question_id`, `uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE IF NOT EXISTS `uuid_rating` (
+  `uuid` varchar(255) NOT NULL,
+  `overall_rating` int(10) unsigned NOT NULL,
+  `relevance_rating` int(10) unsigned NOT NULL,
+  `entertaining_rating` int(10) unsigned NOT NULL,
+    PRIMARY KEY (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE USER 'questions'@'%' IDENTIFIED BY 'x2YfU8vHqAATS7Sh';
 GRANT ALL PRIVILEGES ON questions.* TO 'questions'@'%';
 

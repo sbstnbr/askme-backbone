@@ -19,6 +19,8 @@ server.start(function () {
     console.log('Server started', server.info.uri);
 });
 
+
+server.route(require('./modules/rating/rating-routes'));
 server.route({
     method: 'GET',
     path: '/{param*}',
@@ -29,7 +31,10 @@ server.route({
     }
 });
 
+
+
 var questionsDao = require('./modules/questions/questions-dao');
+var ratingDao = require('./modules/rating/rating-dao');
 io.sockets.on('connection', function (client) {
     console.log('a user connected');
     client.on('disconnect', function () {
@@ -79,5 +84,9 @@ io.sockets.on('connection', function (client) {
             }, function(reason) {
                 console.log('Failed with', reason);
             });
+    });
+
+    client.on('rating:neworupdate', function(message) {
+        //ratingDao.get(message)
     });
 });
