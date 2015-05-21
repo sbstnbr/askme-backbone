@@ -1,0 +1,57 @@
+define([
+    'underscore',
+    'backbone',
+    'templates'
+], function(_, Backbone, JST) {
+    'use strict';
+
+    return Backbone.View.extend({
+        template: JST['app/templates/rating.hbs'],
+        events: {
+            'click label': 'vote'
+        },
+        initialize: function() {
+            this.listenTo(this.model, 'change', this.render);
+        },
+        render: function() {
+            this.computeAverageRating();
+            this.$el.html(this.template(this.model.attributes));
+            // this.presetStars();
+            return this;
+        },
+        showRating: function(evt) {
+            $(evt.target).closest('a').siblings('form').removeClass('hide');
+            $(evt.target).closest('a').hide();
+        },
+        computeAverageRating: function() {
+            var sum = this.model.get('sum');
+            var votes = this.model.get('votes');
+            this.model.set('average', sum / votes);
+        },
+        presetStars: function() {
+            // for type get average
+            var average = this.model.get('average');
+            if ((average >= 1) && (average < 2)) {
+                this.$el.find('#star1').attr('checked', true);
+            }
+            if ((average >= 2) && (average < 3)) {
+                this.$el.find('#star2').attr('checked', true);
+            }
+            if ((average >= 3) && (average < 4)) {
+                this.$el.find('#star3').attr('checked', true);
+            }
+            if ((average >= 4) && (average < 5)) {
+                this.$el.find('#star4').attr('checked', true);
+            }
+            if (average >= 5) {
+                this.$el.find('#star5').attr('checked', true);
+            }
+            return this;
+        },
+        vote: function(evt) {
+            console.log(evt.target);
+            $(evt.target).siblings('input[type=radio]:checked').prop('checked', false);
+            $(evt.target).prev('input[type=radio]').prop('checked', true);
+        }
+    });
+});

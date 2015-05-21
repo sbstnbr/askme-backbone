@@ -35,7 +35,7 @@ define([
 
         events: {
             'click button.votePositive' : 'addOneVote',
-            'click button.voteNegative' : 'removeOneVote',
+            'click button.voteNegative' : 'removeOneVote'
         },
 
         addOneVote: function() {

@@ -22,4 +22,12 @@ define(['handlebars'], function (Handlebars) {
 
         return str;
     });
+
+    Handlebars.registerHelper('capitalize', function(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    });
+
+    Handlebars.registerHelper('trimFloat', function(num) {
+        return Number((num).toFixed(2));
+    });
 });
