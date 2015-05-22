@@ -48,7 +48,7 @@ h1, h4 {
   font-family: 'rotisSansSerif';
   
   @media #{$medium-up} {
-    padding-top: 1.45rem;
+    padding-top: 1.3rem;
     font-size: 3em;
   }
 }
@@ -233,7 +233,7 @@ form .stars span {
   top: 0;
   left: 0;
   height: 30px;
-  background: url("/img/stars.png") repeat-x 0 -60px;
+  background: url("/img/stars.png") repeat-x 0 -30px;
   -webkit-transition: -webkit-width 0.5s;
   -moz-transition: -moz-width 0.5s;
   -ms-transition: -ms-width 0.5s;
