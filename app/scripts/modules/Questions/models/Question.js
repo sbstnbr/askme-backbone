@@ -7,6 +7,9 @@ define([
     return Backbone.Model.extend({
         urlRoot: 'api/questions',
         handleVoteButtons: function () {
+            if(!localStorage.questions) {
+                return;
+            }
             var votes = JSON.parse(localStorage.questions)[this.get('id')];
             if(votes === 0) {
                 this.unset('upvoteDisabled');    
