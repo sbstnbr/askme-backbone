@@ -8,16 +8,6 @@ define([
 
     return Backbone.View.extend({
         render: function() {
-            var that = this;
-            //this.collection.fetch({
-            //     reset: true,
-            //     success: function(collection) {
-            //         that.addAll(collection.models);
-                 //},
-                 //error : function() {
-                 //    console.log('Error loading questions from server');
-                 //}
-            //});
             this.addAll(this.collection.models);
         },
 
@@ -29,7 +19,7 @@ define([
             return this;
         },
 
-        addOne: function(model, highlighted) {
+        addOne: function(model) {
             var ratingItemView = new RatingItemView({ model: model });
             this.$el.prepend(ratingItemView.render().$el);
 
