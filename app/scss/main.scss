@@ -13,7 +13,7 @@
   max-height: 6rem;
   background-color: $primary-color;
   a:hover {
-    background-color: scale-color($primary-color, $lightness: $button-function-factor);;
+    background-color: scale-color($primary-color, $lightness: $button-function-factor);
   }
 }
 
@@ -23,7 +23,7 @@
   font-weight: bold;
 }
 
-.hint-text { 
+.hint-text {
   font-size: 0.8rem;
 }
 
@@ -41,12 +41,12 @@ h1, h4 {
   font-weight: bold;
 }
 
-.main-title { 
+.main-title {
   color: white;
   font-size: 1.8rem;
   margin: 0 0 0 0;
   font-family: 'rotisSansSerif';
-  
+
   @media #{$medium-up} {
     padding-top: 1.3rem;
     font-size: 3em;
@@ -108,17 +108,18 @@ header {
 
 .voting-buttons {
   padding-top: 25px;
+  padding-right: 1rem;
 }
 
 .voting-nums {
   @media #{medium-up} {
     padding-top: 0.8rem;
-    
+
     .count {
       font-size: 1.2rem;
-    }    
+    }
   }
-  
+
   padding-top: 0.5rem;
 
   .count {
@@ -132,12 +133,13 @@ header {
   }
 }
 
-button {
-  margin-bottom: 0 !important;  
+.custom-button {
+  @include button();
+  margin-bottom: 0;
 }
 
 a{
-  margin-bottom: 0 !important; 
+  margin-bottom: 0;
 }
 
 .twitter-share-button {
