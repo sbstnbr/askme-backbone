@@ -188,8 +188,11 @@ input[type=text] {
 }
 
 .rating-margin {
-  padding-bottom: 1rem;
+  padding-bottom: 7rem;
   height: 4.5rem;
+  h4 {
+    color: white;
+  }
 }
 
 //rating
