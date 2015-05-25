@@ -38,19 +38,19 @@ define([
             }
 
             if ((average >= 1) && (average < 2)) {
-                this.$el.find('#star1').attr('checked', true);
+                this.$el.find('[id^=star1]').attr('checked', true);
             }
             if ((average >= 2) && (average < 3)) {
-                this.$el.find('#star2').attr('checked', true);
+                this.$el.find('[id^=star2]').attr('checked', true);
             }
             if ((average >= 3) && (average < 4)) {
-                this.$el.find('#star3').attr('checked', true);
+                this.$el.find('[id^=star3]').attr('checked', true);
             }
             if ((average >= 4) && (average < 5)) {
-                this.$el.find('#star4').attr('checked', true);
+                this.$el.find('[id^=star4]').attr('checked', true);
             }
             if (average >= 5) {
-                this.$el.find('#star5').attr('checked', true);
+                this.$el.find('[id^=star5]').attr('checked', true);
             }
             return this;
         },
