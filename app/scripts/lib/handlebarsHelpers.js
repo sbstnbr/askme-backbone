@@ -1,7 +1,7 @@
 'use strict';
 
 define(['handlebars'], function (Handlebars) {
-
+    var NUMBER_OF_DECIMALS = 1;
     Handlebars.registerHelper('handleVotes', function(numberOfVotes) {
         return numberOfVotes === '1' ? '' : 's';
     });
@@ -28,6 +28,6 @@ define(['handlebars'], function (Handlebars) {
     });
 
     Handlebars.registerHelper('trimFloat', function(num) {
-        return Number((num).toFixed(2));
+        return Number((num).toFixed(NUMBER_OF_DECIMALS));
     });
 });
