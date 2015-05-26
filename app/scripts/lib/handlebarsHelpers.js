@@ -11,8 +11,8 @@ define(['handlebars'], function (Handlebars) {
     });
 
     Handlebars.registerHelper('takeMessage', function(string) {
-        return string.split(':')[1];
-    });    
+        return string.split(':')[1].trim();
+    });
 
     Handlebars.registerHelper('handlePresenters', function(str) {
         var index = str.lastIndexOf(',');
