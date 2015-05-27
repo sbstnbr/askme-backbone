@@ -9,7 +9,8 @@ define([
     return Backbone.View.extend({
         template: JST['app/templates/rating.hbs'],
         events: {
-            'click label': 'vote'
+            'click label': 'vote',
+            'touchstart label':'vote'
         },
         initialize: function() {
             this.listenTo(this.model, 'change', this.render);
@@ -55,9 +56,13 @@ define([
             return this;
         },
         vote: function(evt) {
+            console.log('Voting initiated');
+
             var value = $(evt.target).data('value');
             var type = $(evt.target).data('id');
+
             console.log(type + ':' + value);
+
             socket.emit('rating:neworupdate', {
                 uuid: localStorage.getItem('uuid'),
                 value: value,
