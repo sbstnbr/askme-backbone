@@ -16,6 +16,7 @@ define([
             _.each(collection, function(model) {
                 this.addOne(model);
             }, this);
+            this.delegateEvents();
             return this;
         },
 
