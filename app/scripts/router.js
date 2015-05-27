@@ -3,17 +3,21 @@ define([
     'backbone',
     'modules/Questions/views/Questions'
 ], function(
-    _, 
-    Backbone, 
+    _,
+    Backbone,
     QuestionsView
 ){
     'use strict';
 
     var initialize = function() {
 
-        if(!localStorage.userName || localStorage.userName === 'No name') {
-            var userName = prompt('Please enter your name.', 'No name') || 'No name';
-            localStorage.setItem('userName', userName);
+        if(!localStorage.userName) {
+          var userName = prompt('Please enter your name.', '');
+          while ((userName === '' || userName === null)) {
+            userName = prompt('Please enter your name.', '');
+            continue;
+          }
+          localStorage.setItem('userName', userName);
         }
 
         var questionsView = new QuestionsView();
