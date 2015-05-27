@@ -40,6 +40,9 @@ $text-color: #fff;
     position: relative;
     height: 3.5rem;
     margin-bottom: 0.4em;
+    @media #{$small-only} {
+      margin-bottom: 1rem;
+    }
   }
 }
 
