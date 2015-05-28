@@ -26,23 +26,16 @@ $text-color: #fff;
     font-size: .8em;
     color: $text-color;
   }
+  img {
+    height: 1.5rem;
+    margin: 0.5rem 0 0.5rem;
+  }
 }
 
 .footer-links {
   list-style-type: none;
   li {
     margin-top: .5em;
-  }
-}
-
-.footer {
-  img {
-    position: relative;
-    height: 3.5rem;
-    margin-bottom: 0.4em;
-    @media #{$small-only} {
-      margin-bottom: 1rem;
-    }
   }
 }
 
