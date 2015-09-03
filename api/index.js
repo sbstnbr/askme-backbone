@@ -31,8 +31,6 @@ server.route({
     }
 });
 
-
-
 var questionsDao = require('./modules/questions/questions-dao');
 var ratingDao = require('./modules/rating/rating-dao');
 io.sockets.on('connection', function (client) {

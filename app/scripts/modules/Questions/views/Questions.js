@@ -21,8 +21,8 @@ define([
                 collection: new RatingCollection()
             });
 
-            this.questionsView = new QuestionsView({ 
-                collection: new QuestionsCollection() 
+            this.questionsView = new QuestionsView({
+                collection: new QuestionsCollection()
             });
             this.questionsView.collection.comparator = function(model) {
                 return model.get('id');
@@ -43,7 +43,7 @@ define([
                 that.$el.find('#nr-of-questions').text(that.questionsView.collection.length);
             });
             this.questionsView.listenTo(this.questionsView.collection, 'reset', function() {
-               that.$el.find('#nr-of-questions').text(that.questionsView.collection.length); 
+               that.$el.find('#nr-of-questions').text(that.questionsView.collection.length);
             });
 
             this.topQuestionsView = new QuestionsView({
@@ -55,10 +55,11 @@ define([
             this.topQuestionsView.collection.comparator = function(model) {
                 return model.get('votes');
             };
+            this.topQuestionsView.collection.sort();
         },
         render: function() {
             this.$el.html(this.template({}));
-            
+
             this.ratingListView.$el = this.$('#ratings');
             this.questionsView.$el = this.$('#new-questions');
             this.topQuestionsView.$el = this.$('#top-questions');
