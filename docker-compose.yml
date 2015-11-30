@@ -21,3 +21,10 @@ app:
       # folder for backend sources
       # (not required to run the app since it is also inside the container itself)
       #  - ./api:/app/api
+
+nginx:
+    build: nginx
+    links:
+      - app
+    ports:
+      - "80:80"
