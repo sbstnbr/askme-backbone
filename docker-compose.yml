@@ -1,12 +1,10 @@
 # now run the containers together `docker-compose up`
-# docker-compose may fail if you don't initialize the database
 
 db:
    build: database
    environment:
        - MYSQL_ROOT_PASSWORD=pass
    volumes:
-      # storage for the database (needs to be initialized first)
        - ./database/storage:/var/lib/mysql
 
 app:

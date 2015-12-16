@@ -3,7 +3,7 @@ var Q = require('q');
 
 function GenericDao(config) {
     var connectionConfig = {
-        host: process.env.QUESTIONAPP_DB_1_PORT_3306_TCP_ADDR || 'localhost',
+        host: process.env.DB_1_PORT_3306_TCP_ADDR || 'localhost',
         user: 'questions',
         password: 'x2YfU8vHqAATS7Sh',
         database:  'questions'
