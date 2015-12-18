@@ -8,7 +8,7 @@ define([
     'use strict';
     describe('QuestionItem view', function() {
         beforeEach(function() {
-            this.model = new QuestionModel({id: 1, question: 'Is this valid question ?', votes: 3});
+            this.model = new QuestionModel({id: 1, question: 'Name: Is this valid question ?', votes: 3});
             this.view = new QuestionsItemView({model: this.model});
             this.view.render();
         });
