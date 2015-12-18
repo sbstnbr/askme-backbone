@@ -34,8 +34,6 @@
     "grunt-requirejs": "~0.4.0",
     "grunt-sass": "latest",
     "grunt-usemin": "~2.3.0",
-    "hapi": "^8.2.0",
-    "joi": "^6.0.4",
     "karma": "~0.12.31",
     "karma-chai": "~0.1.0",
     "karma-handlebars-preprocessor": "~0.2.0",
@@ -49,12 +47,9 @@
     "load-grunt-tasks": "~0.3.0",
     "matchdep": "^0.3.0",
     "mocha": "~2.2.4",
-    "mysql": "^2.5.5",
-    "q": "^1.2.0",
     "qunitjs": "~1.18.0",
     "requirejs": "~2.1.11",
     "sinon-chai": "~2.7.0",
-    "socket.io": "^1.0.0",
     "underscore": "^1.8.2"
   }
 }

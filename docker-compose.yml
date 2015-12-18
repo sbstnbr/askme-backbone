@@ -1,28 +1,34 @@
-# now run the containers together `docker-compose up`
+# Set the proper path for either development or production volumes
+# To run the containers together `docker-compose up`
 
 db:
    build: database
    environment:
-       - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=pass
    volumes:
-       - ./database/storage:/var/lib/mysql
+      # database folder location
+      # development
+      # - ./database/storage:/var/lib/mysql
+      # deployment
+      - /var/opt/sites/presenter-feedback/database
 
-app:
-    build: .
+backend:
+    build: api
     links:
-        - db
+      - db
     ports:
-        - "8081:8081"
-    volumes:
-      # folder with frontend static files
-        - ./dist:/app/dist
-      # folder for backend sources
-      # (not required to run the app since it is also inside the container itself)
+      - "8081:8081"
       #  - ./api:/app/api
 
-nginx:
-    build: nginx
+frontend:
+    build: .
     links:
-      - app
+      - backend
     ports:
       - "80:80"
+    volumes:
+      # dist package location
+      # development
+      # - ./dist:/var/www/frontend
+      # deployment
+      - /var/opt/sites/presenter-feedback/frontend:/var/www/frontend

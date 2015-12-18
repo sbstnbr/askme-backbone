@@ -1,26 +1,12 @@
-# Dockerfile for Question app
+FROM nginx
 
-FROM ubuntu:14.04
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Installing dependencies & utilities
-RUN apt-get update -q && apt-get install -q -y npm && apt-get clean
+RUN mkdir /var/www
+RUN mkdir /var/www/frontend
 
-RUN ln -s /usr/bin/nodejs /usr/bin/node
-    
-# Make a folder for our backend
-RUN mkdir /app
+# to make the dist pkg part of the container unommend next line 
+# note: build the dist pkg before invoking container build
+# COPY ./dist /var/www/frontend
 
-# Attach backend to container
-ADD ./ /app/
-
-# Mount point for static files
-VOLUME ["/app/dist"]
-VOLUME ["/app/api"]
-
-WORKDIR /app
-
-RUN npm install
-
-EXPOSE 8081
-
-CMD ["node", "/app/api"]
+VOLUME ["/var/www/frontend"]
