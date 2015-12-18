@@ -10,7 +10,7 @@ db:
       # development
       # - ./database/storage:/var/lib/mysql
       # deployment
-      - /var/opt/sites/presenter-feedback/database
+      - /opt/sites/presenter-feedback/database
 
 backend:
     build: api
@@ -31,4 +31,4 @@ frontend:
       # development
       # - ./dist:/var/www/frontend
       # deployment
-      - /var/opt/sites/presenter-feedback/frontend:/var/www/frontend
+      - /opt/sites/presenter-feedback/frontend:/var/www/frontend
