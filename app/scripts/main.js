@@ -35,14 +35,13 @@ require(['app', 'foundation'], function (App) {
 
     function initLocalSotrage() {
         if(!localStorage.questions) {
-            localStorage.setItem('questions', JSON.stringify({}));    
+            localStorage.setItem('questions', JSON.stringify({}));
         }
-    }   
+    }
 
     App.initialize();
     $(document).foundation();
     initLocalSotrage();
-    
-    
-});
 
+
+});
