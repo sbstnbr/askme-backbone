@@ -6,6 +6,9 @@ define([
     'socket'
 ], function(_, Backbone, QuestionsView, QuestionModel, socket) {
     'use strict';
+
+    var QUESTION_LENGTH_LIMIT = 135;
+
     return Backbone.View.extend({
         events: {
             submit: 'save',
@@ -14,8 +17,10 @@ define([
 
         save: function(evt) {
             evt.preventDefault();
-            var question = localStorage.userName + ': ' + this.$('#question-textarea').val();
-            this.model.set('question', question);
+            var question = this.$('#question-textarea').val();
+            var questionWithName = localStorage.userName + ': ' + question;
+
+            this.model.set('question', questionWithName);
             socket.emit('question:new', this.model.attributes);
             this.$('#question-textarea').val('');
 
@@ -26,7 +31,7 @@ define([
         updateCounter: function(evt) {
             var count = evt.target.value.length;
 
-            if(count > 126) {
+            if(count > QUESTION_LENGTH_LIMIT) {
                 this.$('#counter').parent().addClass('alert-color');
             } else {
                 this.$('#counter').parent().removeClass('alert-color');

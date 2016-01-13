@@ -25,6 +25,11 @@ define([
             });
         },
         render: function() {
+          var isShortMessage = true;
+          var question = this.model.get('question').split(':')[1].trim();
+          isShortMessage = (question.length <= 135);
+          this.model.set('shortMessage', isShortMessage);
+
             var highlightedClass = this.options.highlighted ? ' highlighted' : '';
             this.$el
                 .attr('id', 'question-' + this.model.id)
