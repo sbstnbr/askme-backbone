@@ -28,6 +28,7 @@ define([
             this.$('#counter').parent().removeClass('alert-color');
         },
 
+        // feature: twitter button
         updateCounter: function(evt) {
             var count = evt.target.value.length;
 
@@ -39,5 +40,6 @@ define([
 
             this.$('#counter').html(count);
         }
+        // end feature
     });
 });
