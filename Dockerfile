@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN rm -rf /etc/apache2/sites-available/* && rm -rf /etc/apache2/sites-enabled/*
-ADD deploy/askme_http.conf /etc/apache2/sites-available/
+ADD deploy/askme_https.conf /etc/apache2/sites-available/
 ADD deploy/services.conf /etc/supervisor/conf.d/services.conf
 ADD deploy/passwords /etc/apache2/passwd/
 RUN chmod -R 644 /etc/apache2/passwd/passwords
