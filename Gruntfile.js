@@ -229,7 +229,7 @@ module.exports = function (grunt) {
           },
           dist: {
             options: {
-              reporter: require('jshint-junit-reporter'),
+              reporter: require('jshint-jenkins-checkstyle-reporter'),
               reporterOutput: 'jshintoutput.xml'
             },
             files: {
