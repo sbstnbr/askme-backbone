@@ -2,6 +2,8 @@
 // Generated on Tue Apr 21 2015 10:34:13 GMT+0200 (CEST)
 
 module.exports = function(config) {
+  'use strict';
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -30,7 +32,7 @@ module.exports = function(config) {
 
       {pattern: 'tests/**/*Test.js', included: false},
       {pattern: 'app/scripts/**/*.js', included: false},
-      
+
       'tests/test-main.js'
     ],
 
@@ -49,8 +51,13 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'junit'],
 
+
+    junitReporter: {
+      outputFile: 'xunit.xml',
+      suite: ''
+    },
 
     // web server port
     port: 9876,

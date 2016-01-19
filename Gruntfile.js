@@ -4,6 +4,8 @@ var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 var serveStatic = require('serve-static');
 
 module.exports = function (grunt) {
+    'use strict';
+
     require('load-grunt-tasks')(grunt);
 
     var yeomanConfig = {
@@ -82,7 +84,7 @@ module.exports = function (grunt) {
                         return [
                             proxySnippet,
                             lrSnippet,
-                            serveStatic('reposrts')
+                            serveStatic('reports')
                         ];
                     }
                 }
@@ -113,7 +115,7 @@ module.exports = function (grunt) {
                     },
                     mainConfigFile: 'app/scripts/main.js',
                     removeCombined: true,
-                    findNestedDependencies: true,
+                    findNestedDependencies: false,
                     optimize: 'uglify',
                     modules: [{
                         name: 'main'
@@ -228,7 +230,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run(['build', 'open']);
         }
 
         grunt.task.run([
