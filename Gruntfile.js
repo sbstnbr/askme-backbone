@@ -1,10 +1,7 @@
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
-
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+var serveStatic = require('serve-static');
 
 module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
@@ -73,8 +70,8 @@ module.exports = function (grunt) {
                         return [
                             proxySnippet,
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'app')
+                            serveStatic('.tmp'),
+                            serveStatic('app'),
                         ];
                     }
                 }
@@ -85,7 +82,7 @@ module.exports = function (grunt) {
                         return [
                             proxySnippet,
                             lrSnippet,
-                            mountFolder(connect, 'reports')
+                            serveStatic('reposrts')
                         ];
                     }
                 }
