@@ -35,6 +35,7 @@
     "grunt-sass": "latest",
     "grunt-usemin": "~2.3.0",
     "jshint": "^2.9.1",
+    "jshint-junit-reporter": "^0.2.2",
     "karma": "~0.12.31",
     "karma-chai": "~0.1.0",
     "karma-handlebars-preprocessor": "~0.2.0",

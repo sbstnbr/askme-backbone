@@ -219,12 +219,23 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
+          options: {
+              jshintrc: '.jshintrc',
+          },
+          serve: {
+            files: {
+                src: ['app/scripts/**/*.js', 'tests/**/*.js']
+            },
+          },
+          dist: {
             options: {
-                jshintrc: '.jshintrc'
+              reporter: require('jshint-junit-reporter'),
+              reporterOutput: 'jshintoutput.xml'
             },
             files: {
                 src: ['app/scripts/**/*.js', 'tests/**/*.js']
-            }
+            },
+          }
         }
     });
 
