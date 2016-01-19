@@ -15,7 +15,7 @@ ADD deploy/askme_http.conf /etc/apache2/sites-available/
 ADD deploy/services.conf /etc/supervisor/conf.d/services.conf
 ADD deploy/passwords /etc/apache2/passwd/
 RUN chmod -R 644 /etc/apache2/passwd/passwords
-ADD dist /opt/sites/liquid-app-studios
+ADD dist /opt/sites/askme
 RUN cd /etc/apache2/sites-available/ && a2ensite *
 RUN a2enmod ssl proxy proxy_http proxy_wstunnel rewrite headers
 ENV APACHE_RUN_USER www-data
