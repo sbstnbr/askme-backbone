@@ -2,8 +2,9 @@
      "linters" : {
          "jshint" : {
              "type" : "jshint",
-             "include" : "(\\.js$)",
-             "exclude" : "(^test\/lib)"
+             "include": "(\\.js$)",
+             "exclude" : "(^app\/bower_components)",
+             "exclude" : "(^node_modules)"
          }
     }
 }
