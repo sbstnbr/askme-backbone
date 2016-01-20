@@ -60,6 +60,14 @@ module.exports = function(config) {
       suite: ''
     },
 
+
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/',
+      subdir: '.'
+    },
+
+
     // web server port
     port: 9876,
 
