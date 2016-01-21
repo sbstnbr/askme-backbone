@@ -13,6 +13,9 @@ server.connection(options);
 var questionRoutes = require('./modules/questions/questions-routes');
 server.route(questionRoutes);
 
+var identityRoutes = require('./modules/identity/identity-routes');
+server.route(identityRoutes);
+
 var io = SocketIO.listen(server.listener);
 
 server.start(function () {
