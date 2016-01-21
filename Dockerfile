@@ -24,6 +24,6 @@ ENV APACHE_LOG_DIR /var/log/apache2
 
 CMD ["/usr/bin/supervisord"]
 
-VOLUME ["/etc/ssl","/etc/shibboleth"]
+VOLUME ["/etc/ssl","/etc/shibboleth", "/var/log/shibboleth"]
 
 EXPOSE 80 443

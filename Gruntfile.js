@@ -236,6 +236,12 @@ module.exports = function (grunt) {
                 src: ['app/scripts/**/*.js', 'tests/**/*.js']
             },
           }
+        },
+        cucumberjs: {
+          src: 'features',
+          options: {
+            steps: 'features/step_definitions'
+          }
         }
     });
 
