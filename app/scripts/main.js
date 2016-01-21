@@ -30,7 +30,7 @@ require.config({
     }
 });
 
-require(['app', 'foundation'], function (App) {
+require(['app', 'backbone', 'foundation'], function (App, Backbone) {
     'use strict';
 
     function initLocalSotrage() {
@@ -39,9 +39,32 @@ require(['app', 'foundation'], function (App) {
         }
     }
 
-    App.initialize();
-    $(document).foundation();
-    initLocalSotrage();
+    function initApp() {
+      App.initialize();
+      Backbone.$(document).foundation();
+      initLocalSotrage();
+    }
 
+    function eidToName(eid) {
+      var name = eid.replace(/\./g, ' ');
+      name = name.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+      return name;
+    }
 
+    //get user name from shibboleth
+    if(!localStorage.userName) {
+      Backbone.$.ajax({url: '/api/identity', dataType: 'json', type: 'GET'})
+      .done(function(data) {
+        // successful init the app
+        localStorage.setItem('userName', eidToName(data.name));
+        initApp();
+      })
+      .fail(function() {
+        Backbone.$('.content').html(
+          '<div data-alert class="alert-box alert text-center"><h3>'
+          + 'An error occured while contacting the identity provider</h3></div>');
+      });
+    } else {
+      initApp();
+    }
 });

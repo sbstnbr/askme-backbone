@@ -16,6 +16,8 @@ RUN npm install
 # Mount point for static files
 VOLUME ["/api", "/shibb-logs"]
 
+ENV NODE_ENV production
+
 EXPOSE 8081
 
 CMD ["node", "/api"]

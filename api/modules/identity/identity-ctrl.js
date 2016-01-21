@@ -1,11 +1,18 @@
-var shibTransactionFile = '/opt/askme-shibb-logs/transaction.log';
-// var shibTransactionFile = './transaction.log';
+'use strict';
 
 var fs = require('fs');
 var AT_SIGH_CHAR = '@',
   UNDERSCORE_CHAR = '_',
   SPACE_CHAR = ' ',
   NEWLINE_CHAR = '\n';
+
+//expecting cookie with this pair
+//_shibsession_64656661756c7468747470733a2f2f61736b6d652e616363656e747572652e636f6d=_ef23a075be00a4acedf69dae5b70e932
+if(process.env.NODE_ENV !== 'production') {
+  var shibTransactionFile = './api/transaction.log';
+} else {
+  var shibTransactionFile = '/opt/askme-shibb-logs/transaction.log';
+}
 
 exports.get = {
     handler: function (request, reply) {
