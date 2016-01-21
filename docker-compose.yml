@@ -18,17 +18,19 @@ backend:
       - db
     ports:
       - "8081:8081"
+    volumes:
+      - /opt/askme-shibb-logs:/shibb-logs
       #  - ./api:/app/api
 
-frontend:
-    build: .
-    links:
-      - backend
-    ports:
-      - "80:80"
-    volumes:
+# frontend:
+#    build: .
+#    links:
+#      - backend
+#    ports:
+#      - "80:80"
+#    volumes:
       # dist package location
       # development
       # - ./dist:/var/www/frontend
       # deployment
-      - /opt/sites/presenter-feedback/frontend:/var/www/frontend
+#      - /opt/sites/presenter-feedback/frontend:/var/www/frontend
