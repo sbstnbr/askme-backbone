@@ -6,9 +6,11 @@
         <div class="row uncollapse">
             <div class="medium-offset-1 small-9 medium-8 columns column-right-fix">
                 <input type="text" id="question-textarea" rows="1" name="question" required placeholder="Enter your feedback here" />
+                {{!-- feature: twitter button --}}
                 <div class="hint-text">
                     <span id="counter">0</span> characters
                 </div>
+                {{!-- end feature --}}
             </div>
             <div class="left small-3 medium-2 columns column-left-fix">
                 <button class="blue-button custom-postfix" id="addQuestionForm-add">
@@ -23,11 +25,10 @@
         </div>
     </form>
 
-     <div class="row">
-         <div class="small-12 medium-offset-8 medium-4 text-center custom-label columns right">
-            Total Feedback <span id="nr-of-questions">0</span>
-        </div>
-
+    <div class="row">
+      <div class="small-12 medium-offset-8 medium-4 text-center custom-label columns right">
+        Total Feedback <span id="nr-of-questions">0</span>
+      </div>
     </div>
 
 </section>

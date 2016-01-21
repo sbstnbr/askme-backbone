@@ -10,12 +10,12 @@ define([
     var sampleJSON = [
         {
             'id': 1,
-            'question': 'Fist question',
+            'question': 'Name: Fist question',
             'votes': 1
         },
         {
             'id': 2,
-            'question': 'Pretty Cool ehm ?',
+            'question': 'Name: Pretty Cool ehm ?',
             'votes': 0
         }
     ];
@@ -32,13 +32,9 @@ define([
         });
 
         it('render() should return a view object', function() {
-            
-
-            server.requests[0].respond(
-                200, 
-                { 'Content-Type': 'application/json' },
-                JSON.stringify(sampleJSON)
-            );
+            server.respondWith('GET', 'api/questions',
+                       [200, { 'Content-Type': 'application/json' },
+                       JSON.stringify(sampleJSON)]);
 
             this.view.render().should.equal(this.view);
         });

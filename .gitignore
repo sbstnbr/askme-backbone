@@ -12,3 +12,6 @@ css/
 database/storage
 app/scripts/templates.js
 reports/
+xunit.xml
+jshintoutput.xml
+coverage

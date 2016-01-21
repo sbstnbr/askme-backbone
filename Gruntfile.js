@@ -1,12 +1,11 @@
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
-
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+var serveStatic = require('serve-static');
 
 module.exports = function (grunt) {
+    'use strict';
+
     require('load-grunt-tasks')(grunt);
 
     var yeomanConfig = {
@@ -30,15 +29,11 @@ module.exports = function (grunt) {
         },
         watch: {
             options: {
-                nospawn: true,
-                livereload: true
+                nospawn: true
             },
             sass: {
-                options: {
-                    livereload: true
-                },
                 files: ['app/scss/*.scss'],
-                task: ['sass:dist']
+                tasks: ['sass:dist']
             },
             livereload: {
                 options: {
@@ -77,8 +72,8 @@ module.exports = function (grunt) {
                         return [
                             proxySnippet,
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'app')
+                            serveStatic('.tmp'),
+                            serveStatic('app'),
                         ];
                     }
                 }
@@ -89,7 +84,7 @@ module.exports = function (grunt) {
                         return [
                             proxySnippet,
                             lrSnippet,
-                            mountFolder(connect, 'reports')
+                            serveStatic('reports')
                         ];
                     }
                 }
@@ -120,7 +115,7 @@ module.exports = function (grunt) {
                     },
                     mainConfigFile: 'app/scripts/main.js',
                     removeCombined: true,
-                    findNestedDependencies: true,
+                    findNestedDependencies: false,
                     optimize: 'uglify',
                     modules: [{
                         name: 'main'
@@ -224,18 +219,35 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
+          options: {
+              jshintrc: '.jshintrc',
+          },
+          serve: {
+            files: {
+                src: ['app/scripts/**/*.js', 'tests/**/*.js']
+            },
+          },
+          dist: {
             options: {
-                jshintrc: '.jshintrc'
+              reporter: require('jshint-jenkins-checkstyle-reporter'),
+              reporterOutput: 'jshintoutput.xml'
             },
             files: {
                 src: ['app/scripts/**/*.js', 'tests/**/*.js']
-            }
+            },
+          }
+        },
+        cucumberjs: {
+          src: 'features',
+          options: {
+            steps: 'features/step_definitions'
+          }
         }
     });
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+            return grunt.task.run(['build', 'open']);
         }
 
         grunt.task.run([
