@@ -9,9 +9,11 @@ var AT_SIGH_CHAR = '@',
 //expecting cookie with this pair
 //_shibsession_64656661756c7468747470733a2f2f61736b6d652e616363656e747572652e636f6d=_ef23a075be00a4acedf69dae5b70e932
 if(process.env.NODE_ENV !== 'production') {
+  console.log('running a development instance ...');
   var shibTransactionFile = './api/transaction.log';
 } else {
-  var shibTransactionFile = '/opt/askme-shibb-logs/transaction.log';
+  console.log('running a production instance ...');
+  var shibTransactionFile = '/shibb-logs/transaction.log';
 }
 
 exports.get = {
@@ -26,7 +28,7 @@ exports.get = {
       }, null);
 
       if(sessionID === null) {
-        return reply().code(404);
+        return reply({message: 'shibb id not found'}).code(404);
       }
 
       fs.readFile(shibTransactionFile, {encoding: 'UTF-8'}, function(err, data) {
@@ -48,8 +50,10 @@ exports.get = {
                   var eid = email.split(AT_SIGH_CHAR)[0];
 
                   reply({name: eid});
+		  return;
               }
           }
+	  reply({message: 'corresponding shibb session not found'}).code(404);
       });
     }
 };
