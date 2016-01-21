@@ -61,8 +61,8 @@ require(['app', 'backbone', 'foundation'], function (App, Backbone) {
       })
       .fail(function() {
         Backbone.$('.content').html(
-          '<div data-alert class="alert-box alert text-center"><h3>'
-          + 'An error occured while contacting the identity provider</h3></div>');
+          '<div data-alert class="alert-box alert text-center"><h3>'+
+          'An error occured while contacting the identity provider</h3></div>');
       });
     } else {
       initApp();
