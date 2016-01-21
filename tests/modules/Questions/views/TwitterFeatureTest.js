@@ -4,7 +4,7 @@ define([
     'handlebarsHelpers',
 ], function(QuestionsItemView, QuestionModel) {
     'use strict';
-    describe('Twitter button feature', function() {
+    describe.skip('Twitter button feature', function() {
         beforeEach(function() {
             this.model = new QuestionModel({
               id: 1, question: 'Name: Is this valid question ?', votes: 3
@@ -29,7 +29,7 @@ define([
         });
     });
 
-    describe('Twitter button feature', function() {
+    describe.skip('Twitter button feature', function() {
         beforeEach(function() {
             this.model = new QuestionModel({
               id: 1, question: 'Name: Is this a long enough question that'+

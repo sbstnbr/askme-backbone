@@ -7,7 +7,7 @@ define([
 ], function(_, Backbone, QuestionsView, QuestionModel, socket) {
     'use strict';
 
-    var QUESTION_LENGTH_LIMIT = 135;
+    var QUESTION_LENGTH_LIMIT = 123;
 
     return Backbone.View.extend({
         events: {
