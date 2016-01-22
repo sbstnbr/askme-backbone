@@ -1,6 +1,8 @@
 'use strict';
 
 var fs = require('fs');
+var GenericDao = require('../common/generic-dao');
+var ResponseHandler = require('../common/generic-response-handler');
 var AT_SIGH_CHAR = '@',
   UNDERSCORE_CHAR = '_',
   SPACE_CHAR = ' ',
@@ -50,10 +52,25 @@ exports.get = {
                   var eid = email.split(AT_SIGH_CHAR)[0];
 
                   reply({name: eid});
-		  return;
+		              return;
               }
           }
-	  reply({message: 'corresponding shibb session not found'}).code(404);
+	        reply({message: 'corresponding shibb session not found'}).code(404);
       });
     }
+};
+
+exports.purge_database = {
+  handler: function (request, reply) {
+    var dao = new GenericDao();
+    var sqlDeleteQuestions = 'DELETE FROM `question`;';
+    var sqlDeleteRatings = 'DELETE FROM `uuid_rating`;';
+    var sqlDeleteVotes = 'DELETE FROM `uuid_votes`;';
+
+    return dao.promiseQuery(sqlDeleteQuestions)
+      .then(function() { return dao.promiseQuery(sqlDeleteRatings); })
+      .then(function() { return dao.promiseQuery(sqlDeleteVotes); })
+      .then(function() { reply({status: 'Now your journey to the dark side is COMPLETE!'}); })
+      .catch(function(err) { console.log(err); reply(err); });
+  }
 };
