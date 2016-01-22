@@ -15,7 +15,7 @@ ADD deploy/askme_https.conf /etc/apache2/sites-available/
 ADD deploy/services.conf /etc/supervisor/conf.d/services.conf
 ADD deploy/passwords /etc/apache2/passwd/
 RUN chmod -R 644 /etc/apache2/passwd/passwords
-RUN mkdir /opt/sites/askme
+RUN mkdir /opt/sites
 RUN cd /etc/apache2/sites-available/ && a2ensite *
 RUN a2enmod ssl proxy proxy_http proxy_wstunnel rewrite headers
 ENV APACHE_RUN_USER www-data
@@ -24,6 +24,6 @@ ENV APACHE_LOG_DIR /var/log/apache2
 
 CMD ["/usr/bin/supervisord"]
 
-VOLUME ["/etc/ssl","/etc/shibboleth", "/var/log/shibboleth", "/opt/sites/askme"]
+VOLUME ["/etc/ssl","/etc/shibboleth", "/var/log/shibboleth", "/opt/sites"]
 
 EXPOSE 80 443
