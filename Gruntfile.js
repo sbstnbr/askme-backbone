@@ -242,6 +242,20 @@ module.exports = function (grunt) {
           options: {
             steps: 'features/step_definitions'
           }
+        },
+        parallel: {
+          assets: {
+            tasks: [{
+              grunt: true,
+              args: ['handlebars', 'requirejs']
+            }, {
+              grunt: true,
+              args: ['sass', 'useminPrepare', 'cssmin', 'usemin', 'htmlmin']
+            }, {
+              grunt: true,
+              args: ['imagemin']
+            }]
+          }
         }
     });
 
@@ -263,14 +277,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'handlebars',
-        'sass',
-        'useminPrepare',
-        'cssmin',
-        'usemin',
-        'htmlmin',
-        'imagemin',
-        'requirejs',
+        'parallel:assets',
         'copy:dist'
     ]);
 
