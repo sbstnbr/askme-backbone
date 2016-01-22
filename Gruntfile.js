@@ -116,7 +116,7 @@ module.exports = function (grunt) {
                     mainConfigFile: 'app/scripts/main.js',
                     removeCombined: true,
                     findNestedDependencies: false,
-                    optimize: 'uglify',
+                    optimize: 'none',
                     modules: [{
                         name: 'main'
                     }]
