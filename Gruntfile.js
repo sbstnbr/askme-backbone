@@ -296,6 +296,10 @@ module.exports = function (grunt) {
         'clean:test'
     ]);
 
+    grunt.registerTask('acceptance', [
+      'cucumberjs'
+    ]);
+
     grunt.registerTask('default', [
         'jshint',
         'test',
