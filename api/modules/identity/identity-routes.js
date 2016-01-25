@@ -1,3 +1,5 @@
+'use strict';
+
 var identityController = require('./identity-ctrl');
 
 module.exports = (function () {
@@ -6,10 +8,10 @@ module.exports = (function () {
             path: '/api/identity',
             method: 'GET',
             config: identityController.get
-        }, 
+        },
         {
         	path: '/api/purge_database',
-        	method: 'GET',
+        	method: 'POST',
         	config: identityController.purge_database
         }
     ];
