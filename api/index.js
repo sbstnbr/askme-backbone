@@ -1,3 +1,5 @@
+'use strict';
+
 var Hapi = require('hapi');
 var SocketIO = require('socket.io');
 var path = require('path');
@@ -34,12 +36,22 @@ server.route({
     }
 });
 
+var activeUsersCount = {activeUsers: 0};
+var activeUsersRoutes =
+  require('./modules/active-users/active-users-routes')(activeUsersCount);
+server.route(activeUsersRoutes);
+
 var questionsDao = require('./modules/questions/questions-dao');
 var ratingDao = require('./modules/rating/rating-dao');
+
+
 io.sockets.on('connection', function (client) {
     console.log('a user connected');
+    activeUsersCount.activeUsers++;
+
     client.on('disconnect', function () {
         console.log('user disconnected');
+        activeUsersCount.activeUsers--;
     });
     client.on('vote', function (message) {
         console.log('vote handler');
