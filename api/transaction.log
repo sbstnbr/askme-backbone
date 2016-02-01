@@ -1,6 +1,0 @@
-
-2016-01-21 18:01:31 INFO Shibboleth-TRANSACTION [1]: New session (ID: _ef23a075be00a4acedf69dae5b70e932) with (applicationId: default) for principal from (IdP: urn:federation:accenture) at (ClientAddress: 170.248.48.65) with (NameIdentifier: test.u.user@accenture.com) using (Protocol: urn:oasis:names:tc:SAML:2.0:protocol) from (AssertionID: _f33734b1-4e2f-44d5-8893-358b4bedc263)
-2016-01-21 18:01:31 INFO Shibboleth-TRANSACTION [1]: Cached the following attributes with session (ID: _ef23a075be00a4acedf69dae5b70e932) for (applicationId: default) {
-2016-01-21 18:01:31 INFO Shibboleth-TRANSACTION [1]:    email (1 values)
-2016-01-21 18:01:31 INFO Shibboleth-TRANSACTION [1]:    enterpriseId (1 values)
-2016-01-21 18:01:31 INFO Shibboleth-TRANSACTION [1]: }
