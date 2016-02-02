@@ -54,6 +54,7 @@
     "matchdep": "^0.3.0",
     "mocha": "~2.2.4",
     "qunitjs": "~1.18.0",
+    "request-promise": "^2.0.0",
     "requirejs": "~2.1.11",
     "serve-static": "^1.10.1",
     "sinon-chai": "~2.7.0",
