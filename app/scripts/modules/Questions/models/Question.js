@@ -12,9 +12,9 @@ define([
             }
             var votes = JSON.parse(localStorage.questions)[this.get('id')];
             if(votes === 0) {
-                this.unset('upvoteDisabled');    
+                this.unset('upvoteDisabled');
                 this.unset('downvoteDisabled');
-            } 
+            }
             if(votes === 1) {
                 this.set('upvoteDisabled', true);
             }

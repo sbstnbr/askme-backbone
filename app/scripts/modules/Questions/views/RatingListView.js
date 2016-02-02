@@ -8,7 +8,7 @@ define([
 
     return Backbone.View.extend({
         render: function() {
-            this.addAll(this.collection.models);
+            return this.addAll(this.collection.models);
         },
 
         addAll: function(collection) {

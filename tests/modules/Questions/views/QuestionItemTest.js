@@ -16,5 +16,15 @@ define([
         it('render() should return a view object', function() {
             this.view.render().should.equal(this.view);
         });
+
+        it('addOneVote() should add question to localstorage', function() {
+            this.view.addOneVote();
+            JSON.parse(localStorage.getItem('questions'))[1].should.equal(1);
+        });
+
+        it('removeOneVote() should remove a question from localstorage', function() {
+          this.view.removeOneVote();
+          JSON.parse(localStorage.getItem('questions'))[1].should.equal(0);
+        });
     });
 });

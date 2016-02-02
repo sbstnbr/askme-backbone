@@ -38,5 +38,9 @@ define([
 
             this.view.render().should.equal(this.view);
         });
+
+        it(' add event should add question', function() {
+          this.view.questionsView.collection.trigger('add');
+        });
     });
 });

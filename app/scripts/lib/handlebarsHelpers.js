@@ -14,15 +14,6 @@ define(['handlebars'], function (Handlebars) {
         return string.split(':')[1].trim();
     });
 
-    Handlebars.registerHelper('handlePresenters', function(str) {
-        var index = str.lastIndexOf(',');
-        if (index > 0) {
-            str = str.substring(0, index) + ' &' + str.substr(index + 1);
-        }
-
-        return str;
-    });
-
     Handlebars.registerHelper('capitalize', function(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     });

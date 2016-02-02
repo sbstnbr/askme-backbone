@@ -8,8 +8,9 @@ define([
 
     return Backbone.View.extend({
         render: function() {
-            this.addAll(this.collection.models);
+            var that = this.addAll(this.collection.models);
             $('#nr-of-questions').text(this.collection.length);
+            return that;
         },
 
         addAll: function(collection) {
