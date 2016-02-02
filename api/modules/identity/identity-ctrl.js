@@ -3,14 +3,20 @@
 var fs = require('fs');
 var GenericDao = require('../common/generic-dao');
 
+var productionHandler = function (request, reply) {
+  if(request.headers.enterpriseid) {
+    reply({name: request.headers.enterpriseid});
+  } else {
+    reply({message: 'corresponding shibb session not found'}).code(404);
+  }
+};
+
+var testingHandler = function(request, reply) {
+  reply({name: 'testing.user'});
+}
+
 exports.get = {
-    handler: function (request, reply) {
-	if(request.headers.enterpriseid) {
-		reply({name: request.headers.enterpriseid});
-	} else {
-	        reply({message: 'corresponding shibb session not found'}).code(404);
-	}      
-    }
+  handler: process.env.NODE_ENV === 'production' ? productionHandler : testingHandler
 };
 
 exports.purge_database = {
