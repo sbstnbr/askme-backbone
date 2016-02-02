@@ -18,9 +18,9 @@ define([
         });
 
         it('updateHandler() should update questions', function() {
-          var model = new QuestionModel({id: 1, upvoteDisabled: true})
+          var model = new QuestionModel({id: 1, upvoteDisabled: true});
           this.collection.updateHandler(model);
-          model.get('upvoteDisabled').should.be.true;
+          model.get('upvoteDisabled').should.equal(true);
         });
     });
 });

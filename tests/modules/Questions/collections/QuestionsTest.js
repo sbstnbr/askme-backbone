@@ -24,7 +24,7 @@ define([
           this.collection.length.should.equal(0);
           this.collection.add(model);
           this.collection.updateHandler(model);
-          model.get('upvoteDisabled').should.be.true;
+          model.get('upvoteDisabled').should.equal(true);
         });
     });
 });

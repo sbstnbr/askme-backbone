@@ -23,8 +23,8 @@ define([
             });
 
             model.handleVoteButtons();
-            model.get('upvoteDisabled').should.be.true;
-            model.get('downvoteDisabled').should.be.true;
+            model.get('upvoteDisabled').should.equal(true);
+            model.get('downvoteDisabled').should.equal(true);
         });
 
         it('handleVoteButtons() should enable buttons', function() {
@@ -41,7 +41,7 @@ define([
               id: 1, question: 'Name: Is this valid question ?', votes: 3});
 
             model.handleVoteButtons();
-            model.get('upvoteDisabled').should.be.true;
+            model.get('upvoteDisabled').should.equal(true);
             should.not.exist(model.get('downvoteDisabled'));
         });
 
@@ -51,7 +51,7 @@ define([
 
             model.handleVoteButtons();
             should.not.exist(model.get('upvoteDisabled'));
-            model.get('downvoteDisabled').should.be.true;
+            model.get('downvoteDisabled').should.equal(true);
         });
 
         it('handleMessages() should determine a short question', function() {
@@ -59,7 +59,7 @@ define([
               id: 2, question: 'Name: Is this valid question ?', votes: 3});
 
             model.handleMessages();
-            model.get('shortMessage').should.be.true;
+            model.get('shortMessage').should.equal(true);
         });
 
         it('handleMessages() should determine a long question', function() {
@@ -68,11 +68,11 @@ define([
             'question ?Is this valid question ?Is this valid question ?' +
             'Is this valid question ?Is this valid question ?' +
             'Is this valid question ?Is this valid question ?' +
-            'Is this valid question ?Is this valid question ?'
-            , votes: 3});
+            'Is this valid question ?Is this valid question ?',
+            votes: 3});
 
           model.handleMessages();
-          model.get('shortMessage').should.be.false;
+          model.get('shortMessage').should.equal(false);
         });
     });
 });
