@@ -2,45 +2,42 @@
 
 var assert = require('assert');
 var webdriverio = require('webdriverio');
+var rp = require('request-promise');
+
 var options = {};
 
 var fs = require('fs');
 
 module.exports = function() {
 
+  var session = webdriverio
+    .remote(options)
+    .init()
+    .then(function() {
+      return rp({method: 'POST', uri: 'http://localhost:8081/api/purge_database'});
+    })
+    .url('http://localhost:9999');
+
   this.Given(/^I have entered a feedback$/, function (callback) {
-    webdriverio
-      .remote(options)
-      .init()
-      .url('http://localhost:9999')
+    session
       .execute(function() { localStorage.setItem('userName', 'Testing User'); })
-      .waitForVisible('.questionItem', 3000)
       .setValue('#question-textarea', 'This is my new question')
       .submitForm('#addQuestionForm')
+      .then(function() {callback();})
       .catch(callback.fail)
-      .end(function() { callback(); });
-
-
   });
 
   this.When(/^I press the Tweet button$/, function (callback) {
-    webdriverio
-      .remote(options)
-      .init()
-      .url('http://localhost:9999')
-      .waitForVisible('.questionItem', 3000)
+    session
       .click('#twitter-button')
+      .then(function() {callback();})
       .catch(callback.fail)
-      .end(function() { callback(); });
   });
 
   this.Then(/^I should see a tweet with my question ready to be tweeted$/, function (callback) {
-    webdriverio
-      .remote(options)
-      .init()
+    session
       .url('https://twitter.com/intent/tweet?text=This%20is%20my%20new%20question&hashtags=LAS')
-      .waitForVisible('.button', 3000)
       .catch(callback.fail)
-      .end(function() { callback(); });
+      .end(callback);
   });
 }
