@@ -1,35 +1,6 @@
-# Set the proper path for either development or production volumes
-# To run the containers together `docker-compose up`
-
-db:
-   build: database
-   environment:
-      - MYSQL_ROOT_PASSWORD=pass
-   volumes:
-      # database folder location
-      # development
-      # - ./database/storage:/var/lib/mysql
-      # deployment
-      - /opt/sites/presenter-feedback/database:/var/lib/mysql
-
-backend:
-    build: api
-    links:
-      - db
+frontend:
+    build: .
+    dockerfile: frontend.dockerfile
+    container_name: presenter-feedback-frontend
     ports:
-      - "8081:8081"
-    # volumes:
-      #  - ./api:/app/api
-
-# frontend:
-#    build: .
-#    links:
-#      - backend
-#    ports:
-#      - "80:80"
-#    volumes:
-      # dist package location
-      # development
-      # - ./dist:/var/www/frontend
-      # deployment
-#      - /opt/sites/presenter-feedback/frontend:/var/www/frontend
+      - "8080:8080"
