@@ -24,19 +24,25 @@ module.exports = function() {
       .setValue('#question-textarea', 'This is my new question')
       .submitForm('#addQuestionForm')
       .then(function() {callback();})
-      .catch(callback.fail)
+      .catch(callback.fail);
   });
 
   this.When(/^I press the Tweet button$/, function (callback) {
     session
       .click('#twitter-button')
       .then(function() {callback();})
-      .catch(callback.fail)
+      .catch(callback.fail);
   });
 
   this.Then(/^I should see a tweet with my question ready to be tweeted$/, function (callback) {
     session
-      .url('https://twitter.com/intent/tweet?text=This%20is%20my%20new%20question&hashtags=LAS')
+      .windowHandles().then(function(list) {
+        return session.switchTab(list.value[1]);
+      })
+      .isExisting('textarea#status')
+      .getValue('textarea#status').then(function(value) {
+        assert.equal(value, 'This is my new question #liquidapps');
+      })
       .catch(callback.fail)
       .end(callback);
   });
