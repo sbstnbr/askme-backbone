@@ -37,9 +37,10 @@ module.exports = function() {
   this.Then(/^I should see a tweet with my question ready to be tweeted$/, function (callback) {
     session
       .windowHandles().then(function(list) {
-        return session.switchTab(list.value[1]);
+        var windowHandles = list.value;
+        assert.equal(windowHandles.length, 2, '# of open tabs is not as expected');
+        return session.switchTab(windowHandles[1]);
       })
-      .isExisting('textarea#status')
       .getValue('textarea#status').then(function(value) {
         assert.equal(value, 'This is my new question #liquidapps');
       })
