@@ -16,25 +16,30 @@ Proxy setup is stored [here](https://innersource.accenture.com/liquid-applicatio
 Note: proxy requires https with shibboleth running (not possible to run locally)
 
 To get the frontend path up and running you will need:
-* nodejs (version 4.2 is recommended, should be running on older ones without a problem)
-* npm (2.14 was used the last time feature were added)
+
+ - nodejs (version 4.2 is recommended, should be running on older ones without a problem)
+ - npm (2.14 was used the last time feature were added)
 
 The workflow / compilation is standard AOWP stuff:
-* npm install
-* bower install
-* grunt build/serve
+
+  - npm install
+  - bower install
+  - grunt build/serve
 
 Note: The app uses *http* and *websockets* to communicate to backend.
 
 To run the BDD/acceptance tests you will need:
-* phantomjs with webdriver running on port 4444 (`phantomjs --webdriver=4444`)
-* an instance of the frontend part running in the background locally (`grunt serve`)
-* an instance of the backend part (with db of course) running locally
-(`node index.js` in the backend part folder)
-* `grunt acceptance` should connect to the app via the phantomjs and the bdd tests
+
+  - phantomjs with webdriver running on port 4444 (`phantomjs --webdriver=4444`)
+  - an instance of the frontend part running in the background locally (`grunt serve`)
+  - an instance of the backend part (with db of course) running locally
+  (`node index.js` in the backend part folder)
+  - `grunt acceptance` should connect to the app via the phantomjs and the bdd tests
 
 To run unit tests:
-* `grunt test`
+
+  - `grunt test`
 
 To run static code analysis:
-* `grunt jshint`
+
+  - `grunt jshint`
