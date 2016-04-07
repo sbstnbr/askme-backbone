@@ -1,3 +1,4 @@
+/*
 define([
   'modules/Questions/views/QuestionItem',
   'modules/Questions/models/Question',
@@ -46,3 +47,5 @@ define([
       });
   });
 });
+*/
+
