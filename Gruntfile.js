@@ -58,11 +58,11 @@ module.exports = function (grunt) {
             },
             proxies: [{
                 context: ['/api'],
-                host: 'localhost',
+                host: '192.168.99.100',
                 port: 8081
             }, {
                 context: ['/socket.io'],
-                host: 'localhost',
+                host: '192.168.99.100',
                 port: 8081,
                 ws: true
             }],

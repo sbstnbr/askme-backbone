@@ -14,7 +14,7 @@ module.exports = function() {
     .remote(options)
     .init()
     .then(function() {
-      return rp({method: 'POST', uri: 'http://localhost:8081/api/purge_database'});
+      return rp({method: 'POST', uri: 'http://192.168.99.100:8081/api/purge_database'});
     })
     .url('http://localhost:9999');
 
