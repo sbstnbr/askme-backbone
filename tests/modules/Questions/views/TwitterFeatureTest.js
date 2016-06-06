@@ -1,7 +1,8 @@
+/*
 define([
   'modules/Questions/views/QuestionItem',
   'modules/Questions/models/Question',
-  'handlebarsHelpers'
+  'handlebarsHelpers',
 ], function(QuestionsItemView, QuestionModel) {
   'use strict';
   describe('Twitter button feature', function() {
@@ -46,3 +47,4 @@ define([
       });
   });
 });
+*/
