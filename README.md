@@ -7,11 +7,11 @@ you will need to get the backend part as well.
 The app is deployed askme.accenture.com with integration to Accenture's federated
 single sign on where it gets the information about the user submitting questions.
 
-Frontend code is stored [here](https://innersource.accenture.com/liquid-application-studio/presenter-feedback)
+Frontend code is stored [here](https://newsource.accenture.com/projects/A2214/repos/presenter-feedback/)
 
-Backend code is stored [here](https://innersource.accenture.com/liquid-application-studio/presenter-feedback-backend)
+Backend code is stored [here](https://newsource.accenture.com/projects/A2214/repos/presenter-feedback-backend/)
 
-Proxy setup is stored [here](https://innersource.accenture.com/liquid-application-studio/presenter-feedback-proxy)
+Proxy setup is stored [here](https://newsource.accenture.com/projects/A2214/repos/presenter-feedback-proxy/)
 
 Note: proxy requires https with shibboleth running (not possible to run locally)
 
