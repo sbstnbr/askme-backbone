@@ -56,12 +56,8 @@ define([
             return this;
         },
         vote: function(evt) {
-            console.log('Voting initiated');
-
             var value = $(evt.target).data('value');
             var type = $(evt.target).data('id');
-
-            console.log(type + ':' + value);
 
             socket.emit('rating:neworupdate', {
                 uuid: localStorage.getItem('uuid'),

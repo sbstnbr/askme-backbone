@@ -58,11 +58,11 @@ module.exports = function (grunt) {
             },
             proxies: [{
                 context: ['/api'],
-                host: process.env.BACKEND_IP || '192.168.99.100',
+                host: process.env.BACKEND_HOST || 'localhost',
                 port: 8081
             }, {
                 context: ['/socket.io'],
-                host: process.env.BACKEND_IP || '192.168.99.100',
+                host: process.env.BACKEND_HOST || 'localhost',
                 port: 8081,
                 ws: true
             }],
