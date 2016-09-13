@@ -5,6 +5,8 @@ var webdriverio = require('webdriverio');
 var rp = require('request-promise');
 
 var options = {};
+var backendHost = process.env.BACKEND_HOST || 'localhost';
+var frontendHost = process.env.FRONTEND_HOST || 'localhost';
 
 var fs = require('fs');
 
@@ -14,9 +16,9 @@ module.exports = function() {
     .remote(options)
     .init()
     .then(function() {
-      return rp({method: 'POST', uri: 'http://192.168.99.100:8081/api/purge_database'});
+      return rp({method: 'POST', uri: 'http://' + backendHost + ':8081/api/purge_database'});
     })
-    .url('http://localhost:9999');
+    .url('http://' + frontendHost + ':9999');
 
   this.Given(/^I have entered a feedback$/, function (callback) {
     session
