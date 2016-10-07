@@ -21,10 +21,16 @@ define([
             },
 
             defaultAction: function() {
-                console.log('rendering...');
-                loginFormView.render();
-                // var questionsView = new QuestionsView();
-                // questionsView.render();
+                if(!localStorage.getItem('userName')) {
+                    console.log('rendering form');
+                    loginFormView.render();
+
+                    return;
+                }
+
+                console.log('rendering questions');
+                var questionsView = new QuestionsView();
+                questionsView.render();
             }
         }))();
 

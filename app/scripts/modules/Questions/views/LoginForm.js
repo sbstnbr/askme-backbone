@@ -1,8 +1,9 @@
 define([
     'underscore',
     'backbone',
-    'templates'
-], function(_, Backbone) {
+    'templates',
+    './Questions'
+], function(_, Backbone, JST, QuestionsView) {
     'use strict';
 
     return Backbone.View.extend({
@@ -15,7 +16,20 @@ define([
         submit: function(evt) {
             evt.preventDefault();
             var username = this.$('#username').val();
-            console.log('username entered is: ', username);
+            
+            if(!username || username.length < 3) {
+                console.log('TODO write a alert');
+                return;
+            }
+
+            localStorage.setItem('userName', username);
+
+            var questionsView = new QuestionsView();
+            questionsView.render();
+        },
+
+        render: function() {
+            return this.$el.html(this.template({}));
         }
     });
 });
