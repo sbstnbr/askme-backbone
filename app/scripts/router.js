@@ -1,16 +1,19 @@
 define([
     'underscore',
     'backbone',
-    'modules/Questions/views/Questions'
+    'modules/Questions/views/Questions',
+    'modules/Questions/views/LoginForm'
 ], function(
     _,
     Backbone,
-    QuestionsView
+    QuestionsView,
+    LoginFormView
 ){
     'use strict';
 
     var initialize = function() {
-        var questionsView = new QuestionsView();
+        
+        var loginFormView = new LoginFormView();
 
         new (Backbone.Router.extend({
             routes: {
@@ -18,7 +21,10 @@ define([
             },
 
             defaultAction: function() {
-                questionsView.render();
+                console.log('rendering...');
+                loginFormView.render();
+                // var questionsView = new QuestionsView();
+                // questionsView.render();
             }
         }))();
 

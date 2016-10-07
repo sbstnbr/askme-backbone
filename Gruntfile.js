@@ -136,16 +136,16 @@ module.exports = function (grunt) {
                 dirs: ['dist']
             }
         },
-        imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'app/img',
-                    src: '{,*/}*.{png,jpg,jpeg}',
-                    dest: 'dist/img'
-                }]
-            }
-        },
+        // imagemin: {
+        //     dist: {
+        //         files: [{
+        //             expand: true,
+        //             cwd: 'app/img',
+        //             src: '{,*/}*.{png,jpg,jpeg}',
+        //             dest: 'dist/img'
+        //         }]
+        //     }
+        // },
         cssmin: {
             dist: {
                 files: [{
@@ -251,9 +251,6 @@ module.exports = function (grunt) {
             }, {
               grunt: true,
               args: ['sass', 'useminPrepare', 'cssmin', 'usemin', 'htmlmin']
-            }, {
-              grunt: true,
-              args: ['imagemin']
             }]
           }
         }
