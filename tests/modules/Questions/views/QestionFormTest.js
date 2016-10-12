@@ -9,8 +9,8 @@ define([
         beforeEach(function() {
             this.model = new QuestionModel({});
             this.view = new QuestionsFormView({model: this.model});
-            this.view.render();
             localStorage.setItem('userName', 'testUser');
+            this.view.render();
         });
 
         it('render() should return a view object', function() {
@@ -19,7 +19,7 @@ define([
 
         it('save() should save the question', function() {
           this.view.save({preventDefault: function() {}});
-          this.view.model.get('question').should.be.equal('testUser: undefined');
+          this.view.model.get('question').should.be.equal('testUser: ');
         });
 
         it('updateCounter() should update counter to short question', function() {

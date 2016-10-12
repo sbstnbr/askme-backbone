@@ -21,6 +21,10 @@ define([
                 collection: new RatingCollection()
             });
 
+            this.questionFormView = new QuestionForm({
+                model: new QuestionModel()
+            });
+
             this.questionsView = new QuestionsView({
                 collection: new QuestionsCollection()
             });
@@ -63,15 +67,12 @@ define([
             this.ratingListView.$el = this.$('#ratings');
             this.questionsView.$el = this.$('#new-questions');
             this.topQuestionsView.$el = this.$('#top-questions');
+            this.questionFormView.$el = this.$('#question-form');
 
             this.ratingListView.render();
+            this.questionFormView.render();
             this.questionsView.render();
             this.topQuestionsView.render();
-
-            new QuestionForm({
-                model: new QuestionModel(),
-                el: $('#addQuestionForm')
-            });
 
             return this;
         }

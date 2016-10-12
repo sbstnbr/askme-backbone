@@ -3,20 +3,31 @@ define([
     'backbone',
     'modules/Questions/views/QuestionsListing',
     'modules/Questions/models/Question',
-    'socket'
-], function(_, Backbone, QuestionsView, QuestionModel, socket) {
+    'socket',
+    'templates'
+], function(_, Backbone, QuestionsView, QuestionModel, socket, JST) {
     'use strict';
 
     var QUESTION_LENGTH_LIMIT = 123;
 
     return Backbone.View.extend({
+        template: JST['app/templates/question-form.hbs'],
         events: {
-            submit: 'save',
+            'submit': 'handleSubmit',
             'keyup #question-textarea': 'updateCounter'
         },
 
-        save: function(evt) {
+        handleSubmit: function(evt) {
             evt.preventDefault();
+
+            if(!this.isLogin()) {
+                this.login();
+            } else {
+                this.save();
+            }
+        },
+
+        save: function(evt) {
             var question = this.$('#question-textarea').val();
             var questionWithName = localStorage.userName + ': ' + question;
 
@@ -28,7 +39,18 @@ define([
             this.$('#counter').parent().removeClass('alert-color');
         },
 
-        // feature: twitter button
+        login: function(evt) {
+            var username = this.$('#username').val();
+            
+            if(!username || username.length < 3) {
+                console.log('TODO write a alert');
+                return;
+            }
+
+            localStorage.setItem('userName', username);
+            this.render();
+        },
+
         updateCounter: function(evt) {
             var count = evt.target.value.length;
 
@@ -39,7 +61,16 @@ define([
             }
 
             this.$('#counter').html(count);
+        },
+
+        isLogin: function() {
+            return localStorage.getItem('userName') ? true : false;
+        },
+
+        render: function() {
+            this.$el.html(this.template({isLogin: this.isLogin()}));
+            this.delegateEvents();
+            return this;
         }
-        // end feature
     });
 });
