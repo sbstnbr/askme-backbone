@@ -25,7 +25,10 @@
   text-align: center;
   position: fixed;
   top: 45%;
-  left: 48%;
+  left: 42%;
+  @media #{$medium-up} {
+    left: 45%;
+  }
   width: 60px;
   color: #3FA85E;
 }
