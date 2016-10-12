@@ -27,7 +27,7 @@ define([
             }
         },
 
-        save: function(evt) {
+        save: function() {
             var question = this.$('#question-textarea').val();
             var questionWithName = localStorage.userName + ': ' + question;
 
@@ -39,7 +39,7 @@ define([
             this.$('#counter').parent().removeClass('alert-color');
         },
 
-        login: function(evt) {
+        login: function() {
             var username = this.$('#username').val();
             
             if(!username || username.length < 3) {
