@@ -44,7 +44,7 @@ module.exports = function() {
         return session.switchTab(windowHandles[1]);
       })
       .getValue('textarea#status').then(function(value) {
-        assert.equal(value, 'This is my new question #openslava');
+        assert.equal(value, 'This is my new question #PMVWeek');
       })
       .catch(callback.fail)
       .end(callback);
