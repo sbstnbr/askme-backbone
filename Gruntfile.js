@@ -267,7 +267,7 @@ module.exports = function (grunt) {
             'sass:dist',
             'handlebars',
             'connect:livereload',
-            'open:server',
+            //'open:server',
             'watch'
         ]);
     });
