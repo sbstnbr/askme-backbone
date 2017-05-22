@@ -8,6 +8,10 @@ Launching the application on OpenShift
 oc new-app askme-backbone 
 ```
 
+## Changes for OpenShift
+* nginx.conf, root changed to /usr/share/nginx/html/ in order to match with the STI-grunt-nginx image configuration.
+* nginx.conf, dashboard has been removed
+
 # Presenter Feedback demo app
 
 This application is used as part of the *Lean Engineering* demo.
