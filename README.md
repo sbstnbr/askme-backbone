@@ -1,3 +1,13 @@
+# On OpenShift
+Building frontend using STI grunt-nginx image
+```
+oc new-build sti-grunt-nginx~https://github.com/clerixmaxime/askme-backbone.git
+```
+Launching the application on OpenShift
+```
+oc new-app askme-backbone 
+```
+
 # Presenter Feedback demo app
 
 This application is used as part of the *Lean Engineering* demo.
