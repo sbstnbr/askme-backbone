@@ -1,6 +1,6 @@
 pipeline {
-    
-  agent { label 'docker' }  
+
+  agent { label 'docker' }
 
   environment {
     PHANTOMJS_BIN = '/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/ADOP_NodeJS/lib/node_modules/phantomjs'
@@ -14,7 +14,7 @@ pipeline {
       nodejs 'ADOP NodeJS'
       maven 'ADOP Maven'
   }
-  
+
   stages {
     stage ('Initialize') {
       steps{
@@ -61,8 +61,9 @@ pipeline {
     }
     stage ('Deploy Test') {
       steps{
-        openshiftDeploy(namespace: 'demo-test', depCfg:  'mycomp-backbone')
-        openshiftScale(namespace: 'demo-test',  depCfg:  'mycomp-backbone',replicaCount: '2')
+         openshiftTag(namespace: 'demo-dev', sourceStream:'mycomp-backbone', sourceTag:'latest', destinationStream:'mycomp-backbone', destinationTag:'promoteToTest')
+         openshiftDeploy(namespace: 'demo-test', depCfg:  'mycomp-backbone')
+         openshiftScale(namespace: 'demo-test',  depCfg:  'mycomp-backbone', replicaCount: '2')
       }
     }
     stage ('Performance Tests') {
@@ -75,9 +76,10 @@ pipeline {
     }
     stage ('Deploy Prod') {
       steps{
+        openshiftTag(namespace: 'demo-dev', sourceStream:'mycomp-backbone', sourceTag:'latest', destinationStream:'mycomp-backbone', destinationTag:'promoteToProd')
         openshiftDeploy(namespace: 'demo-prod', depCfg:  'mycomp-backbone')
         openshiftScale(namespace: 'demo-prod',  depCfg:  'mycomp-backbone',replicaCount: '2')
       }
     }
-  }    
+  }
 }
