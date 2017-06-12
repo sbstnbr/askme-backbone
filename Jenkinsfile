@@ -18,7 +18,7 @@ pipeline {
   stages {
     stage ('Initialize') {
       steps{
-        git url: 'https://github.com/sbstnbr/askme-backbone'
+        git url: 'ssh://jenkins@gerrit:29418/ExampleWorkspace/ExampleProject/askme-backbone'
         sh 'yum install bzip2 -y'
         sh 'npm install'
         sh 'bower install --allow-root'
@@ -67,7 +67,7 @@ pipeline {
     }
     stage ('Performance Tests') {
       steps{
-        // git url: 'https://github.com/sbstnbr/askme-performance'
+        // git url: 'ssh://jenkins@gerrit:29418/ExampleWorkspace/ExampleProject/askme-performance'
         // sh 'sed -i "s/###TOKEN_VALID_URL###/${PERF_URL}/g" ${WORKSPACE}/src/test/scala/default/RecordedSimulation.scala'
         // sh 'sed -i "s/###TOKEN_RESPONSE_TIME###/${MAX_RESPONSE_TIME}/g" ${WORKSPACE}/src/test/scala/default/RecordedSimulation.scala'
         // sh 'mvn gatling:execute' 
