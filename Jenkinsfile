@@ -1,17 +1,17 @@
 node ('docker') {
 
-  environment {
-    PHANTOMJS_BIN = '/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/ADOP_NodeJS/lib/node_modules/phantomjs'
-    // URL on which performace tests should be performed
-    PERF_URL = 'http://mycomp-backbone-demo-test.52.233.140.114.xip.io/'
-    // Maximum response time for performance tests (in milisec)
-    MAX_RESPONSE_TIME = 1000
-  }
+  // environment {
+  //   PHANTOMJS_BIN = '/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/ADOP_NodeJS/lib/node_modules/phantomjs'
+  //   // URL on which performace tests should be performed
+  //   PERF_URL = 'http://mycomp-backbone-demo-test.52.233.140.114.xip.io/'
+  //   // Maximum response time for performance tests (in milisec)
+  //   MAX_RESPONSE_TIME = 1000
+  // }
 
-  tools {
-    nodejs 'ADOP NodeJS'
-    maven 'ADOP Maven'
-  }
+  // tools {
+  //   nodejs 'ADOP NodeJS'
+  //   maven 'ADOP Maven'
+  // }
 
   stage ('Initialize') {
     git url: 'ssh://jenkins@gerrit:29418/ExampleWorkspace/ExampleProject/askme-backbone'
